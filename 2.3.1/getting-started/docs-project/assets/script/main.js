@@ -1,6 +1,45 @@
 (function () {
 
+  var embedfsTemplate = '<iframe style="height: 400px; width: 100%; border: none;display: none"></iframe>';
+  var loaderSvg = '<svg width="96px" height="96px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-squaricle" style="">'+
+        '<g transform="translate(50 50)">'+
+        '<g transform="scale(0.799546 0.799546)">'+
+        '<animateTransform attributeName="transform" type="scale" calcMode="spline" values="0.8;0.5;0.8" keyTimes="0;0.5;1" dur="1s" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" begin="0s" repeatCount="indefinite"></animateTransform>'+
+        '<rect x="-45" y="-45" width="90" height="90" ng-attr-fill="{{config.fill}}" ng-attr-stroke="{{config.stroke}}" ng-attr-stroke-width="{{config.width}}" fill="#ffffff" stroke="rgba(94.45161290322581%,38.268549828205686%,3.3598265368228795%,0.986)" stroke-width="5" transform="rotate(539.592)" rx="1.66668">'+
+        '<animate attributeName="rx" calcMode="linear" values="0;50;0" keyTimes="0;0.5;1" dur="1" begin="0s" repeatCount="indefinite"></animate>'+
+        '<animate attributeName="stroke-width" calcMode="linear" values="5;15;5" keyTimes="0;0.5;1" dur="1" begin="0s" repeatCount="indefinite"></animate>'+
+        '<animateTransform attributeName="transform" type="rotate" calcMode="spline" values="0 0 0;270 0 0;540 0 0" keyTimes="0;0.5;1" dur="1s" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" begin="0s" repeatCount="indefinite"></animateTransform>'+
+        '</rect>'+
+        '</g>'+
+        '</g>'+
+        '</svg>';
 
+  $("embedfs").each(function(){
+
+      var element = $(this);
+      var p = config.fsRaw+$(element).attr("res");
+      var d = $(element).attr("download-url");
+
+      var src = config.embedfsPath+"/view?p="+p;
+      if(typeof d != "undefined"){
+          src = src + "&d="+d;
+      }
+
+      var  embedfsElement = this;
+      var iframe = $(embedfsTemplate);
+      $(iframe).prop('src',src);
+      $(iframe).load(function(){
+
+          $(embedfsElement).find("svg").fadeOut(function(){
+              $(this).remove();
+              $(iframe).fadeIn();
+          });
+
+      });
+
+      $(this).html(loaderSvg);
+      $(this).append(iframe);
+  });
 
     var description = $("description");
     if(description.length>0){

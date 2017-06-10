@@ -41,7 +41,10 @@ There is no mandatory configuration to run your Hi app. The configuration file c
 
 ## Reviewing the steps
 
-Our web application is ready for deployment. But we may want to review our files and directories structure.<br> Putting it all together, we must have the following :
+Our web application is ready for deployment. But we may want to review our files and directories structure.<br> Use the following __files explorer component__ to
+navigate through the folders tree. Click on files to display their content.
+
+<!--
 ```xml
  |-- webapp
         |-- WEB-INF
@@ -59,12 +62,10 @@ Our web application is ready for deployment. But we may want to review our files
         [--] my.controlles
             |-- Hello.java                
 ```
+-->
 
-<iframe src="http://localhost:1234/app/view?p=$fsRaw/hello-world.xml&d=http://google.co.mz" height="400px" width="100%" style="border:none; scroll:hidden"></iframe>
-
-
-__You can now build and deploy the application__
-
+<embedfs res="/hello-world.xml" download-url="http://google.co.mz"></embedfs>
+<br>
 
 
 

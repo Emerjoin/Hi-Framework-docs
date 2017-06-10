@@ -3655,3 +3655,17 @@ body.sidebar-visible .content {
   display: block;
   pointer-events: none;
 }
+
+embedfs {
+
+  width: 100%;
+
+}
+
+embedfs img{
+
+  width: 100px;
+  display: block !important;
+  margin: 0 auto !important;
+
+}
