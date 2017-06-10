@@ -67,8 +67,8 @@
             });
         </file>
     </folder>
-    <folder name="java" icon="GREEN">
-        <folder name="whatever.pkg" icon="GREEN">
+    <folder name="java" icon="GREEN" >
+        <folder name="whatever.pkg" icon="GREEN" type="package">
             <file name="Hello.java" content="java">
                 package whatever.you.want.controllers;
 
