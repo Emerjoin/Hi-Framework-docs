@@ -1,58 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<embedfs>
+<embedfs xmlns="http://emerjoin.org/embedfs/Schema">
     <folder name="webapp" expand="true">
-        <folder name="WEB-INF" expand="true">
-
-            <folder name="webroot">
-                <folder name="js" expand="true">
-                    <file name="jquery-3.0.0.min.js" content="javascript"></file>
-                </folder>
-            </folder>
-
-            <folder name="views" expand="true">
-                <folder name="hello" expand="true">
-                    <file name="world.html" content="html">
-                        <div>
-                            <h1>Hello world</h1>
-                        </div>
-                    </file>
-                    <file name="world.js" content="javascript">
-                        Hi.view(function($scope){
-
-                            //Body empty for now
-
-                        });
-                    </file>
-                </folder>
-            </folder>
-
-            <file name="index.html" content="html">
-                <html>
-                    <head>
-                        <title>Hi-Framework | Getting started</title>
-                        <!--The jquery script-->
-                        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-                        <!--The Hi-framework script-->
-                        <script src="hi-es5.js"></script>
-                    </head>
-                    <body>
-
-                        <!--The views will placed inside this div-->
-                        <div id="view_content">{{view_content}}</div>
-
-                    </body>
-                </html>
-            </file>
-
-            <file name="index.js" content="javascript">
-                Hi.template({
-
-                    //Empty body for now
-
-                });
-            </file>
+        <folder name="WEB-INF">
 
         </folder>
+
+
+        <folder name="webroot">
+            <folder name="js" expand="true">
+                <file name="jquery-3.0.0.min.js" content="javascript"></file>
+            </folder>
+        </folder>
+
+        <folder name="views" expand="true">
+            <folder name="hello" expand="true">
+                <file name="world.html" content="html">
+
+                </file>
+                <file name="world.js" content="javascript">
+                    Hi.view(function($scope){
+
+                    //Body empty for now
+
+                    });
+                </file>
+            </folder>
+        </folder>
+
+        <file name="index.html" content="html">
+
+        </file>
+
+        <file name="index.js" content="javascript">
+            Hi.template({
+
+            //Empty body for now
+
+            });
+        </file>
+
 
     </folder>
 </embedfs>
