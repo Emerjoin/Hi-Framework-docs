@@ -44,7 +44,7 @@
                 &lt;head&gt;
                     &lt;title&gt;Hi-Framework | Getting started&lt;/title&gt;
                     &lt;!--The jquery script--&gt;
-                    &lt;script src=&quot;https://code.jquery.com/jquery-3.0.0.min.js&quot;&gt;&lt;/script&gt;
+                    &lt;script src=&quot;webroot/js/jquery-3.0.0.min.js&quot;&gt;&lt;/script&gt;
                     &lt;!--The Hi-framework script--&gt;
                     &lt;script src=&quot;hi-es5.js&quot;&gt;&lt;/script&gt;
                 &lt;/head&gt;
