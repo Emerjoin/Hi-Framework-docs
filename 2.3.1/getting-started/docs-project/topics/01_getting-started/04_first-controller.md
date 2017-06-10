@@ -17,7 +17,7 @@ Lets see how the __Hello.java__ controller file should look like:
 
 
 ```java
-package whatever.you.want.controllers;
+package whatever.pkg;
 
 import mz.co.hi.web.mvc.Controller;
 import mz.co.hi.web.mvc.exceptions.MvcException;

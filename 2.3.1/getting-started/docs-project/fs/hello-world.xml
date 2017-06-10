@@ -19,15 +19,17 @@
 
 
         <folder name="webroot">
-            <folder name="js" expand="false">
+            <folder name="js">
                 <file name="jquery-3.0.0.min.js" content="javascript"></file>
             </folder>
         </folder>
 
-        <folder name="views" expand="false">
-            <folder name="hello" expand="true">
+        <folder name="views">
+            <folder name="hello">
                 <file name="world.html" content="html">
-
+                    &lt;div&gt;
+                        &lt;h1&gt;Hello world&lt;/h1&gt;
+                    &lt;/div&gt;
                 </file>
                 <file name="world.js" content="javascript">
                     Hi.view(function($scope){
@@ -64,7 +66,29 @@
 
             });
         </file>
+    </folder>
+    <folder name="java" icon="GREEN">
+        <folder name="whatever.pkg" icon="GREEN">
+            <file name="Hello.java" content="java">
+                package whatever.you.want.controllers;
 
+                import mz.co.hi.web.mvc.Controller;
+                import mz.co.hi.web.mvc.exceptions.MvcException;
 
+                import javax.enterprise.context.ApplicationScoped;
+
+                @ApplicationScoped //It could be any other CDI scope
+                public class Hello extends Controller {
+
+                    //This is automatically mapped to hello/world
+                    public void world() throws MvcException{
+
+                        this.callView(); //Tels Hi-Framework to render the view
+
+                    }
+
+                }
+            </file>
+        </folder>
     </folder>
 </embedfs>
