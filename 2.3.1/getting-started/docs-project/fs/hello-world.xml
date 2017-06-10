@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <embedfs xmlns="http://emerjoin.org/embedfs/Schema">
-    <folder name="webapp" expand="true">
+    <folder name="src/main/webapp" expand="true">
         <folder name="WEB-INF">
             <file name="hi.xml" content="xml">
                 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
@@ -67,7 +67,7 @@
             });
         </file>
     </folder>
-    <folder name="java" icon="GREEN" >
+    <folder name="src/main/java" >
         <folder name="whatever.pkg" icon="GREEN" type="package">
             <file name="Hello.java" content="java">
                 package whatever.you.want.controllers;
