@@ -39,7 +39,7 @@ There is no mandatory configuration to run your Hi app. The configuration file c
 > **IMPORTANT RULE**<br> The configuration file is not optional. A deployment attempt without the configuration file will result in errors.
 
 
-## Reviewing the steps
+## Reviewing the files
 
 Our web application is ready for deployment. But we may want to review our files and directories structure.<br> Use the following __files explorer component__ to
 navigate through the folders tree. Click on files to display their content.

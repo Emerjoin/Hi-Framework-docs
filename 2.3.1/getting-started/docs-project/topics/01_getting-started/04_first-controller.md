@@ -60,7 +60,7 @@ These two files should have the same name as the action that calls them and they
 
 <info-block title="Naming convention">
     Hi-Framework uses the <b>kebab-case</b> to map controllers and their respective action methods.
-    For a controller class named <b>SalesReports</b>, the folder created under <b>/views</b> should be <b>sales-reports</b>, meaning the controller will be accessible via <b>/sales-reports/action-name</b> URL.
+    For example: considering a controller class named <b>SalesReports</b>, the folder created under <b>/views</b> should be <b>sales-reports</b>, meaning the controller will be accessible via <b>/sales-reports/action-name</b> URL.
 </info-block>
 
 
