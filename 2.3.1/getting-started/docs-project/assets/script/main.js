@@ -1,6 +1,6 @@
 (function () {
 
-  var embedfsTemplate = '<iframe style="height: 400px; width: 100%; border: none;display: none"></iframe>';
+  var embedfsTemplate = '<iframe style="height: 460px; width: 92%; margin-left: 4%; margin-right: 4%; border: none;display: none"></iframe>';
   var loaderSvg = '<svg width="96px" height="96px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-squaricle" style="">'+
         '<g transform="translate(50 50)">'+
         '<g transform="scale(0.799546 0.799546)">'+
