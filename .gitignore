@@ -1,0 +1,5 @@
+*.idea
+*.iml
+tomcat.*
+*.DS_Store
+__MACOSX

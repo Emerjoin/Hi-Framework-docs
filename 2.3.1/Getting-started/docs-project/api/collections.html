@@ -1,0 +1,2593 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from docs.meteor.com/api/collections.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Jun 2017 09:27:03 GMT -->
+<head>
+    <meta charset="utf-8">
+
+    
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MBQ369M');</script>
+      <!-- End Google Tag Manager -->
+    
+
+    <!-- Basic -->
+    <title>Collections | Meteor API Docs</title>
+    <meta name="description" content="Documentation on how to use Meteor's database collections.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png" sizes="16x16 32x32 64x64">
+
+    <!-- Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://docs.meteor.com">
+    <meta property="og:title" content="Collections | Meteor API Docs">
+    <meta property="og:description" content="Documentation on how to use Meteor's database collections.">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_image_large">
+    <meta name="twitter:site" content="@meteor">
+    <meta name="twitter:title" content="Collections | Meteor API Docs">
+    <meta name="twitter:description" content="Documentation on how to use Meteor's database collections.">
+    <meta name="twitter:image" content="">
+
+    <!-- Misc -->
+    <meta name="google-site-verification" content="" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../assets/style/style.css">
+  </head>
+  <body class="">
+    
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBQ369M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    
+    
+
+<div class="nav dark">
+  <div class="nav-group">
+    <div class="nav-item show-mobile">
+      <span class="js-sidebar-toggle ">
+        <span class="icon-menu"></span>
+      </span>
+    </div>
+    <div class="nav-item">
+      <a class="logo-wrapper" href="http://www.meteor.com/developers" title="Meteor Developers Developers"  >
+        <img src="../assets/images/logo-coralspace-left.svg" alt="Meteor Developers" class="logo"/>
+        
+          <span>Developers</span>
+        
+      </a>
+    </div>
+  </div>
+
+  <div class="nav-group right">
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="http://www.meteor.com/tutorials" target=_new >
+          <span>Tutorials</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="http://guide.meteor.com/"  >
+          <span>Guide</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop active ">
+        <a class="link" href="../index-2.html"  >
+          <span>API Docs</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="https://forums.meteor.com/" target=_new >
+          <span>Forums</span>
+        </a>
+      </div>
+    
+  </div>
+</div>
+
+<div class="sidebar">
+  <div class="panel">
+    <div class="panel-item">
+      <a class="" href="http://www.meteor.com/developers" title="Meteor Developers"  >
+        <span>Meteor Developers Developers</span>
+      </a>
+    </div>
+    
+      <div class="panel-item "">
+        <a class="" href="http://www.meteor.com/tutorials" target=_new >
+          <span>Tutorials</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="http://guide.meteor.com/"  >
+          <span>Guide</span>
+        </a>
+      </div>
+    
+      <div class="panel-item active"">
+        <a class="" href="../index-2.html"  >
+          <span>API Docs</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://forums.meteor.com/" target=_new >
+          <span>Forums</span>
+        </a>
+      </div>
+    
+  </div>
+
+  <div class="sidebar-content">
+    <div class="topcap">
+      <span class="title-sidebar">Meteor API Docs</span>
+      
+        <span class="select version-sidebar nochrome">
+          <select class="version-select">
+            
+              <option value="v1.5">1.5</option>
+            
+              <option value="v1.4.4">1.4.4</option>
+            
+              <option value="v1.4.3">1.4.3</option>
+            
+              <option value="v1.4.2">1.4.2</option>
+            
+              <option value="v1.4.1">1.4.1</option>
+            
+              <option value="v1.4.0">1.4.0</option>
+            
+              <option value="v1.3.5">1.3.5</option>
+            
+              <option value="v1.3.4">1.3.4</option>
+            
+              <option value="v1.3.3">1.3.3</option>
+            
+              <option value="v1.3.2">1.3.2</option>
+            
+          </select>
+        </span>
+      
+    </div>
+
+    
+    <div class="wrapper-search">
+      <div class="input-symbol small round">
+        <input type="text" placeholder="Search API Docs" id="desktop-search-input" />
+        <span class="icon-search"></span>
+      </div>
+      <div class="wrapper-desktop-search-results"></div>
+    </div>
+
+    
+
+    <ul class="toc">
+      
+        <li>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="../index.html" class="sidebar-link ">
+                  <span>Introducing Meteor API Docs</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../changelog.html" class="sidebar-link ">
+                  <span>Meteor Changelog</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">API</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="core.html" class="sidebar-link ">
+                  <span>Core</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="pubsub.html" class="sidebar-link ">
+                  <span>Publish and subscribe</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="methods.html" class="sidebar-link ">
+                  <span>Methods</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="check.html" class="sidebar-link ">
+                  <span>Check</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="connections.html" class="sidebar-link ">
+                  <span>Server Connections</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc  current">
+                <a href="#" class="sidebar-link  current">
+                  <span>Collections</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="session.html" class="sidebar-link ">
+                  <span>Session</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="accounts.html" class="sidebar-link ">
+                  <span>Accounts</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="accounts-multi.html" class="sidebar-link ">
+                  <span>Accounts (multi-server)</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="passwords.html" class="sidebar-link ">
+                  <span>Passwords</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="templates.html" class="sidebar-link ">
+                  <span>Templates</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="blaze.html" class="sidebar-link ">
+                  <span>Blaze</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="timers.html" class="sidebar-link ">
+                  <span>Timers</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="tracker.html" class="sidebar-link ">
+                  <span>Tracker</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="reactive-var.html" class="sidebar-link ">
+                  <span>ReactiveVar</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="ejson.html" class="sidebar-link ">
+                  <span>EJSON</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="http.html" class="sidebar-link ">
+                  <span>HTTP</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="email.html" class="sidebar-link ">
+                  <span>Email</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="assets.html" class="sidebar-link ">
+                  <span>Assets</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="packagejs.html" class="sidebar-link ">
+                  <span>Package.js</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="mobile-config.html" class="sidebar-link ">
+                  <span>Mobile Configuration</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Packages</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/appcache.html" class="sidebar-link ">
+                  <span>appcache</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/accounts-ui.html" class="sidebar-link ">
+                  <span>accounts-ui</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/bundle-visualizer.html" class="sidebar-link ">
+                  <span>bundle-visualizer</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/audit-argument-checks.html" class="sidebar-link ">
+                  <span>audit-argument-checks</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/coffeescript.html" class="sidebar-link ">
+                  <span>coffeescript</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/ecmascript.html" class="sidebar-link ">
+                  <span>ecmascript</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/jquery.html" class="sidebar-link ">
+                  <span>jquery</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/less.html" class="sidebar-link ">
+                  <span>less</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/markdown.html" class="sidebar-link ">
+                  <span>markdown</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/modules.html" class="sidebar-link ">
+                  <span>modules</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/oauth-encryption.html" class="sidebar-link ">
+                  <span>oauth-encryption</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/random.html" class="sidebar-link ">
+                  <span>random</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/spacebars.html" class="sidebar-link ">
+                  <span>spacebars</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/underscore.html" class="sidebar-link ">
+                  <span>underscore</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/webapp.html" class="sidebar-link ">
+                  <span>webapp</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Command Line</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="../commandline.html" class="sidebar-link ">
+                  <span>Command Line</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../environment-variables.html" class="sidebar-link ">
+                  <span>Environment Variables</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="content">
+  <div class="content-wrapper">
+    <div class="header-content">
+      <h1 class="title-page">Collections</h1>
+      
+        <div class="subtitle-page">Documentation on how to use Meteor's database collections.</div>
+      
+
+      <div class="page-actions">
+        <div class="actions-group">
+          <a class="btn tertiary small round lowercase" href="https://github.com/meteor/docs/tree/master/source/api/collections.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="document-formatting">
+      <p>Meteor stores data in <em>collections</em>.  To get started, declare a
+collection with <code>new Mongo.Collection</code>.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h2 title="&lt;em&gt;#&lt;/em&gt;Collection" class="title-api selflink" id="Mongo-Collection">
+      <a href="#Mongo-Collection" class="link primary">new Mongo.Collection(name, [options])</a>
+    </h2>
+
+    <div class="subtext-api">
+        <div class="code">import { Mongo } from 'meteor/mongo'</div>
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/mongo/collection.html#L27" target="_blank">
+          (mongo/collection.js, line 27)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Constructor for a Collection</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">name</span>
+            <span class="type">String</span>
+          </dt>
+          <dd>
+            <p>The name of the collection.  If null, creates an unmanaged (unsynchronized) local collection.</p>
+          </dd>
+      </dl>
+
+      <h4 class="subheading">Options</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">connection</span>
+            <span class="type">Object</span>
+          </dt>
+          <dd>
+            <p>The server connection that will manage this collection. Uses the default connection if not specified.  Pass the return value of calling <a href="#ddp_connect"><code>DDP.connect</code></a> to specify a different server. Pass <code>null</code> to specify no connection. Unmanaged (<code>name</code> is null) collections cannot specify a connection.</p>
+          </dd>
+          <dt>
+            <span class="name">idGeneration</span>
+            <span class="type">String</span>
+          </dt>
+          <dd>
+            <p>The method of generating the <code>_id</code> fields of new documents in this collection.  Possible values:</p>
+<ul>
+<li><strong><code>'STRING'</code></strong>: random strings</li>
+<li><strong><code>'MONGO'</code></strong>:  random <a href="#mongo_object_id"><code>Mongo.ObjectID</code></a> values</li>
+</ul>
+<p>The default id generation technique is <code>'STRING'</code>.</p>
+          </dd>
+          <dt>
+            <span class="name">transform</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>An optional transformation function. Documents will be passed through this function before being returned from <code>fetch</code> or <code>findOne</code>, and before being passed to callbacks of <code>observe</code>, <code>map</code>, <code>forEach</code>, <code>allow</code>, and <code>deny</code>. Transforms are <em>not</em> applied for the callbacks of <code>observeChanges</code> or to cursors returned from publish functions.</p>
+          </dd>
+          <dt>
+            <span class="name">defineMutationMethods</span>
+            <span class="type">Boolean</span>
+          </dt>
+          <dd>
+            <p>Set to <code>false</code> to skip setting up the mutation methods that enable insert/update/remove from client code. Default <code>true</code>.</p>
+          </dd>
+      </dl>
+
+  </div>
+</div>
+
+<p>Calling this function is analogous to declaring a model in a traditional ORM
+(Object-Relation Mapper)-centric framework. It sets up a <em>collection</em> (a storage
+space for records, or “documents”) that can be used to store a particular type
+of information, like users, posts, scores, todo items, or whatever matters to
+your application.  Each document is a EJSON object.  It includes an <code>_id</code>
+property whose value is unique in the collection, which Meteor will set when you
+first create the document.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Common code on client and server declares a DDP-managed Mongo collection.</span></div><div class="line"><span class="keyword">const</span> Chatrooms = <span class="keyword">new</span> Mongo.Collection(<span class="string">'chatrooms'</span>);</div><div class="line"><span class="keyword">const</span> Messages = <span class="keyword">new</span> Mongo.Collection(<span class="string">'messages'</span>);</div></pre></td></tr></table></figure>
+<p>The function returns an object with methods to <a href="#insert"><code>insert</code></a>
+documents in the collection, <a href="#update"><code>update</code></a> their properties, and
+<a href="#remove"><code>remove</code></a> them, and to <a href="#find"><code>find</code></a> the documents in the
+collection that match arbitrary criteria. The way these methods work is
+compatible with the popular Mongo database API.  The same database API
+works on both the client and the server (see below).</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Return an array of my messages.</span></div><div class="line"><span class="keyword">const</span> myMessages = Messages.find(&#123; <span class="attr">userId</span>: Session.get(<span class="string">'myUserId'</span>) &#125;).fetch();</div><div class="line"></div><div class="line"><span class="comment">// Create a new message.</span></div><div class="line">Messages.insert(&#123; <span class="attr">text</span>: <span class="string">'Hello, world!'</span> &#125;);</div><div class="line"></div><div class="line"><span class="comment">// Mark my first message as important.</span></div><div class="line">Messages.update(myMessages[<span class="number">0</span>]._id, &#123; <span class="attr">$set</span>: &#123; <span class="attr">important</span>: <span class="literal">true</span> &#125; &#125;);</div></pre></td></tr></table></figure>
+<p>If you pass a <code>name</code> when you create the collection, then you are
+declaring a persistent collection &mdash; one that is stored on the
+server and seen by all users. Client code and server code can both
+access the same collection using the same API.</p>
+<p>Specifically, when you pass a <code>name</code>, here’s what happens:</p>
+<ul>
+<li><p>On the server (if you do not specify a <code>connection</code>), a collection with that
+name is created on a backend Mongo server. When you call methods on that
+collection on the server, they translate directly into normal Mongo operations
+(after checking that they match your <a href="#allow">access control rules</a>).</p>
+</li>
+<li><p>On the client (and on the server if you specify a <code>connection</code>), a Minimongo
+instance is created. Minimongo is essentially an in-memory, non-persistent
+implementation of Mongo in pure JavaScript. It serves as a local cache that
+stores just the subset of the database that this client is working with. Queries
+(<a href="#find"><code>find</code></a>) on these collections are served directly out of this cache,
+without talking to the server.</p>
+</li>
+<li><p>When you write to the database on the client (<a href="#insert"><code>insert</code></a>,
+<a href="#update"><code>update</code></a>, <a href="#remove"><code>remove</code></a>), the command is executed locally
+immediately, and, simultaneously, it’s sent to the server and executed
+there too. This happens via <a href="#meteor_methods">stubs</a>, because writes are
+implemented as methods.</p>
+</li>
+</ul>
+<blockquote>
+<p>When, on the server, you write to a collection which has a specified
+<code>connection</code> to another server, it sends the corresponding method to the other
+server and receives the changed values back from it over DDP. Unlike on the
+client, it does not execute the write locally first.</p>
+</blockquote>
+<p>If you pass <code>null</code> as the <code>name</code>, then you’re creating a local
+collection. It’s not synchronized anywhere; it’s just a local scratchpad
+that supports Mongo-style <a href="#find"><code>find</code></a>, <a href="#insert"><code>insert</code></a>,
+<a href="#update"><code>update</code></a>, and <a href="#remove"><code>remove</code></a> operations.  (On both the
+client and the server, this scratchpad is implemented using Minimongo.)</p>
+<p>By default, Meteor automatically publishes every document in your
+collection to each connected client.  To turn this behavior off, remove
+the <code>autopublish</code> package, in your terminal:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor remove autopublish</div></pre></td></tr></table></figure>
+<p>and instead call <a href="#meteor_publish"><code>Meteor.publish</code></a> to specify which parts of
+your collection should be published to which users.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Create a collection called `Posts` and put a document in it. The document</span></div><div class="line"><span class="comment">// will be immediately visible in the local copy of the collection. It will be</span></div><div class="line"><span class="comment">// written to the server-side database a fraction of a second later, and a</span></div><div class="line"><span class="comment">// fraction of a second after that, it will be synchronized down to any other</span></div><div class="line"><span class="comment">// clients that are subscribed to a query that includes it (see</span></div><div class="line"><span class="comment">// `Meteor.subscribe` and `autopublish`).</span></div><div class="line"><span class="keyword">const</span> Posts = <span class="keyword">new</span> Mongo.Collection(<span class="string">'posts'</span>);</div><div class="line">Posts.insert(&#123; <span class="attr">title</span>: <span class="string">'Hello world'</span>, <span class="attr">body</span>: <span class="string">'First post'</span> &#125;);</div><div class="line"></div><div class="line"><span class="comment">// Changes are visible immediately—no waiting for a round trip to the server.</span></div><div class="line">assert(Posts.find().count() === <span class="number">1</span>);</div><div class="line"></div><div class="line"><span class="comment">// Create a temporary, local collection. It works just like any other collection</span></div><div class="line"><span class="comment">// but it doesn't send changes to the server, and it can't receive any data from</span></div><div class="line"><span class="comment">// subscriptions.</span></div><div class="line"><span class="keyword">const</span> Scratchpad = <span class="keyword">new</span> Mongo.Collection;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i += <span class="number">1</span>) &#123;</div><div class="line">  Scratchpad.insert(&#123; <span class="attr">number</span>: i * <span class="number">2</span> &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">assert(Scratchpad.find(&#123; <span class="attr">number</span>: &#123; <span class="attr">$lt</span>: <span class="number">9</span> &#125; &#125;).count() === <span class="number">5</span>);</div></pre></td></tr></table></figure>
+<p>Generally, you’ll assign <code>Mongo.Collection</code> objects in your app to global
+variables.  You can only create one <code>Mongo.Collection</code> object for each
+underlying Mongo collection.</p>
+<p>If you specify a <code>transform</code> option to the <code>Collection</code> or any of its retrieval
+methods, documents are passed through the <code>transform</code> function before being
+returned or passed to callbacks.  This allows you to add methods or otherwise
+modify the contents of your collection from their database representation.  You
+can also specify <code>transform</code> on a particular <code>find</code>, <code>findOne</code>, <code>allow</code>, or
+<code>deny</code> call.  Transform functions must return an object and they may not change
+the value of the document’s <code>_id</code> field (though it’s OK to leave it out).</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// An animal class that takes a document in its constructor.</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(doc) &#123;</div><div class="line">    _.extend(<span class="keyword">this</span>, doc);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  makeNoise() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.sound);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Define a collection that uses `Animal` as its document.</span></div><div class="line"><span class="keyword">const</span> Animals = <span class="keyword">new</span> Mongo.Collection(<span class="string">'animals'</span>, &#123;</div><div class="line">  <span class="attr">transform</span>: <span class="function">(<span class="params">doc</span>) =&gt;</span> <span class="keyword">new</span> Animal(doc)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// Create an animal and call its `makeNoise` method.</span></div><div class="line">Animals.insert(&#123; <span class="attr">name</span>: <span class="string">'raptor'</span>, <span class="attr">sound</span>: <span class="string">'roar'</span> &#125;);</div><div class="line">Animals.findOne(&#123; <span class="attr">name</span>: <span class="string">'raptor'</span> &#125;).makeNoise(); <span class="comment">// Prints 'roar'</span></div></pre></td></tr></table></figure>
+<p><code>transform</code> functions are not called reactively.  If you want to add a
+dynamically changing attribute to an object, do it with a function that computes
+the value at the time it’s called, not by computing the attribute at <code>transform</code>
+time.</p>
+<blockquote class="pullquote warning"><p>In this release, Minimongo has some limitations:</p>
+<ul>
+<li><code>$pull</code> in modifiers can only accept certain kinds
+of selectors.</li>
+<li><code>findAndModify</code>, aggregate functions, and
+map/reduce aren’t supported.</li>
+</ul>
+<p>All of these will be addressed in a future release. For full
+Minimongo release notes, see packages/minimongo/NOTES
+in the repository.</p>
+</blockquote>
+<blockquote class="pullquote warning"><p>Minimongo doesn’t currently have indexes. It’s rare for this to be an
+issue, since it’s unusual for a client to have enough data that an
+index is worthwhile.</p>
+</blockquote>
+<p>Read more about collections and how to use them in the <a href="http://guide.meteor.com/collections.html" target="_blank" rel="external">Collections</a> article in the Meteor Guide.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;find" class="title-api selflink" id="Mongo-Collection-find">
+      <a href="#Mongo-Collection-find" class="link primary">Mongo.Collection#find([selector], [options])</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/mongo/collection.html#L285" target="_blank">
+          (mongo/collection.js, line 285)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Find the documents in a collection that match the selector.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">selector</span>
+            <span class="type"><a href="#selectors">Mongo Selector</a>, <a href="#mongo_object_id">Object ID</a>, or String</span>
+          </dt>
+          <dd>
+            <p>A query describing the documents to find</p>
+          </dd>
+      </dl>
+
+      <h4 class="subheading">Options</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">sort</span>
+            <span class="type"><a href="#sortspecifiers">Mongo Sort Specifier</a></span>
+          </dt>
+          <dd>
+            <p>Sort order (default: natural order)</p>
+          </dd>
+          <dt>
+            <span class="name">skip</span>
+            <span class="type">Number</span>
+          </dt>
+          <dd>
+            <p>Number of results to skip at the beginning</p>
+          </dd>
+          <dt>
+            <span class="name">limit</span>
+            <span class="type">Number</span>
+          </dt>
+          <dd>
+            <p>Maximum number of results to return</p>
+          </dd>
+          <dt>
+            <span class="name">fields</span>
+            <span class="type"><a href="#fieldspecifiers">Mongo Field Specifier</a></span>
+          </dt>
+          <dd>
+            <p>Dictionary of fields to return or exclude.</p>
+          </dd>
+          <dt>
+            <span class="name">reactive</span>
+            <span class="type">Boolean</span>
+          </dt>
+          <dd>
+            <p>(Client only) Default <code>true</code>; pass <code>false</code> to disable reactivity</p>
+          </dd>
+          <dt>
+            <span class="name">transform</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Overrides <code>transform</code> on the  <a href="#collections"><code>Collection</code></a> for this cursor.  Pass <code>null</code> to disable transformation.</p>
+          </dd>
+          <dt>
+            <span class="name">disableOplog</span>
+            <span class="type">Boolean</span>
+          </dt>
+          <dd>
+            <p>(Server only) Pass true to disable oplog-tailing on this query. This affects the way server processes calls to <code>observe</code> on this query. Disabling the oplog can be useful when working with data that updates in large batches.</p>
+          </dd>
+          <dt>
+            <span class="name">pollingIntervalMs</span>
+            <span class="type">Number</span>
+          </dt>
+          <dd>
+            <p>(Server only) When oplog is disabled (through the use of <code>disableOplog</code> or when otherwise not available), the frequency (in milliseconds) of how often to poll this query when observing on the server. Defaults to 10000ms (10 seconds).</p>
+          </dd>
+          <dt>
+            <span class="name">pollingThrottleMs</span>
+            <span class="type">Number</span>
+          </dt>
+          <dd>
+            <p>(Server only) When oplog is disabled (through the use of <code>disableOplog</code> or when otherwise not available), the minimum time (in milliseconds) to allow between re-polling when observing on the server. Increasing this will save CPU and mongo load at the expense of slower updates to users. Decreasing this is not recommended. Defaults to 50ms.</p>
+          </dd>
+      </dl>
+
+  </div>
+</div>
+
+<p><code>find</code> returns a cursor.  It does not immediately access the database or return
+documents.  Cursors provide <code>fetch</code> to return all matching documents, <code>map</code> and
+<code>forEach</code> to iterate over all matching documents, and <code>observe</code> and
+<code>observeChanges</code> to register callbacks when the set of matching documents
+changes.</p>
+<blockquote class="pullquote warning"><p>Collection cursors are not query snapshots.  If the database changes
+between calling <code>Collection.find</code> and fetching the
+results of the cursor, or while fetching results from the cursor,
+those changes may or may not appear in the result set.</p>
+</blockquote>
+<p>Cursors are a reactive data source. On the client, the first time you retrieve a
+cursor’s documents with <code>fetch</code>, <code>map</code>, or <code>forEach</code> inside a
+reactive computation (eg, a template or
+<a href="#tracker_autorun"><code>autorun</code></a>), Meteor will register a
+dependency on the underlying data.  Any change to the collection that
+changes the documents in a cursor will trigger a recomputation.  To
+disable this behavior, pass <code>{reactive: false}</code> as an option to
+<code>find</code>.</p>
+<p>Note that when <code>fields</code> are specified, only changes to the included
+fields will trigger callbacks in <code>observe</code>, <code>observeChanges</code> and
+invalidations in reactive computations using this cursor. Careful use
+of <code>fields</code> allows for more fine-grained reactivity for computations
+that don’t depend on an entire document.</p>
+<p>On the client, there will be a period of time between when the page loads and
+when the published data arrives from the server during which your client-side
+collections will be empty.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;findOne" class="title-api selflink" id="Mongo-Collection-findOne">
+      <a href="#Mongo-Collection-findOne" class="link primary">Mongo.Collection#findOne([selector], [options])</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/mongo/collection.html#L314" target="_blank">
+          (mongo/collection.js, line 314)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Finds the first document that matches the selector, as ordered by sort and skip options. Returns <code>undefined</code> if no matching document is found.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">selector</span>
+            <span class="type"><a href="#selectors">Mongo Selector</a>, <a href="#mongo_object_id">Object ID</a>, or String</span>
+          </dt>
+          <dd>
+            <p>A query describing the documents to find</p>
+          </dd>
+      </dl>
+
+      <h4 class="subheading">Options</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">sort</span>
+            <span class="type"><a href="#sortspecifiers">Mongo Sort Specifier</a></span>
+          </dt>
+          <dd>
+            <p>Sort order (default: natural order)</p>
+          </dd>
+          <dt>
+            <span class="name">skip</span>
+            <span class="type">Number</span>
+          </dt>
+          <dd>
+            <p>Number of results to skip at the beginning</p>
+          </dd>
+          <dt>
+            <span class="name">fields</span>
+            <span class="type"><a href="#fieldspecifiers">Mongo Field Specifier</a></span>
+          </dt>
+          <dd>
+            <p>Dictionary of fields to return or exclude.</p>
+          </dd>
+          <dt>
+            <span class="name">reactive</span>
+            <span class="type">Boolean</span>
+          </dt>
+          <dd>
+            <p>(Client only) Default true; pass false to disable reactivity</p>
+          </dd>
+          <dt>
+            <span class="name">transform</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Overrides <code>transform</code> on the <a href="#collections"><code>Collection</code></a> for this cursor.  Pass <code>null</code> to disable transformation.</p>
+          </dd>
+      </dl>
+
+  </div>
+</div>
+
+<p>Equivalent to <a href="#find"><code>find</code></a><code>(selector, options).</code><a href="#fetch"><code>fetch</code></a><code>()[0]</code> with
+<code>options.limit = 1</code>.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;insert" class="title-api selflink" id="Mongo-Collection-insert">
+      <a href="#Mongo-Collection-insert" class="link primary">Mongo.Collection#insert(doc, [callback])</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/mongo/collection.html#L456" target="_blank">
+          (mongo/collection.js, line 456)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Insert a document in the collection.  Returns its unique _id.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">doc</span>
+            <span class="type">Object</span>
+          </dt>
+          <dd>
+            <p>The document to insert. May not yet have an _id attribute, in which case Meteor will generate one for you.</p>
+          </dd>
+          <dt>
+            <span class="name">callback</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Optional.  If present, called with an error object as the first argument and, if no error, the _id as the second.</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p>Add a document to the collection. A document is just an object, and
+its fields can contain any combination of EJSON-compatible datatypes
+(arrays, objects, numbers, strings, <code>null</code>, true, and false).</p>
+<p><code>insert</code> will generate a unique ID for the object you pass, insert it
+in the database, and return the ID. When <code>insert</code> is called from
+untrusted client code, it will be allowed only if passes any
+applicable <a href="#allow"><code>allow</code></a> and <a href="#deny"><code>deny</code></a> rules.</p>
+<p>On the server, if you don’t provide a callback, then <code>insert</code> blocks
+until the database acknowledges the write, or throws an exception if
+something went wrong.  If you do provide a callback, <code>insert</code> still
+returns the ID immediately.  Once the insert completes (or fails), the
+callback is called with error and result arguments.  In an error case,
+<code>result</code> is undefined.  If the insert is successful, <code>error</code> is
+undefined and <code>result</code> is the new document ID.</p>
+<p>On the client, <code>insert</code> never blocks.  If you do not provide a callback
+and the insert fails on the server, then Meteor will log a warning to
+the console.  If you provide a callback, Meteor will call that function
+with <code>error</code> and <code>result</code> arguments.  In an error case, <code>result</code> is
+undefined.  If the insert is successful, <code>error</code> is undefined and
+<code>result</code> is the new document ID.</p>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> groceriesId = Lists.insert(&#123; <span class="attr">name</span>: <span class="string">'Groceries'</span> &#125;);</div><div class="line"></div><div class="line">Items.insert(&#123; <span class="attr">list</span>: groceriesId, <span class="attr">name</span>: <span class="string">'Watercress'</span> &#125;);</div><div class="line">Items.insert(&#123; <span class="attr">list</span>: groceriesId, <span class="attr">name</span>: <span class="string">'Persimmons'</span> &#125;);</div></pre></td></tr></table></figure>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;update" class="title-api selflink" id="Mongo-Collection-update">
+      <a href="#Mongo-Collection-update" class="link primary">Mongo.Collection#update(selector, modifier, [options], [callback])</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/mongo/collection.html#L535" target="_blank">
+          (mongo/collection.js, line 535)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Modify one or more documents in the collection. Returns the number of matched documents.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">selector</span>
+            <span class="type"><a href="#selectors">Mongo Selector</a>, <a href="#mongo_object_id">Object ID</a>, or String</span>
+          </dt>
+          <dd>
+            <p>Specifies which documents to modify</p>
+          </dd>
+          <dt>
+            <span class="name">modifier</span>
+            <span class="type"><a href="#modifiers">Mongo Modifier</a></span>
+          </dt>
+          <dd>
+            <p>Specifies how to modify the documents</p>
+          </dd>
+          <dt>
+            <span class="name">callback</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Optional.  If present, called with an error object as the first argument and, if no error, the number of affected documents as the second.</p>
+          </dd>
+      </dl>
+
+      <h4 class="subheading">Options</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">multi</span>
+            <span class="type">Boolean</span>
+          </dt>
+          <dd>
+            <p>True to modify all matching documents; false to only modify one of the matching documents (the default).</p>
+          </dd>
+          <dt>
+            <span class="name">upsert</span>
+            <span class="type">Boolean</span>
+          </dt>
+          <dd>
+            <p>True to insert a document if no matching documents are found.</p>
+          </dd>
+      </dl>
+
+  </div>
+</div>
+
+<p>Modify documents that match <code>selector</code> according to <code>modifier</code> (see
+<a href="#modifiers">modifier documentation</a>).</p>
+<p>The behavior of <code>update</code> differs depending on whether it is called by
+trusted or untrusted code. Trusted code includes server code and
+method code. Untrusted code includes client-side code such as event
+handlers and a browser’s JavaScript console.</p>
+<ul>
+<li><p>Trusted code can modify multiple documents at once by setting
+<code>multi</code> to true, and can use an arbitrary <a href="#selectors">Mongo
+selector</a> to find the documents to modify. It bypasses
+any access control rules set up by <a href="#allow"><code>allow</code></a> and
+<a href="#deny"><code>deny</code></a>. The number of affected documents will be returned
+from the <code>update</code> call if you don’t pass a callback.</p>
+</li>
+<li><p>Untrusted code can only modify a single document at once, specified
+by its <code>_id</code>. The modification is allowed only after checking any
+applicable <a href="#allow"><code>allow</code></a> and <a href="#deny"><code>deny</code></a> rules. The number
+of affected documents will be returned to the callback. Untrusted
+code cannot perform upserts, except in insecure mode.</p>
+</li>
+</ul>
+<p>On the server, if you don’t provide a callback, then <code>update</code> blocks
+until the database acknowledges the write, or throws an exception if
+something went wrong.  If you do provide a callback, <code>update</code> returns
+immediately.  Once the update completes, the callback is called with a
+single error argument in the case of failure, or a second argument
+indicating the number of affected documents if the update was successful.</p>
+<p>On the client, <code>update</code> never blocks.  If you do not provide a callback
+and the update fails on the server, then Meteor will log a warning to
+the console.  If you provide a callback, Meteor will call that function
+with an error argument if there was an error, or a second argument
+indicating the number of affected documents if the update was successful.</p>
+<p>Client example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// When the 'give points' button in the admin dashboard is pressed, give 5</span></div><div class="line"><span class="comment">// points to the current player. The new score will be immediately visible on</span></div><div class="line"><span class="comment">// everyone's screens.</span></div><div class="line">Template.adminDashboard.events(&#123;</div><div class="line">  <span class="string">'click .give-points'</span>() &#123;</div><div class="line">    Players.update(Session.get(<span class="string">'currentPlayer'</span>), &#123;</div><div class="line">      <span class="attr">$inc</span>: &#123; <span class="attr">score</span>: <span class="number">5</span> &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Server example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Give the 'Winner' badge to each user with a score greater than 10. If they</span></div><div class="line"><span class="comment">// are logged in and their badge list is visible on the screen, it will update</span></div><div class="line"><span class="comment">// automatically as they watch.</span></div><div class="line">Meteor.methods(&#123;</div><div class="line">  declareWinners() &#123;</div><div class="line">    Players.update(&#123; <span class="attr">score</span>: &#123; <span class="attr">$gt</span>: <span class="number">10</span> &#125; &#125;, &#123;</div><div class="line">      <span class="attr">$addToSet</span>: &#123; <span class="attr">badges</span>: <span class="string">'Winner'</span> &#125;</div><div class="line">    &#125;, &#123; <span class="attr">multi</span>: <span class="literal">true</span> &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>You can use <code>update</code> to perform a Mongo upsert by setting the <code>upsert</code>
+option to true. You can also use the <a href="#upsert"><code>upsert</code></a> method to perform an
+upsert that returns the <code>_id</code> of the document that was inserted (if there was one)
+in addition to the number of affected documents.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;upsert" class="title-api selflink" id="Mongo-Collection-upsert">
+      <a href="#Mongo-Collection-upsert" class="link primary">Mongo.Collection#upsert(selector, modifier, [options], [callback])</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/mongo/collection.html#L663" target="_blank">
+          (mongo/collection.js, line 663)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Modify one or more documents in the collection, or insert one if no matching documents were found. Returns an object with keys <code>numberAffected</code> (the number of documents modified)  and <code>insertedId</code> (the unique _id of the document that was inserted, if any).</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">selector</span>
+            <span class="type"><a href="#selectors">Mongo Selector</a>, <a href="#mongo_object_id">Object ID</a>, or String</span>
+          </dt>
+          <dd>
+            <p>Specifies which documents to modify</p>
+          </dd>
+          <dt>
+            <span class="name">modifier</span>
+            <span class="type"><a href="#modifiers">Mongo Modifier</a></span>
+          </dt>
+          <dd>
+            <p>Specifies how to modify the documents</p>
+          </dd>
+          <dt>
+            <span class="name">callback</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Optional.  If present, called with an error object as the first argument and, if no error, the number of affected documents as the second.</p>
+          </dd>
+      </dl>
+
+      <h4 class="subheading">Options</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">multi</span>
+            <span class="type">Boolean</span>
+          </dt>
+          <dd>
+            <p>True to modify all matching documents; false to only modify one of the matching documents (the default).</p>
+          </dd>
+      </dl>
+
+  </div>
+</div>
+
+<p>Modify documents that match <code>selector</code> according to <code>modifier</code>, or insert
+a document if no documents were modified. <code>upsert</code> is the same as calling
+<code>update</code> with the <code>upsert</code> option set to true, except that the return
+value of <code>upsert</code> is an object that contain the keys <code>numberAffected</code>
+and <code>insertedId</code>. (<code>update</code> returns only the number of affected documents.)</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;remove" class="title-api selflink" id="Mongo-Collection-remove">
+      <a href="#Mongo-Collection-remove" class="link primary">Mongo.Collection#remove(selector, [callback])</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/mongo/collection.html#L599" target="_blank">
+          (mongo/collection.js, line 599)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Remove documents from the collection</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">selector</span>
+            <span class="type"><a href="#selectors">Mongo Selector</a>, <a href="#mongo_object_id">Object ID</a>, or String</span>
+          </dt>
+          <dd>
+            <p>Specifies which documents to remove</p>
+          </dd>
+          <dt>
+            <span class="name">callback</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Optional.  If present, called with an error object as its argument.</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p>Find all of the documents that match <code>selector</code> and delete them from
+the collection.</p>
+<p>The behavior of <code>remove</code> differs depending on whether it is called by
+trusted or untrusted code. Trusted code includes server code and
+method code. Untrusted code includes client-side code such as event
+handlers and a browser’s JavaScript console.</p>
+<ul>
+<li><p>Trusted code can use an arbitrary <a href="#selectors">Mongo selector</a> to
+find the documents to remove, and can remove more than one document
+at once by passing a selector that matches multiple documents. It
+bypasses any access control rules set up by <a href="#allow"><code>allow</code></a> and
+<a href="#deny"><code>deny</code></a>. The number of removed documents will be returned
+from <code>remove</code> if you don’t pass a callback.</p>
+<p>As a safety measure, if <code>selector</code> is omitted (or is <code>undefined</code>),
+no documents will be removed. Set <code>selector</code> to <code>{}</code> if you really
+want to remove all documents from your collection.</p>
+</li>
+<li><p>Untrusted code can only remove a single document at a time,
+specified by its <code>_id</code>. The document is removed only after checking
+any applicable <a href="#allow"><code>allow</code></a> and <a href="#deny"><code>deny</code></a> rules. The
+number of removed documents will be returned to the callback.</p>
+</li>
+</ul>
+<p>On the server, if you don’t provide a callback, then <code>remove</code> blocks
+until the database acknowledges the write and then returns the number
+of removed documents, or throws an exception if
+something went wrong.  If you do provide a callback, <code>remove</code> returns
+immediately.  Once the remove completes, the callback is called with a
+single error argument in the case of failure, or a second argument
+indicating the number of removed documents if the remove was successful.</p>
+<p>On the client, <code>remove</code> never blocks.  If you do not provide a callback
+and the remove fails on the server, then Meteor will log a warning to the
+console.  If you provide a callback, Meteor will call that function with an
+error argument if there was an error, or a second argument indicating the number
+of removed documents if the remove was successful.</p>
+<p>Example (client):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// When the 'remove' button is clicked on a chat message, delete that message.</span></div><div class="line">Template.chat.events(&#123;</div><div class="line">  <span class="string">'click .remove'</span>() &#123;</div><div class="line">    Messages.remove(<span class="keyword">this</span>._id);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Example (server):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// When the server starts, clear the log and delete all players with a karma of</span></div><div class="line"><span class="comment">// less than -2.</span></div><div class="line">Meteor.startup(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (Meteor.isServer) &#123;</div><div class="line">    Logs.remove(&#123;&#125;);</div><div class="line">    Players.remove(&#123; <span class="attr">karma</span>: &#123; <span class="attr">$lt</span>: <span class="number">-2</span> &#125; &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Server
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;allow" class="title-api selflink" id="Mongo-Collection-allow">
+      <a href="#Mongo-Collection-allow" class="link primary">Mongo.Collection#allow(options)</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/allow-deny/allow-deny.html#L43" target="_blank">
+          (allow-deny/allow-deny.js, line 43)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Allow users to write directly to this collection from client code, subject to limitations you define.</p>
+    </div>
+
+
+      <h4 class="subheading">Options</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">insert, update, remove</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Functions that look at a proposed modification to the database and return true if it should be allowed.</p>
+          </dd>
+          <dt>
+            <span class="name">fetch</span>
+            <span class="type">Array of Strings</span>
+          </dt>
+          <dd>
+            <p>Optional performance enhancement. Limits the fields that will be fetched from the database for inspection by your <code>update</code> and <code>remove</code> functions.</p>
+          </dd>
+          <dt>
+            <span class="name">transform</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Overrides <code>transform</code> on the  <a href="#collections"><code>Collection</code></a>.  Pass <code>null</code> to disable transformation.</p>
+          </dd>
+      </dl>
+
+  </div>
+</div>
+
+<p>When a client calls <code>insert</code>, <code>update</code>, or <code>remove</code> on a collection, the
+collection’s <code>allow</code> and <a href="#deny"><code>deny</code></a> callbacks are called
+on the server to determine if the write should be allowed. If at least
+one <code>allow</code> callback allows the write, and no <code>deny</code> callbacks deny the
+write, then the write is allowed to proceed.</p>
+<p>These checks are run only when a client tries to write to the database
+directly, for example by calling <code>update</code> from inside an event
+handler. Server code is trusted and isn’t subject to <code>allow</code> and <code>deny</code>
+restrictions. That includes methods that are called with <code>Meteor.call</code>
+&mdash; they are expected to do their own access checking rather than
+relying on <code>allow</code> and <code>deny</code>.</p>
+<p>You can call <code>allow</code> as many times as you like, and each call can
+include any combination of <code>insert</code>, <code>update</code>, and <code>remove</code>
+functions. The functions should return <code>true</code> if they think the
+operation should be allowed. Otherwise they should return <code>false</code>, or
+nothing at all (<code>undefined</code>). In that case Meteor will continue
+searching through any other <code>allow</code> rules on the collection.</p>
+<p>The available callbacks are:</p>
+<dl class="callbacks">
+<dt><span class="name">insert(userId, doc)</span></dt><dd><p>The user <code>userId</code> wants to insert the document <code>doc</code> into the
+collection. Return <code>true</code> if this should be allowed.</p>
+<p><code>doc</code> will contain the <code>_id</code> field if one was explicitly set by the client, or
+if there is an active <code>transform</code>. You can use this to prevent users from
+specifying arbitrary <code>_id</code> fields.</p>
+</dd>
+
+<dt><span class="name">update(userId, doc, fieldNames, modifier)</span></dt><dd><p>The user <code>userId</code> wants to update a document <code>doc</code>. (<code>doc</code> is the
+current version of the document from the database, without the
+proposed update.) Return <code>true</code> to permit the change.</p>
+<p><code>fieldNames</code> is an array of the (top-level) fields in <code>doc</code> that the
+client wants to modify, for example
+<code>[&#39;name&#39;, &#39;score&#39;]</code>.</p>
+<p><code>modifier</code> is the raw Mongo modifier that
+the client wants to execute; for example,
+<code>{ $set: { &#39;name.first&#39;: &#39;Alice&#39; }, $inc: { score: 1 } }</code>.</p>
+<p>Only Mongo modifiers are supported (operations like <code>$set</code> and <code>$push</code>).
+If the user tries to replace the entire document rather than use
+$-modifiers, the request will be denied without checking the <code>allow</code>
+functions.</p>
+</dd>
+
+<dt><span class="name">remove(userId, doc)</span></dt><dd><p>The user <code>userId</code> wants to remove <code>doc</code> from the database. Return
+<code>true</code> to permit this.</p>
+</dd>
+
+</dl>
+
+<p>When calling <code>update</code> or <code>remove</code> Meteor will by default fetch the
+entire document <code>doc</code> from the database. If you have large documents
+you may wish to fetch only the fields that are actually used by your
+functions. Accomplish this by setting <code>fetch</code> to an array of field
+names to retrieve.</p>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Create a collection where users can only modify documents that they own.</span></div><div class="line"><span class="comment">// Ownership is tracked by an `owner` field on each document. All documents must</span></div><div class="line"><span class="comment">// be owned by the user that created them and ownership can't be changed. Only a</span></div><div class="line"><span class="comment">// document's owner is allowed to delete it, and the `locked` attribute can be</span></div><div class="line"><span class="comment">// set on a document to prevent its accidental deletion.</span></div><div class="line"><span class="keyword">const</span> Posts = <span class="keyword">new</span> Mongo.Collection(<span class="string">'posts'</span>);</div><div class="line"></div><div class="line">Posts.allow(&#123;</div><div class="line">  insert(userId, doc) &#123;</div><div class="line">    <span class="comment">// The user must be logged in and the document must be owned by the user.</span></div><div class="line">    <span class="keyword">return</span> userId &amp;&amp; doc.owner === userId;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  update(userId, doc, fields, modifier) &#123;</div><div class="line">    <span class="comment">// Can only change your own documents.</span></div><div class="line">    <span class="keyword">return</span> doc.owner === userId;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  remove(userId, doc) &#123;</div><div class="line">    <span class="comment">// Can only remove your own documents.</span></div><div class="line">    <span class="keyword">return</span> doc.owner === userId;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">fetch</span>: [<span class="string">'owner'</span>]</div><div class="line">&#125;);</div><div class="line"></div><div class="line">Posts.deny(&#123;</div><div class="line">  update(userId, doc, fields, modifier) &#123;</div><div class="line">    <span class="comment">// Can't change owners.</span></div><div class="line">    <span class="keyword">return</span> _.contains(fields, <span class="string">'owner'</span>);</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  remove(userId, doc) &#123;</div><div class="line">    <span class="comment">// Can't remove locked documents.</span></div><div class="line">    <span class="keyword">return</span> doc.locked;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">fetch</span>: [<span class="string">'locked'</span>] <span class="comment">// No need to fetch `owner`</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>If you never set up any <code>allow</code> rules on a collection then all client
+writes to the collection will be denied, and it will only be possible to
+write to the collection from server-side code. In this case you will
+have to create a method for each possible write that clients are allowed
+to do. You’ll then call these methods with <code>Meteor.call</code> rather than
+having the clients call <code>insert</code>, <code>update</code>, and <code>remove</code> directly on the
+collection.</p>
+<p>Meteor also has a special “insecure mode” for quickly prototyping new
+applications. In insecure mode, if you haven’t set up any <code>allow</code> or <code>deny</code>
+rules on a collection, then all users have full write access to the
+collection. This is the only effect of insecure mode. If you call <code>allow</code> or
+<code>deny</code> at all on a collection, even <code>Posts.allow({})</code>, then access is checked
+just like normal on that collection. <strong>New Meteor projects start in insecure
+mode by default.</strong> To turn it off just run in your terminal:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor remove insecure</div></pre></td></tr></table></figure>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Server
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;deny" class="title-api selflink" id="Mongo-Collection-deny">
+      <a href="#Mongo-Collection-deny" class="link primary">Mongo.Collection#deny(options)</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/allow-deny/allow-deny.html#L58" target="_blank">
+          (allow-deny/allow-deny.js, line 58)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Override <code>allow</code> rules.</p>
+    </div>
+
+
+      <h4 class="subheading">Options</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">insert, update, remove</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Functions that look at a proposed modification to the database and return true if it should be denied, even if an <a href="#allow">allow</a> rule says otherwise.</p>
+          </dd>
+          <dt>
+            <span class="name">fetch</span>
+            <span class="type">Array of Strings</span>
+          </dt>
+          <dd>
+            <p>Optional performance enhancement. Limits the fields that will be fetched from the database for inspection by your <code>update</code> and <code>remove</code> functions.</p>
+          </dd>
+          <dt>
+            <span class="name">transform</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Overrides <code>transform</code> on the  <a href="#collections"><code>Collection</code></a>.  Pass <code>null</code> to disable transformation.</p>
+          </dd>
+      </dl>
+
+  </div>
+</div>
+
+<p>This works just like <a href="#allow"><code>allow</code></a>, except it lets you
+make sure that certain writes are definitely denied, even if there is an
+<code>allow</code> rule that says that they should be permitted.</p>
+<p>When a client tries to write to a collection, the Meteor server first
+checks the collection’s <code>deny</code> rules. If none of them return true then
+it checks the collection’s <code>allow</code> rules. Meteor allows the write only
+if no <code>deny</code> rules return <code>true</code> and at least one <code>allow</code> rule returns
+<code>true</code>.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Server
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;rawCollection" class="title-api selflink" id="Mongo-Collection-rawCollection">
+      <a href="#Mongo-Collection-rawCollection" class="link primary">Mongo.Collection#rawCollection()</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/mongo/collection.html#L709" target="_blank">
+          (mongo/collection.js, line 709)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Returns the <a href="http://mongodb.github.io/node-mongodb-native/2.2/api/Collection.html" target="_blank" rel="external"><code>Collection</code></a> object corresponding to this collection from the <a href="https://www.npmjs.com/package/mongodb" target="_blank" rel="external">npm <code>mongodb</code> driver module</a> which is wrapped by <code>Mongo.Collection</code>.</p>
+    </div>
+
+
+
+  </div>
+</div>
+
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Server
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;rawDatabase" class="title-api selflink" id="Mongo-Collection-rawDatabase">
+      <a href="#Mongo-Collection-rawDatabase" class="link primary">Mongo.Collection#rawDatabase()</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/mongo/collection.html#L721" target="_blank">
+          (mongo/collection.js, line 721)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Returns the <a href="http://mongodb.github.io/node-mongodb-native/2.2/api/Db.html" target="_blank" rel="external"><code>Db</code></a> object corresponding to this collection's database connection from the <a href="https://www.npmjs.com/package/mongodb" target="_blank" rel="external">npm <code>mongodb</code> driver module</a> which is wrapped by <code>Mongo.Collection</code>.</p>
+    </div>
+
+
+
+  </div>
+</div>
+
+<h2 id="mongo_cursor">Cursors</h2>
+
+<p>To create a cursor, use <a href="#find"><code>find</code></a>.  To access the documents in a
+cursor, use <a href="#foreach"><code>forEach</code></a>, <a href="#map"><code>map</code></a>, or <a href="#fetch"><code>fetch</code></a>.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;forEach" class="title-api selflink" id="Mongo-Cursor-forEach">
+      <a href="#Mongo-Cursor-forEach" class="link primary">Mongo.Cursor#forEach(callback, [thisArg])</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/minimongo/minimongo.html#L151" target="_blank">
+          (minimongo/minimongo.js, line 151)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Call <code>callback</code> once for each matching document, sequentially and synchronously.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">callback</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Function to call. It will be called with three arguments: the document, a 0-based index, and <em>cursor</em> itself.</p>
+          </dd>
+          <dt>
+            <span class="name">thisArg</span>
+            <span class="type">Any</span>
+          </dt>
+          <dd>
+            <p>An object which will be the value of <code>this</code> inside <code>callback</code>.</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p>This interface is compatible with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="external">Array.forEach</a>.</p>
+<p>When called from a reactive computation, <code>forEach</code> registers dependencies on
+the matching documents.</p>
+<p>Examples:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Print the titles of the five top-scoring posts.</span></div><div class="line"><span class="keyword">const</span> topPosts = Posts.find(&#123;&#125;, &#123; <span class="attr">sort</span>: &#123; <span class="attr">score</span>: <span class="number">-1</span> &#125;, <span class="attr">limit</span>: <span class="number">5</span> &#125;);</div><div class="line"><span class="keyword">let</span> count = <span class="number">0</span>;</div><div class="line"></div><div class="line">topPosts.forEach(<span class="function">(<span class="params">post</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`Title of post <span class="subst">$&#123;count&#125;</span>: <span class="subst">$&#123;post.title&#125;</span>`</span>);</div><div class="line">  count += <span class="number">1</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;map" class="title-api selflink" id="Mongo-Cursor-map">
+      <a href="#Mongo-Cursor-map" class="link primary">Mongo.Cursor#map(callback, [thisArg])</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/minimongo/minimongo.html#L187" target="_blank">
+          (minimongo/minimongo.js, line 187)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Map callback over all matching documents.  Returns an Array.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">callback</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Function to call. It will be called with three arguments: the document, a 0-based index, and <em>cursor</em> itself.</p>
+          </dd>
+          <dt>
+            <span class="name">thisArg</span>
+            <span class="type">Any</span>
+          </dt>
+          <dd>
+            <p>An object which will be the value of <code>this</code> inside <code>callback</code>.</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p>This interface is compatible with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="external">Array.map</a>.</p>
+<p>When called from a reactive computation, <code>map</code> registers dependencies on
+the matching documents.</p>
+<!-- The following is not yet implemented, but users shouldn't assume
+     sequential execution anyway because that will break. -->
+<p>On the server, if <code>callback</code> yields, other calls to <code>callback</code> may occur while
+the first call is waiting. If strict sequential execution is necessary, use
+<code>forEach</code> instead.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;fetch" class="title-api selflink" id="Mongo-Cursor-fetch">
+      <a href="#Mongo-Cursor-fetch" class="link primary">Mongo.Cursor#fetch()</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/minimongo/minimongo.html#L205" target="_blank">
+          (minimongo/minimongo.js, line 205)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Return all matching documents as an Array.</p>
+    </div>
+
+
+
+  </div>
+</div>
+
+<p>When called from a reactive computation, <code>fetch</code> registers dependencies on
+the matching documents.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;count" class="title-api selflink" id="Mongo-Cursor-count">
+      <a href="#Mongo-Cursor-count" class="link primary">Mongo.Cursor#count()</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/minimongo/minimongo.html#L222" target="_blank">
+          (minimongo/minimongo.js, line 222)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Returns the number of documents that match a query.</p>
+    </div>
+
+
+
+  </div>
+</div>
+
+<p>Unlike the other functions, <code>count</code> registers a dependency only on the
+number of matching documents.  (Updates that just change or reorder the
+documents in the result set will not trigger a recomputation.)</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;observe" class="title-api selflink" id="Mongo-Cursor-observe">
+      <a href="#Mongo-Cursor-observe" class="link primary">Mongo.Cursor#observe(callbacks)</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/minimongo/minimongo.html#L309" target="_blank">
+          (minimongo/minimongo.js, line 309)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Watch a query.  Receive callbacks as the result set changes.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">callbacks</span>
+            <span class="type">Object</span>
+          </dt>
+          <dd>
+            <p>Functions to call to deliver the result set as it changes</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p>Establishes a <em>live query</em> that invokes callbacks when the result of
+the query changes. The callbacks receive the entire contents of the
+document that was affected, as well as its old contents, if
+applicable. If you only need to receive the fields that changed, see
+<a href="#observe_changes"><code>observeChanges</code></a>.</p>
+<p><code>callbacks</code> may have the following functions as properties:</p>
+<dl class="callbacks">
+<dt><span class="name">added(document)</span> <span class="or">or</span></dt>
+<dt><span class="name">addedAt(document, atIndex, before)</span></dt>
+<dd>
+A new document <code>document</code> entered the result set. The new document
+appears at position <code>atIndex</code>. It is immediately before the document
+whose <code>_id</code> is <code>before</code>. <code>before</code> will be <code>null</code> if the new document
+is at the end of the results.
+</dd>
+
+<dt><span class="name">changed(newDocument, oldDocument)
+    <span class="or">or</span></span></dt>
+<dt><span class="name">changedAt(newDocument, oldDocument, atIndex)</span></dt>
+<dd>
+The contents of a document were previously <code>oldDocument</code> and are now
+<code>newDocument</code>. The position of the changed document is <code>atIndex</code>.
+</dd>
+
+<dt><span class="name">removed(oldDocument)</span>
+  <span class="or">or</span></dt>
+<dt><span class="name">removedAt(oldDocument, atIndex)</span></dt>
+<dd>
+The document <code>oldDocument</code> is no longer in the result set. It used to be at position <code>atIndex</code>.
+</dd>
+
+<dt><span class="name">movedTo(document, fromIndex, toIndex, before)</span></dt><dd><p>A document changed its position in the result set, from <code>fromIndex</code> to <code>toIndex</code>
+(which is before the document with id <code>before</code>). Its current contents is
+<code>document</code>.</p>
+</dd>
+</dl>
+
+<p>Use <code>added</code>, <code>changed</code>, and <code>removed</code> when you don’t care about the
+order of the documents in the result set. They are more efficient than
+<code>addedAt</code>, <code>changedAt</code>, and <code>removedAt</code>.</p>
+<p>Before <code>observe</code> returns, <code>added</code> (or <code>addedAt</code>) will be called zero
+or more times to deliver the initial results of the query.</p>
+<p><code>observe</code> returns a live query handle, which is an object with a <code>stop</code> method.
+Call <code>stop</code> with no arguments to stop calling the callback functions and tear
+down the query. <strong>The query will run forever until you call this.</strong>  If
+<code>observe</code> is called from a <code>Tracker.autorun</code> computation, it is automatically
+stopped when the computation is rerun or stopped.
+(If the cursor was created with the option <code>reactive</code> set to false, it will
+only deliver the initial results and will not call any further callbacks;
+it is not necessary to call <code>stop</code> on the handle.)</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;#&lt;/em&gt;observeChanges" class="title-api selflink" id="Mongo-Cursor-observeChanges">
+      <a href="#Mongo-Cursor-observeChanges" class="link primary">Mongo.Cursor#observeChanges(callbacks)</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/minimongo/minimongo.html#L321" target="_blank">
+          (minimongo/minimongo.js, line 321)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Watch a query.  Receive callbacks as the result set changes.  Only the differences between the old and new documents are passed to the callbacks.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">callbacks</span>
+            <span class="type">Object</span>
+          </dt>
+          <dd>
+            <p>Functions to call to deliver the result set as it changes</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p>Establishes a <em>live query</em> that invokes callbacks when the result of
+the query changes. In contrast to <a href="#observe"><code>observe</code></a>,
+<code>observeChanges</code> provides only the difference between the old and new
+result set, not the entire contents of the document that changed.</p>
+<p><code>callbacks</code> may have the following functions as properties:</p>
+<dl class="callbacks">
+<dt><span class="name">added(id, fields)</span>
+  <span class="or">or</span></dt>
+<dt><span class="name">addedBefore(id, fields, before)</span></dt>
+<dd>
+A new document entered the result set. It has the <code>id</code> and <code>fields</code>
+specified. <code>fields</code> contains all fields of the document excluding the
+<code>_id</code> field. The new document is before the document identified by
+<code>before</code>, or at the end if <code>before</code> is <code>null</code>.
+</dd>
+
+<dt><span class="name">changed(id, fields)</span></dt><dd><p>The document identified by <code>id</code> has changed. <code>fields</code> contains the
+changed fields with their new values. If a field was removed from the
+document then it will be present in <code>fields</code> with a value of
+<code>undefined</code>.</p>
+</dd>
+
+<dt><span class="name">movedBefore(id, before)</span></dt><dd><p>The document identified by <code>id</code> changed its position in the ordered result set,
+and now appears before the document identified by <code>before</code>.</p>
+</dd>
+
+<dt><span class="name">removed(id)</span></dt><dd><p>The document identified by <code>id</code> was removed from the result set.</p>
+</dd>
+</dl>
+
+<p><code>observeChanges</code> is significantly more efficient if you do not use
+<code>addedBefore</code> or <code>movedBefore</code>.</p>
+<p>Before <code>observeChanges</code> returns, <code>added</code> (or <code>addedBefore</code>) will be called
+zero or more times to deliver the initial results of the query.</p>
+<p><code>observeChanges</code> returns a live query handle, which is an object with a <code>stop</code>
+method.  Call <code>stop</code> with no arguments to stop calling the callback functions
+and tear down the query. <strong>The query will run forever until you call this.</strong>
+If
+<code>observeChanges</code> is called from a <code>Tracker.autorun</code> computation, it is automatically
+stopped when the computation is rerun or stopped.
+(If the cursor was created with the option <code>reactive</code> set to false, it will
+only deliver the initial results and will not call any further callbacks;
+it is not necessary to call <code>stop</code> on the handle.)</p>
+<blockquote>
+<p>Unlike <code>observe</code>, <code>observeChanges</code> does not provide absolute position
+information (that is, <code>atIndex</code> positions rather than <code>before</code>
+positions.) This is for efficiency.</p>
+</blockquote>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Keep track of how many administrators are online.</span></div><div class="line"><span class="keyword">let</span> count = <span class="number">0</span>;</div><div class="line"><span class="keyword">const</span> cursor = Users.find(&#123; <span class="attr">admin</span>: <span class="literal">true</span>, <span class="attr">onlineNow</span>: <span class="literal">true</span> &#125;);</div><div class="line"></div><div class="line"><span class="keyword">const</span> handle = cursor.observeChanges(&#123;</div><div class="line">  added(id, user) &#123;</div><div class="line">    count += <span class="number">1</span>;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;user.name&#125;</span> brings the total to <span class="subst">$&#123;count&#125;</span> admins.`</span>);</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  removed() &#123;</div><div class="line">    count -= <span class="number">1</span>;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`Lost one. We're now down to <span class="subst">$&#123;count&#125;</span> admins.`</span>);</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// After five seconds, stop keeping the count.</span></div><div class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> handle.stop(), <span class="number">5000</span>);</div></pre></td></tr></table></figure>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h2 title="&lt;em&gt;#&lt;/em&gt;ObjectID" class="title-api selflink" id="Mongo-ObjectID">
+      <a href="#Mongo-ObjectID" class="link primary">new Mongo.ObjectID([hexString])</a>
+    </h2>
+
+    <div class="subtext-api">
+        <div class="code">import { Mongo } from 'meteor/mongo'</div>
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/mongo/collection.html#L736" target="_blank">
+          (mongo/collection.js, line 736)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Create a Mongo-style <code>ObjectID</code>.  If you don't specify a <code>hexString</code>, the <code>ObjectID</code> will generated randomly (not using MongoDB's ID construction rules).</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">hexString</span>
+            <span class="type">String</span>
+          </dt>
+          <dd>
+            <p>Optional.  The 24-character hexadecimal contents of the ObjectID to create</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p><code>Mongo.ObjectID</code> follows the same API as the <a href="http://mongodb.github.io/node-mongodb-native/2.2/api/ObjectID.html" target="_blank" rel="external">Node MongoDB driver
+<code>ObjectID</code></a>
+class. Note that you must use the <code>equals</code> method (or <a href="#ejson_equals"><code>EJSON.equals</code></a>) to
+compare them; the <code>===</code> operator will not work. If you are writing generic code
+that needs to deal with <code>_id</code> fields that may be either strings or <code>ObjectID</code>s, use
+<a href="#ejson_equals"><code>EJSON.equals</code></a> instead of <code>===</code> to compare them.</p>
+<blockquote>
+<p>  <code>ObjectID</code> values created by Meteor will not have meaningful answers to their <code>getTimestamp</code>
+  method, since Meteor currently constructs them fully randomly.</p>
+</blockquote>
+<h2 id="selectors">Mongo-Style Selectors</h2>
+
+<p>The simplest selectors are just a string or
+<a href="#mongo_object_id"><code>Mongo.ObjectID</code></a>. These selectors match the
+document with that value in its <code>_id</code> field.</p>
+<p>A slightly more complex form of selector is an object containing a set of keys
+that must match in a document:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Matches all documents where `deleted` is false.</span></div><div class="line">&#123; <span class="attr">deleted</span>: <span class="literal">false</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// Matches all documents where the `name` and `cognomen` are as given.</span></div><div class="line">&#123; <span class="attr">name</span>: <span class="string">'Rhialto'</span>, <span class="attr">cognomen</span>: <span class="string">'the Marvelous'</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// Matches every document.</span></div><div class="line">&#123;&#125;</div></pre></td></tr></table></figure>
+<p>But they can also contain more complicated tests:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Matches documents where `age` is greater than 18.</span></div><div class="line">&#123; <span class="attr">age</span>: &#123; <span class="attr">$gt</span>: <span class="number">18</span> &#125; &#125;</div><div class="line"></div><div class="line"><span class="comment">// Matches documents where `tags` is an array containing 'popular'.</span></div><div class="line">&#123; <span class="attr">tags</span>: <span class="string">'popular'</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// Matches documents where `fruit` is one of three possibilities.</span></div><div class="line">&#123; <span class="attr">fruit</span>: &#123; <span class="attr">$in</span>: [<span class="string">'peach'</span>, <span class="string">'plum'</span>, <span class="string">'pear'</span>] &#125; &#125;</div></pre></td></tr></table></figure>
+<p>See the <a href="http://docs.mongodb.org/manual/reference/operator/" target="_blank" rel="external">complete
+documentation</a>.</p>
+<h2 id="modifiers">Mongo-Style Modifiers</h2>
+
+<p>A modifier is an object that describes how to update a document in
+place by changing some of its fields. Some examples:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Set the `admin` property on the document to true.</span></div><div class="line">&#123; <span class="attr">$set</span>: &#123; <span class="attr">admin</span>: <span class="literal">true</span> &#125; &#125;</div><div class="line"></div><div class="line"><span class="comment">// Add 2 to the `votes` property and add 'Traz' to the end of the `supporters`</span></div><div class="line"><span class="comment">// array.</span></div><div class="line">&#123; <span class="attr">$inc</span>: &#123; <span class="attr">votes</span>: <span class="number">2</span> &#125;, <span class="attr">$push</span>: &#123; <span class="attr">supporters</span>: <span class="string">'Traz'</span> &#125; &#125;</div></pre></td></tr></table></figure>
+<p>But if a modifier doesn’t contain any $-operators, then it is instead
+interpreted as a literal document, and completely replaces whatever was
+previously in the database. (Literal document modifiers are not currently
+supported by <a href="#allow">validated updates</a>.)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Find the document with ID '123' and completely replace it.</span></div><div class="line">Users.update(&#123; <span class="attr">_id</span>: <span class="string">'123'</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">'Alice'</span>, <span class="attr">friends</span>: [<span class="string">'Bob'</span>] &#125;);</div></pre></td></tr></table></figure>
+<p>See the <a href="http://docs.mongodb.org/manual/reference/operator/update/" target="_blank" rel="external">full list of
+modifiers</a>.</p>
+<h2 id="sortspecifiers">Sort Specifiers</h2>
+
+<p>Sorts may be specified using your choice of several syntaxes:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// All of these do the same thing (sort in ascending order by key `a`, breaking</span></div><div class="line"><span class="comment">// ties in descending order of key `b`).</span></div><div class="line">[[<span class="string">'a'</span>, <span class="string">'asc'</span>], [<span class="string">'b'</span>, <span class="string">'desc'</span>]]</div><div class="line">[<span class="string">'a'</span>, [<span class="string">'b'</span>, <span class="string">'desc'</span>]]</div><div class="line">&#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">-1</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// Sorted by `createdAt` descending.</span></div><div class="line">Users.find(&#123;&#125;, &#123; <span class="attr">sort</span>: &#123; <span class="attr">createdAt</span>: <span class="number">-1</span> &#125; &#125;);</div><div class="line"></div><div class="line"><span class="comment">// Sorted by `createdAt` descending and by `name` ascending.</span></div><div class="line">Users.find(&#123;&#125;, &#123; <span class="attr">sort</span>: [[<span class="string">'createdAt'</span>, <span class="string">'desc'</span>], [<span class="string">'name'</span>, <span class="string">'asc'</span>]] &#125;);</div></pre></td></tr></table></figure>
+<p>The last form will only work if your JavaScript implementation
+preserves the order of keys in objects. Most do, most of the time, but
+it’s up to you to be sure.</p>
+<p>For local collections you can pass a comparator function which receives two
+document objects, and returns -1 if the first document comes first in order,
+1 if the second document comes first, or 0 if neither document comes before
+the other. This is a Minimongo extension to MongoDB.</p>
+<h2 id="fieldspecifiers">Field Specifiers</h2>
+
+<p>Queries can specify a particular set of fields to include or exclude from the
+result object.</p>
+<p>To exclude specific fields from the result objects, the field specifier is a
+dictionary whose keys are field names and whose values are <code>0</code>. All unspecified
+fields are included.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Users.find(&#123;&#125;, &#123; <span class="attr">fields</span>: &#123; <span class="attr">password</span>: <span class="number">0</span>, <span class="attr">hash</span>: <span class="number">0</span> &#125; &#125;);</div></pre></td></tr></table></figure>
+<p>To include only specific fields in the result documents, use <code>1</code> as
+the value. The <code>_id</code> field is still included in the result.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Users.find(&#123;&#125;, &#123; <span class="attr">fields</span>: &#123; <span class="attr">firstname</span>: <span class="number">1</span>, <span class="attr">lastname</span>: <span class="number">1</span> &#125; &#125;);</div></pre></td></tr></table></figure>
+<p>With one exception, it is not possible to mix inclusion and exclusion styles:
+the keys must either be all 1 or all 0.  The exception is that you may specify
+<code>_id: 0</code> in an inclusion specifier, which will leave <code>_id</code> out of the result
+object as well.  However, such field specifiers can not be used with
+<a href="#observe_changes"><code>observeChanges</code></a>, <a href="#observe"><code>observe</code></a>, cursors returned
+from a <a href="#meteor_publish">publish function</a>, or cursors used in
+<code>{% raw %}{{#each}}{% endraw %}</code> in a template. They may be used with <a href="#fetch"><code>fetch</code></a>,
+<a href="#findone"><code>findOne</code></a>, <a href="#foreach"><code>forEach</code></a>, and <a href="#map"><code>map</code></a>.</p>
+<p><a href="http://docs.mongodb.org/manual/reference/operator/projection/" target="_blank" rel="external">Field
+operators</a> such as <code>$</code> and <code>$elemMatch</code> are not available on the client side
+yet.</p>
+<p>A more advanced example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Users.insert(&#123;</div><div class="line">  <span class="attr">alterEgos</span>: [</div><div class="line">    &#123; <span class="attr">name</span>: <span class="string">'Kira'</span>, <span class="attr">alliance</span>: <span class="string">'murderer'</span> &#125;,</div><div class="line">    &#123; <span class="attr">name</span>: <span class="string">'L'</span>, <span class="attr">alliance</span>: <span class="string">'police'</span> &#125;</div><div class="line">  ],</div><div class="line">  <span class="attr">name</span>: <span class="string">'Yagami Light'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">Users.findOne(&#123;&#125;, &#123; <span class="attr">fields</span>: &#123; <span class="string">'alterEgos.name'</span>: <span class="number">1</span>, <span class="attr">_id</span>: <span class="number">0</span> &#125; &#125;);</div><div class="line"><span class="comment">// Returns &#123; alterEgos: [&#123; name: 'Kira' &#125;, &#123; name: 'L' &#125;] &#125;</span></div></pre></td></tr></table></figure>
+<p>See <a href="http://docs.mongodb.org/manual/tutorial/project-fields-from-query-results/#projection" target="_blank" rel="external">
+the MongoDB docs</a> for details of the nested field rules and array behavior.</p>
+<h2 id="mongo_url">Connecting to your database</h2>
+
+<p>When developing your application, Meteor starts a local MongoDB instance and
+automatically connects to it. In production, you must specify a <code>MONGO_URL</code>
+environment variable pointing at your database in <a href="https://docs.mongodb.com/manual/reference/connection-string" target="_blank" rel="external">the standard mongo connection
+string format</a>.</p>
+<blockquote>
+<p>You can also set <code>MONGO_URL</code> in development if you want to connect to a
+different MongoDB instance.</p>
+</blockquote>
+<p>If you want to use oplog tailing for livequeries, you should also set
+<code>MONGO_OPLOG_URL</code> (generally you’ll need a special user with oplog access, but
+the detail can differ depending on how you host your MongoDB. Read more <a href="https://github.com/meteor/docs/blob/master/long-form/oplog-observe-driver.md" target="_blank" rel="external">here</a>).</p>
+<blockquote>
+<p>As of Meteor 1.4, you must ensure you set the <code>replicaSet</code> parameter on your
+<code>METEOR_OPLOG_URL</code></p>
+</blockquote>
+
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="content-wrapper">
+      
+      
+        <a class="link primary prev"
+          href="connections.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Server Connections
+        </a>
+      
+      
+        <a class="link primary next"
+          href="session.html">
+          <span class="subtitle-pagination">Next</span>
+          Session
+          <span class="icon-arrow-right-alt"></span>
+        </a>
+      
+    </div>
+  </div>
+
+  <div class="github">
+    <a class="link tertiary " href="https://github.com/meteor/docs/tree/master/source/api/collections.md" target="_blank">
+      <span class="icon-github"></span>Edit on GitHub</a>
+  </div>
+
+  
+</div>
+
+    <script src="../assets/script/smooth-scroll.min.js"></script>
+    <script src="../assets/script/main.js"></script>
+    <script type="text/javascript" src="../../cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
+    <script type="text/javascript" src="../../cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+    <script>
+      // nectar ninja
+      (function(){
+        var handle = '@meteorjs';
+        var a = document.createElement('script');
+        var m = document.getElementsByTagName('script')[0];
+        a.async = 1;
+        a.src = 'https://nectar.ninja/api/v1/' + handle.slice(1);
+        m.parentNode.insertBefore(a, m);
+      })();
+
+     
+      
+        // Segment Tracking
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+        analytics.load("zQx6cQifkTU79E3L0XAnmrOXP2A5bC6r");
+        analytics.page()
+        }}();
+      
+
+      // search box
+      
+
+        ['desktop'].forEach(function(type) {
+          var search = docsearch({
+            apiKey: 'bdf6b09d12024f6bae3631a0dfdd4a7f',
+            indexName: 'meteor_api_guide',
+            inputSelector: '#' + type + '-search-input',
+            autocompleteOptions: {
+              dropdownMenuContainer: '.wrapper-' + type + '-search-results',
+              debug: true
+            },
+            algoliaOptions: {
+              hitsPerPage: 20
+            }
+          }).autocomplete;
+
+          var sidebar = document.querySelector('.sidebar-content');
+          search.on('autocomplete:opened', function() {
+            sidebar.classList.add('searching');
+          });
+          search.on('autocomplete:closed', function() {
+            sidebar.classList.remove('searching');
+          });
+          search.on('autocomplete:updated', function() {
+            if (search.val() === '') {
+              search.autocomplete.close();
+            }
+          });
+        });
+      
+
+      
+        var REDIRECTS = {
+  "/#/full/meteor_isclient": "api/core.html#Meteor-isClient",
+  "/#/full/meteor_isserver": "api/core.html#Meteor-isServer",
+  "/#/full/meteor_iscordova": "api/core.html#Meteor-isCordova",
+  "/#/full/meteor-isdevelopment": "api/core.html#meteor-isdevelopment",
+  "/#/full/meteor-isproduction": "api/core.html#meteor-isproduction",
+  "/#/full/meteor_startup": "api/core.html#Meteor-startup",
+  "/#/full/meteor_wrapasync": "api/core.html#Meteor-wrapAsync",
+  "/#/full/meteor.defer": "api/core.html#meteor-defer",
+  "/#/full/meteor_absoluteurl": "api/core.html#Meteor-absoluteUrl",
+  "/#/full/meteor_settings": "api/core.html#Meteor-settings",
+  "/#/full/meteor_release": "api/core.html#Meteor-release",
+  "/#/full/meteor_publish": "api/pubsub.html#Meteor-publish",
+  "/#/full/publish_userid": "api/pubsub.html#publish_userid",
+  "/#/full/publish_added": "api/pubsub.html#Subscription-added",
+  "/#/full/publish_changed": "api/pubsub.html#Subscription-changed",
+  "/#/full/publish_removed": "api/pubsub.html#Subscription-removed",
+  "/#/full/publish_ready": "api/pubsub.html#Subscription-ready",
+  "/#/full/publish_onstop": "api/pubsub.html#Subscription-onStop",
+  "/#/full/publish_error": "api/pubsub.html#Subscription-error",
+  "/#/full/publish_stop": "api/pubsub.html#Subscription-stop",
+  "/#/full/publish_connection": "api/pubsub.html#Subscription-connection",
+  "/#/full/meteor_subscribe": "api/pubsub.html#Meteor-subscribe",
+  "/#/full/ddpratelimiter": "api/methods.html#ddpratelimiter",
+  "/#/full/meteor_methods": "api/methods.html#Meteor-methods",
+  "/#/full/method_userid": "api/methods.html#method_userid",
+  "/#/full/method_setuserid": "api/methods.html#method_setuserid",
+  "/#/full/method_issimulation": "api/methods.html#DDPCommon-MethodInvocation-isSimulation",
+  "/#/full/method_unblock": "api/methods.html#DDPCommon-MethodInvocation-unblock",
+  "/#/full/method_connection": "api/methods.html#DDPCommon-MethodInvocation-connection",
+  "/#/full/meteor_error": "api/methods.html#Meteor-Error",
+  "/#/full/meteor_call": "api/methods.html#Meteor-call",
+  "/#/full/meteor_apply": "api/methods.html#Meteor-apply",
+  "/#/full/check": "api/check.html#check",
+  "/#/full/match_test": "api/check.html#Match-test",
+  "/#/full/match patterns": "api/check.html#match patterns",
+  "/#/full/meteor_status": "api/connections.html#Meteor-status",
+  "/#/full/meteor_reconnect": "api/connections.html#Meteor-reconnect",
+  "/#/full/meteor_disconnect": "api/connections.html#Meteor-disconnect",
+  "/#/full/meteor_onconnection": "api/connections.html#Meteor-onConnection",
+  "/#/full/ddp_connect": "api/connections.html#DDP-connect",
+  "/#/full/mongo_collection": "api/collections.html#Mongo-Collection",
+  "/#/full/find": "api/collections.html#Mongo-Collection-find",
+  "/#/full/findone": "api/collections.html#Mongo-Collection-findOne",
+  "/#/full/insert": "api/collections.html#Mongo-Collection-insert",
+  "/#/full/update": "api/collections.html#Mongo-Collection-update",
+  "/#/full/upsert": "api/collections.html#Mongo-Collection-upsert",
+  "/#/full/remove": "api/collections.html#Mongo-Collection-remove",
+  "/#/full/allow": "api/collections.html#Mongo-Collection-allow",
+  "/#/full/deny": "api/collections.html#Mongo-Collection-deny",
+  "/#/full/mongo-collection-rawcollection": "api/collections.html#mongo-collection-rawcollection",
+  "/#/full/mongo-collection-rawdatabase": "api/collections.html#mongo-collection-rawdatabase",
+  "/#/full/mongo.cursor": "api/collections.html#mongo-cursor",
+  "/#/full/foreach": "api/collections.html#Mongo-Cursor-forEach",
+  "/#/full/map": "api/collections.html#Mongo-Cursor-map",
+  "/#/full/fetch": "api/collections.html#Mongo-Cursor-fetch",
+  "/#/full/count": "api/collections.html#Mongo-Cursor-count",
+  "/#/full/observe": "api/collections.html#Mongo-Cursor-observe",
+  "/#/full/observe_changes": "api/collections.html#Mongo-Cursor-observeChanges",
+  "/#/full/mongo_object_id": "api/collections.html#Mongo-ObjectID",
+  "/#/full/selectors": "api/collections.html#selectors",
+  "/#/full/modifiers": "api/collections.html#modifiers",
+  "/#/full/sort specifiers": "api/collections.html#sort specifiers",
+  "/#/full/field specifiers": "api/collections.html#field specifiers",
+  "/#/full/session_set": "api/session.html#Session-set",
+  "/#/full/session_set_default": "api/session.html#Session-setDefault",
+  "/#/full/session_get": "api/session.html#Session-get",
+  "/#/full/session_equals": "api/session.html#Session-equals",
+  "/#/full/meteor_user": "api/accounts.html#Meteor-user",
+  "/#/full/meteor_userid": "api/accounts.html#Meteor-userId",
+  "/#/full/meteor_users": "api/accounts.html#Meteor-users",
+  "/#/full/meteor_loggingin": "api/accounts.html#Meteor-loggingIn",
+  "/#/full/meteor_logout": "api/accounts.html#Meteor-logout",
+  "/#/full/meteor_logoutotherclients": "api/accounts.html#Meteor-logoutOtherClients",
+  "/#/full/meteor_loginwithpassword": "api/accounts.html#Meteor-loginWithPassword",
+  "/#/full/meteor_loginwithexternalservice": "api/accounts.html#Meteor-loginWith<ExternalService>",
+  "/#/full/template_currentuser": "api/accounts.html#currentUser",
+  "/#/full/template_loggingin": "api/accounts.html#loggingIn",
+  "/#/full/accounts_ui_config": "api/accounts.html#Accounts-ui-config",
+  "/#/full/accountsclient": "api/accounts-multi.html#AccountsClient",
+  "/#/full/accountsserver": "api/accounts-multi.html#AccountsServer",
+  "/#/full/accounts_userid": "api/accounts-multi.html#AccountsCommon-userId",
+  "/#/full/accounts_user": "api/accounts-multi.html#AccountsCommon-user",
+  "/#/full/accounts_config": "api/accounts-multi.html#AccountsCommon-config",
+  "/#/full/accounts_onlogin": "api/accounts-multi.html#AccountsCommon-onLogin",
+  "/#/full/accounts_onloginfailure": "api/accounts-multi.html#AccountsCommon-onLoginFailure",
+  "/#/full/accounts_loggingin": "api/accounts-multi.html#AccountsClient-loggingIn",
+  "/#/full/accounts_logout": "api/accounts-multi.html#AccountsClient-logout",
+  "/#/full/accounts_logoutotherclients": "api/accounts-multi.html#AccountsClient-logoutOtherClients",
+  "/#/full/accounts_oncreateuser": "api/accounts-multi.html#AccountsServer-onCreateUser",
+  "/#/full/accounts_validateloginattempt": "api/accounts-multi.html#AccountsServer-validateLoginAttempt",
+  "/#/full/accounts_validatenewuser": "api/accounts-multi.html#AccountsServer-validateNewUser",
+  "/#/full/accounts_createuser": "api/passwords.html#Accounts-createUser",
+  "/#/full/accounts-setusername": "api/passwords.html#accounts-setusername",
+  "/#/full/accounts-addemail": "api/passwords.html#accounts-addemail",
+  "/#/full/accounts-removeemail": "api/passwords.html#accounts-removeemail",
+  "/#/full/accounts_verifyemail": "api/passwords.html#Accounts-verifyEmail",
+  "/#/full/accounts-finduserbyusername": "api/passwords.html#accounts-finduserbyusername",
+  "/#/full/accounts-finduserbyemail": "api/passwords.html#accounts-finduserbyemail",
+  "/#/full/accounts_changepassword": "api/passwords.html#Accounts-changePassword",
+  "/#/full/accounts_forgotpassword": "api/passwords.html#Accounts-forgotPassword",
+  "/#/full/accounts_resetpassword": "api/passwords.html#Accounts-resetPassword",
+  "/#/full/accounts_setpassword": "api/passwords.html#Accounts-setPassword",
+  "/#/full/accounts_sendresetpasswordemail": "api/passwords.html#Accounts-sendResetPasswordEmail",
+  "/#/full/accounts_sendenrollmentemail": "api/passwords.html#Accounts-sendEnrollmentEmail",
+  "/#/full/accounts_sendverificationemail": "api/passwords.html#Accounts-sendVerificationEmail",
+  "/#/full/accounts-onresetpasswordlink": "api/passwords.html#accounts-onresetpasswordlink",
+  "/#/full/accounts-onenrollmentlink": "api/passwords.html#accounts-onenrollmentlink",
+  "/#/full/accounts-onemailverificationlink": "api/passwords.html#accounts-onemailverificationlink",
+  "/#/full/accounts_emailtemplates": "api/passwords.html#Accounts-emailTemplates",
+  "/#/full/templates_api": "api/templates.html#templates_api",
+  "/#/full/template_events": "api/templates.html#Template-events",
+  "/#/full/template_helpers": "api/templates.html#Template-helpers",
+  "/#/full/template_onrendered": "api/templates.html#template_onrendered",
+  "/#/full/template_oncreated": "api/templates.html#template_oncreated",
+  "/#/full/template_ondestroyed": "api/templates.html#template_ondestroyed",
+  "/#/full/template_inst": "api/templates.html#template_inst",
+  "/#/full/template_findall": "api/templates.html#template_findall",
+  "/#/full/template_$": "api/templates.html#Blaze-TemplateInstance-$",
+  "/#/full/template_find": "api/templates.html#Blaze-TemplateInstance-find",
+  "/#/full/template_firstnode": "api/templates.html#template_firstnode",
+  "/#/full/template_lastnode": "api/templates.html#template_lastnode",
+  "/#/full/template_data": "api/templates.html#Blaze-TemplateInstance-data",
+  "/#/full/template_autorun": "api/templates.html#Blaze-TemplateInstance-autorun",
+  "/#/full/blaze-templateinstance-subscribe": "api/templates.html#blaze-templateinstance-subscribe",
+  "/#/full/template_view": "api/templates.html#Blaze-TemplateInstance-view",
+  "/#/full/template_registerhelper": "api/templates.html#Template-registerHelper",
+  "/#/full/template_instance": "api/templates.html#Template-instance",
+  "/#/full/template_currentdata": "api/templates.html#Template-currentData",
+  "/#/full/template_parentdata": "api/templates.html#Template-parentData",
+  "/#/full/template_body": "api/templates.html#Template-body",
+  "/#/full/template_dynamic": "api/templates.html#Template-dynamic",
+  "/#/full/event maps": "api/templates.html#event maps",
+  "/#/full/spacebars": "api/templates.html#spacebars",
+  "/#/full/blaze_render": "api/blaze.html#Blaze-render",
+  "/#/full/blaze_renderwithdata": "api/blaze.html#Blaze-renderWithData",
+  "/#/full/blaze_remove": "api/blaze.html#Blaze-remove",
+  "/#/full/blaze_getdata": "api/blaze.html#Blaze-getData",
+  "/#/full/blaze_tohtml": "api/blaze.html#Blaze-toHTML",
+  "/#/full/blaze_tohtmlwithdata": "api/blaze.html#Blaze-toHTMLWithData",
+  "/#/full/blaze_view": "api/blaze.html#Blaze-View",
+  "/#/full/blaze_currentview": "api/blaze.html#Blaze-currentView",
+  "/#/full/blaze_getview": "api/blaze.html#Blaze-getView",
+  "/#/full/blaze_with": "api/blaze.html#Blaze-With",
+  "/#/full/blaze_if": "api/blaze.html#Blaze-If",
+  "/#/full/blaze_unless": "api/blaze.html#Blaze-Unless",
+  "/#/full/blaze_each": "api/blaze.html#Blaze-Each",
+  "/#/full/blaze_template": "api/blaze.html#Blaze-Template",
+  "/#/full/blaze_istemplate": "api/blaze.html#Blaze-isTemplate",
+  "/#/full/renderable_content": "api/blaze.html#renderable_content",
+  "/#/full/meteor_settimeout": "api/timers.html#Meteor-setTimeout",
+  "/#/full/meteor_setinterval": "api/timers.html#Meteor-setInterval",
+  "/#/full/meteor_cleartimeout": "api/timers.html#Meteor-clearTimeout",
+  "/#/full/meteor_clearinterval": "api/timers.html#Meteor-clearInterval",
+  "/#/full/tracker_autorun": "api/tracker.html#Tracker-autorun",
+  "/#/full/tracker_flush": "api/tracker.html#Tracker-flush",
+  "/#/full/tracker_nonreactive": "api/tracker.html#Tracker-nonreactive",
+  "/#/full/tracker_active": "api/tracker.html#Tracker-active",
+  "/#/full/tracker_currentcomputation": "api/tracker.html#Tracker-currentComputation",
+  "/#/full/tracker_oninvalidate": "api/tracker.html#Tracker-onInvalidate",
+  "/#/full/tracker_afterflush": "api/tracker.html#Tracker-afterFlush",
+  "/#/full/tracker.computation": "api/tracker.html#tracker-computation",
+  "/#/full/computation_stop": "api/tracker.html#Tracker-Computation-stop",
+  "/#/full/computation_invalidate": "api/tracker.html#Tracker-Computation-invalidate",
+  "/#/full/computation_oninvalidate": "api/tracker.html#Tracker-Computation-onInvalidate",
+  "/#/full/computation_onstop": "api/tracker.html#Tracker-Computation-onStop",
+  "/#/full/computation_stopped": "api/tracker.html#Tracker-Computation-stopped",
+  "/#/full/computation_invalidated": "api/tracker.html#Tracker-Computation-invalidated",
+  "/#/full/computation_firstrun": "api/tracker.html#Tracker-Computation-firstRun",
+  "/#/full/tracker.dependency": "api/tracker.html#tracker-dependency",
+  "/#/full/dependency_changed": "api/tracker.html#Tracker-Dependency-changed",
+  "/#/full/dependency_depend": "api/tracker.html#Tracker-Dependency-depend",
+  "/#/full/dependency_hasdependents": "api/tracker.html#Tracker-Dependency-hasDependents",
+  "/#/full/reactivevar": "api/reactivevar.html#ReactiveVar",
+  "/#/full/reactivevar_get": "api/reactivevar.html#ReactiveVar-get",
+  "/#/full/reactivevar_set": "api/reactivevar.html#ReactiveVar-set",
+  "/#/full/ejson_parse": "api/ejson.html#EJSON-parse",
+  "/#/full/ejson_stringify": "api/ejson.html#EJSON-stringify",
+  "/#/full/ejson_from_json_value": "api/ejson.html#EJSON-fromJSONValue",
+  "/#/full/ejson_to_json_value": "api/ejson.html#EJSON-toJSONValue",
+  "/#/full/ejson_equals": "api/ejson.html#EJSON-equals",
+  "/#/full/ejson_clone": "api/ejson.html#EJSON-clone",
+  "/#/full/ejson_new_binary": "api/ejson.html#EJSON-newBinary",
+  "/#/full/ejson_is_binary": "api/ejson.html#EJSON-isBinary",
+  "/#/full/ejson_add_type": "api/ejson.html#EJSON-addType",
+  "/#/full/ejson_type_typename": "api/ejson.html#ejson_type_typename",
+  "/#/full/ejson_type_tojsonvalue": "api/ejson.html#ejson_type_tojsonvalue",
+  "/#/full/ejson_type_clone": "api/ejson.html#EJSON-CustomType-clone",
+  "/#/full/ejson_type_equals": "api/ejson.html#EJSON-CustomType-equals",
+  "/#/full/http_call": "api/http.html#HTTP-call",
+  "/#/full/http_get": "api/http.html#HTTP-get",
+  "/#/full/http_post": "api/http.html#HTTP-post",
+  "/#/full/http_put": "api/http.html#HTTP-put",
+  "/#/full/http_del": "api/http.html#HTTP-del",
+  "/#/full/email_send": "api/email.html#Email-send",
+  "/#/full/assets_gettext": "api/assets.html#assets_gettext",
+  "/#/full/assets_getbinary": "api/assets.html#assets_getbinary",
+  "/#/full/packagedescription": "api/packagejs.html#packagedescription",
+  "/#/full/packagedefinition": "api/packagejs.html#packagedefinition",
+  "/#/full/pack_versions": "api/packagejs.html#PackageAPI-versionsFrom",
+  "/#/full/pack_use": "api/packagejs.html#PackageAPI-use",
+  "/#/full/pack_api_imply": "api/packagejs.html#PackageAPI-imply",
+  "/#/full/pack_export": "api/packagejs.html#PackageAPI-export",
+  "/#/full/pack_addfiles": "api/packagejs.html#pack_addfiles",
+  "/#/full/packageapi-addassets": "api/packagejs.html#packageapi-addassets",
+  "/#/full/packagetests": "api/packagejs.html#packagetests",
+  "/#/full/npm-depends": "api/packagejs.html#npm-depends",
+  "/#/full/npm-require": "api/packagejs.html#npm-require",
+  "/#/full/cordova-depends": "api/packagejs.html#cordova-depends",
+  "/#/full/package-registerbuildplugin": "api/packagejs.html#package-registerbuildplugin",
+  "/#/full/plugin-registersourcehandler": "api/packagejs.html#plugin-registersourcehandler",
+  "/#/full/app-info": "api/mobile-config.html#app-info",
+  "/#/full/app-setpreference": "api/mobile-config.html#app-setpreference",
+  "/#/full/app-accessrule": "api/mobile-config.html#app-accessrule",
+  "/#/full/app-configureplugin": "api/mobile-config.html#app-configureplugin",
+  "/#/full/app-icons": "api/mobile-config.html#app-icons",
+  "/#/full/app-launchscreens": "api/mobile-config.html#app-launchscreens",
+  "/#/full/meteorhelp": "commandline.html#meteorhelp",
+  "/#/full/meteorrun": "commandline.html#meteorrun",
+  "/#/full/meteordebug": "commandline.html#meteordebug",
+  "/#/full/meteorcreate": "commandline.html#meteorcreate",
+  "/#/full/meteorloginlogout": "commandline.html#meteorloginlogout",
+  "/#/full/meteordeploy": "commandline.html#meteordeploy",
+  "/#/full/meteorupdate": "commandline.html#meteorupdate",
+  "/#/full/meteoradd": "commandline.html#meteoradd",
+  "/#/full/meteorremove": "commandline.html#meteorremove",
+  "/#/full/meteorlist": "commandline.html#meteorlist",
+  "/#/full/meteormongo": "commandline.html#meteormongo",
+  "/#/full/meteorreset": "commandline.html#meteorreset",
+  "/#/full/meteorbuild": "commandline.html#meteorbuild",
+  "/#/full/meteorlint": "commandline.html#meteorlint",
+  "/#/full/meteorsearch": "commandline.html#meteorsearch",
+  "/#/full/meteorshow": "commandline.html#meteorshow",
+  "/#/full/meteorpublish": "commandline.html#meteorpublish",
+  "/#/full/meteorpublishforarch": "commandline.html#undefined",
+  "/#/full/meteorpublishrelease": "commandline.html#meteorpublishrelease",
+  "/#/full/meteortestpackages": "commandline.html#meteortestpackages",
+  "/#/full/meteoradmin": "commandline.html#meteoradmin",
+  "/#/full/meteorshell": "commandline.html#meteorshell",
+  "/#/full/core": "api/core.html",
+  "/#/full/pubsub": "api/pubsub.html",
+  "/#/full/methods": "api/methods.html",
+  "/#/full/methods_header": "api/methods.html",
+  "/#/full/check_package": "api/check.html",
+  "/#/full/connections": "api/connections.html",
+  "/#/full/collections": "api/collections.html",
+  "/#/full/session": "api/session.html",
+  "/#/full/accounts": "api/accounts.html",
+  "/#/full/accounts_api": "api/accounts.html",
+  "/#/full/accounts-multi": "api/accounts-multi.html",
+  "/#/full/advanced_accounts_api": "api/accounts-multi.html",
+  "/#/full/passwords": "api/passwords.html",
+  "/#/full/accounts_passwords": "api/passwords.html",
+  "/#/full/templates": "api/templates.html",
+  "/#/full/blaze": "api/blaze.html",
+  "/#/full/timers": "api/timers.html",
+  "/#/full/tracker": "api/tracker.html",
+  "/#/full/reactivevar_pkg": "api/reactivevar.html",
+  "/#/full/ejson": "api/ejson.html",
+  "/#/full/http": "api/http.html",
+  "/#/full/email": "api/email.html",
+  "/#/full/assets": "api/assets.html",
+  "/#/full/packagejs": "api/packagejs.html",
+  "/#/full/mobile-config": "api/mobile-config.html",
+  "/#/full/appcache": "packages/appcache.html",
+  "/#/full/accounts-ui": "packages/accounts-ui.html",
+  "/#/full/audit-argument-checks": "packages/audit-argument-checks.html",
+  "/#/full/coffeescript": "packages/coffeescript.html",
+  "/#/full/ecmascript": "packages/ecmascript.html",
+  "/#/full/jquery": "packages/jquery.html",
+  "/#/full/less": "packages/less.html",
+  "/#/full/markdown": "packages/markdown.html",
+  "/#/full/modules": "packages/modules.html",
+  "/#/full/oauth-encryption": "packages/oauth-encryption.html",
+  "/#/full/random": "packages/random.html",
+  "/#/full/spiderable": "packages/spiderable.html",
+  "/#/full/underscore": "packages/underscore.html",
+  "/#/full/webapp": "packages/webapp.html",
+  "#meteor_isclient": "api/core.html#Meteor-isClient",
+  "#meteor_isserver": "api/core.html#Meteor-isServer",
+  "#meteor_iscordova": "api/core.html#Meteor-isCordova",
+  "#meteor-isdevelopment": "api/core.html#meteor-isdevelopment",
+  "#meteor-isproduction": "api/core.html#meteor-isproduction",
+  "#meteor_startup": "api/core.html#Meteor-startup",
+  "#meteor_wrapasync": "api/core.html#Meteor-wrapAsync",
+  "#meteor.defer": "api/core.html#meteor-defer",
+  "#meteor_absoluteurl": "api/core.html#Meteor-absoluteUrl",
+  "#meteor_settings": "api/core.html#Meteor-settings",
+  "#meteor_release": "api/core.html#Meteor-release",
+  "#meteor_publish": "api/pubsub.html#Meteor-publish",
+  "#publish_userid": "api/pubsub.html#publish_userid",
+  "#publish_added": "api/pubsub.html#Subscription-added",
+  "#publish_changed": "api/pubsub.html#Subscription-changed",
+  "#publish_removed": "api/pubsub.html#Subscription-removed",
+  "#publish_ready": "api/pubsub.html#Subscription-ready",
+  "#publish_onstop": "api/pubsub.html#Subscription-onStop",
+  "#publish_error": "api/pubsub.html#Subscription-error",
+  "#publish_stop": "api/pubsub.html#Subscription-stop",
+  "#publish_connection": "api/pubsub.html#Subscription-connection",
+  "#meteor_subscribe": "api/pubsub.html#Meteor-subscribe",
+  "#ddpratelimiter": "api/methods.html#ddpratelimiter",
+  "#meteor_methods": "api/methods.html#Meteor-methods",
+  "#method_userid": "api/methods.html#method_userid",
+  "#method_setuserid": "api/methods.html#method_setuserid",
+  "#method_issimulation": "api/methods.html#DDPCommon-MethodInvocation-isSimulation",
+  "#method_unblock": "api/methods.html#DDPCommon-MethodInvocation-unblock",
+  "#method_connection": "api/methods.html#DDPCommon-MethodInvocation-connection",
+  "#meteor_error": "api/methods.html#Meteor-Error",
+  "#meteor_call": "api/methods.html#Meteor-call",
+  "#meteor_apply": "api/methods.html#Meteor-apply",
+  "#check": "api/check.html#check",
+  "#match_test": "api/check.html#Match-test",
+  "#match patterns": "api/check.html#match patterns",
+  "#meteor_status": "api/connections.html#Meteor-status",
+  "#meteor_reconnect": "api/connections.html#Meteor-reconnect",
+  "#meteor_disconnect": "api/connections.html#Meteor-disconnect",
+  "#meteor_onconnection": "api/connections.html#Meteor-onConnection",
+  "#ddp_connect": "api/connections.html#DDP-connect",
+  "#mongo_collection": "api/collections.html#Mongo-Collection",
+  "#find": "api/collections.html#Mongo-Collection-find",
+  "#findone": "api/collections.html#Mongo-Collection-findOne",
+  "#insert": "api/collections.html#Mongo-Collection-insert",
+  "#update": "api/collections.html#Mongo-Collection-update",
+  "#upsert": "api/collections.html#Mongo-Collection-upsert",
+  "#remove": "api/collections.html#Mongo-Collection-remove",
+  "#allow": "api/collections.html#Mongo-Collection-allow",
+  "#deny": "api/collections.html#Mongo-Collection-deny",
+  "#mongo-collection-rawcollection": "api/collections.html#mongo-collection-rawcollection",
+  "#mongo-collection-rawdatabase": "api/collections.html#mongo-collection-rawdatabase",
+  "#mongo.cursor": "api/collections.html#mongo-cursor",
+  "#foreach": "api/collections.html#Mongo-Cursor-forEach",
+  "#map": "api/collections.html#Mongo-Cursor-map",
+  "#fetch": "api/collections.html#Mongo-Cursor-fetch",
+  "#count": "api/collections.html#Mongo-Cursor-count",
+  "#observe": "api/collections.html#Mongo-Cursor-observe",
+  "#observe_changes": "api/collections.html#Mongo-Cursor-observeChanges",
+  "#mongo_object_id": "api/collections.html#Mongo-ObjectID",
+  "#selectors": "api/collections.html#selectors",
+  "#modifiers": "api/collections.html#modifiers",
+  "#sort specifiers": "api/collections.html#sort specifiers",
+  "#field specifiers": "api/collections.html#field specifiers",
+  "#session_set": "api/session.html#Session-set",
+  "#session_set_default": "api/session.html#Session-setDefault",
+  "#session_get": "api/session.html#Session-get",
+  "#session_equals": "api/session.html#Session-equals",
+  "#meteor_user": "api/accounts.html#Meteor-user",
+  "#meteor_userid": "api/accounts.html#Meteor-userId",
+  "#meteor_users": "api/accounts.html#Meteor-users",
+  "#meteor_loggingin": "api/accounts.html#Meteor-loggingIn",
+  "#meteor_logout": "api/accounts.html#Meteor-logout",
+  "#meteor_logoutotherclients": "api/accounts.html#Meteor-logoutOtherClients",
+  "#meteor_loginwithpassword": "api/accounts.html#Meteor-loginWithPassword",
+  "#meteor_loginwithexternalservice": "api/accounts.html#Meteor-loginWith<ExternalService>",
+  "#template_currentuser": "api/accounts.html#currentUser",
+  "#template_loggingin": "api/accounts.html#loggingIn",
+  "#accounts_ui_config": "api/accounts.html#Accounts-ui-config",
+  "#accountsclient": "api/accounts-multi.html#AccountsClient",
+  "#accountsserver": "api/accounts-multi.html#AccountsServer",
+  "#accounts_userid": "api/accounts-multi.html#AccountsCommon-userId",
+  "#accounts_user": "api/accounts-multi.html#AccountsCommon-user",
+  "#accounts_config": "api/accounts-multi.html#AccountsCommon-config",
+  "#accounts_onlogin": "api/accounts-multi.html#AccountsCommon-onLogin",
+  "#accounts_onloginfailure": "api/accounts-multi.html#AccountsCommon-onLoginFailure",
+  "#accounts_loggingin": "api/accounts-multi.html#AccountsClient-loggingIn",
+  "#accounts_logout": "api/accounts-multi.html#AccountsClient-logout",
+  "#accounts_logoutotherclients": "api/accounts-multi.html#AccountsClient-logoutOtherClients",
+  "#accounts_oncreateuser": "api/accounts-multi.html#AccountsServer-onCreateUser",
+  "#accounts_validateloginattempt": "api/accounts-multi.html#AccountsServer-validateLoginAttempt",
+  "#accounts_validatenewuser": "api/accounts-multi.html#AccountsServer-validateNewUser",
+  "#accounts_createuser": "api/passwords.html#Accounts-createUser",
+  "#accounts-setusername": "api/passwords.html#accounts-setusername",
+  "#accounts-addemail": "api/passwords.html#accounts-addemail",
+  "#accounts-removeemail": "api/passwords.html#accounts-removeemail",
+  "#accounts_verifyemail": "api/passwords.html#Accounts-verifyEmail",
+  "#accounts-finduserbyusername": "api/passwords.html#accounts-finduserbyusername",
+  "#accounts-finduserbyemail": "api/passwords.html#accounts-finduserbyemail",
+  "#accounts_changepassword": "api/passwords.html#Accounts-changePassword",
+  "#accounts_forgotpassword": "api/passwords.html#Accounts-forgotPassword",
+  "#accounts_resetpassword": "api/passwords.html#Accounts-resetPassword",
+  "#accounts_setpassword": "api/passwords.html#Accounts-setPassword",
+  "#accounts_sendresetpasswordemail": "api/passwords.html#Accounts-sendResetPasswordEmail",
+  "#accounts_sendenrollmentemail": "api/passwords.html#Accounts-sendEnrollmentEmail",
+  "#accounts_sendverificationemail": "api/passwords.html#Accounts-sendVerificationEmail",
+  "#accounts-onresetpasswordlink": "api/passwords.html#accounts-onresetpasswordlink",
+  "#accounts-onenrollmentlink": "api/passwords.html#accounts-onenrollmentlink",
+  "#accounts-onemailverificationlink": "api/passwords.html#accounts-onemailverificationlink",
+  "#accounts_emailtemplates": "api/passwords.html#Accounts-emailTemplates",
+  "#templates_api": "api/templates.html#templates_api",
+  "#template_events": "api/templates.html#Template-events",
+  "#template_helpers": "api/templates.html#Template-helpers",
+  "#template_onrendered": "api/templates.html#template_onrendered",
+  "#template_oncreated": "api/templates.html#template_oncreated",
+  "#template_ondestroyed": "api/templates.html#template_ondestroyed",
+  "#template_inst": "api/templates.html#template_inst",
+  "#template_findall": "api/templates.html#template_findall",
+  "#template_$": "api/templates.html#Blaze-TemplateInstance-$",
+  "#template_find": "api/templates.html#Blaze-TemplateInstance-find",
+  "#template_firstnode": "api/templates.html#template_firstnode",
+  "#template_lastnode": "api/templates.html#template_lastnode",
+  "#template_data": "api/templates.html#Blaze-TemplateInstance-data",
+  "#template_autorun": "api/templates.html#Blaze-TemplateInstance-autorun",
+  "#blaze-templateinstance-subscribe": "api/templates.html#blaze-templateinstance-subscribe",
+  "#template_view": "api/templates.html#Blaze-TemplateInstance-view",
+  "#template_registerhelper": "api/templates.html#Template-registerHelper",
+  "#template_instance": "api/templates.html#Template-instance",
+  "#template_currentdata": "api/templates.html#Template-currentData",
+  "#template_parentdata": "api/templates.html#Template-parentData",
+  "#template_body": "api/templates.html#Template-body",
+  "#template_dynamic": "api/templates.html#Template-dynamic",
+  "#event maps": "api/templates.html#event maps",
+  "#spacebars": "api/templates.html#spacebars",
+  "#blaze_render": "api/blaze.html#Blaze-render",
+  "#blaze_renderwithdata": "api/blaze.html#Blaze-renderWithData",
+  "#blaze_remove": "api/blaze.html#Blaze-remove",
+  "#blaze_getdata": "api/blaze.html#Blaze-getData",
+  "#blaze_tohtml": "api/blaze.html#Blaze-toHTML",
+  "#blaze_tohtmlwithdata": "api/blaze.html#Blaze-toHTMLWithData",
+  "#blaze_view": "api/blaze.html#Blaze-View",
+  "#blaze_currentview": "api/blaze.html#Blaze-currentView",
+  "#blaze_getview": "api/blaze.html#Blaze-getView",
+  "#blaze_with": "api/blaze.html#Blaze-With",
+  "#blaze_if": "api/blaze.html#Blaze-If",
+  "#blaze_unless": "api/blaze.html#Blaze-Unless",
+  "#blaze_each": "api/blaze.html#Blaze-Each",
+  "#blaze_template": "api/blaze.html#Blaze-Template",
+  "#blaze_istemplate": "api/blaze.html#Blaze-isTemplate",
+  "#renderable_content": "api/blaze.html#renderable_content",
+  "#meteor_settimeout": "api/timers.html#Meteor-setTimeout",
+  "#meteor_setinterval": "api/timers.html#Meteor-setInterval",
+  "#meteor_cleartimeout": "api/timers.html#Meteor-clearTimeout",
+  "#meteor_clearinterval": "api/timers.html#Meteor-clearInterval",
+  "#tracker_autorun": "api/tracker.html#Tracker-autorun",
+  "#tracker_flush": "api/tracker.html#Tracker-flush",
+  "#tracker_nonreactive": "api/tracker.html#Tracker-nonreactive",
+  "#tracker_active": "api/tracker.html#Tracker-active",
+  "#tracker_currentcomputation": "api/tracker.html#Tracker-currentComputation",
+  "#tracker_oninvalidate": "api/tracker.html#Tracker-onInvalidate",
+  "#tracker_afterflush": "api/tracker.html#Tracker-afterFlush",
+  "#tracker.computation": "api/tracker.html#tracker-computation",
+  "#computation_stop": "api/tracker.html#Tracker-Computation-stop",
+  "#computation_invalidate": "api/tracker.html#Tracker-Computation-invalidate",
+  "#computation_oninvalidate": "api/tracker.html#Tracker-Computation-onInvalidate",
+  "#computation_onstop": "api/tracker.html#Tracker-Computation-onStop",
+  "#computation_stopped": "api/tracker.html#Tracker-Computation-stopped",
+  "#computation_invalidated": "api/tracker.html#Tracker-Computation-invalidated",
+  "#computation_firstrun": "api/tracker.html#Tracker-Computation-firstRun",
+  "#tracker.dependency": "api/tracker.html#tracker-dependency",
+  "#dependency_changed": "api/tracker.html#Tracker-Dependency-changed",
+  "#dependency_depend": "api/tracker.html#Tracker-Dependency-depend",
+  "#dependency_hasdependents": "api/tracker.html#Tracker-Dependency-hasDependents",
+  "#reactivevar": "api/reactivevar.html#ReactiveVar",
+  "#reactivevar_get": "api/reactivevar.html#ReactiveVar-get",
+  "#reactivevar_set": "api/reactivevar.html#ReactiveVar-set",
+  "#ejson_parse": "api/ejson.html#EJSON-parse",
+  "#ejson_stringify": "api/ejson.html#EJSON-stringify",
+  "#ejson_from_json_value": "api/ejson.html#EJSON-fromJSONValue",
+  "#ejson_to_json_value": "api/ejson.html#EJSON-toJSONValue",
+  "#ejson_equals": "api/ejson.html#EJSON-equals",
+  "#ejson_clone": "api/ejson.html#EJSON-clone",
+  "#ejson_new_binary": "api/ejson.html#EJSON-newBinary",
+  "#ejson_is_binary": "api/ejson.html#EJSON-isBinary",
+  "#ejson_add_type": "api/ejson.html#EJSON-addType",
+  "#ejson_type_typename": "api/ejson.html#ejson_type_typename",
+  "#ejson_type_tojsonvalue": "api/ejson.html#ejson_type_tojsonvalue",
+  "#ejson_type_clone": "api/ejson.html#EJSON-CustomType-clone",
+  "#ejson_type_equals": "api/ejson.html#EJSON-CustomType-equals",
+  "#http_call": "api/http.html#HTTP-call",
+  "#http_get": "api/http.html#HTTP-get",
+  "#http_post": "api/http.html#HTTP-post",
+  "#http_put": "api/http.html#HTTP-put",
+  "#http_del": "api/http.html#HTTP-del",
+  "#email_send": "api/email.html#Email-send",
+  "#assets_gettext": "api/assets.html#assets_gettext",
+  "#assets_getbinary": "api/assets.html#assets_getbinary",
+  "#packagedescription": "api/packagejs.html#packagedescription",
+  "#packagedefinition": "api/packagejs.html#packagedefinition",
+  "#pack_versions": "api/packagejs.html#PackageAPI-versionsFrom",
+  "#pack_use": "api/packagejs.html#PackageAPI-use",
+  "#pack_api_imply": "api/packagejs.html#PackageAPI-imply",
+  "#pack_export": "api/packagejs.html#PackageAPI-export",
+  "#pack_addfiles": "api/packagejs.html#pack_addfiles",
+  "#packageapi-addassets": "api/packagejs.html#packageapi-addassets",
+  "#packagetests": "api/packagejs.html#packagetests",
+  "#npm-depends": "api/packagejs.html#npm-depends",
+  "#npm-require": "api/packagejs.html#npm-require",
+  "#cordova-depends": "api/packagejs.html#cordova-depends",
+  "#package-registerbuildplugin": "api/packagejs.html#package-registerbuildplugin",
+  "#plugin-registersourcehandler": "api/packagejs.html#plugin-registersourcehandler",
+  "#app-info": "api/mobile-config.html#app-info",
+  "#app-setpreference": "api/mobile-config.html#app-setpreference",
+  "#app-accessrule": "api/mobile-config.html#app-accessrule",
+  "#app-configureplugin": "api/mobile-config.html#app-configureplugin",
+  "#app-icons": "api/mobile-config.html#app-icons",
+  "#app-launchscreens": "api/mobile-config.html#app-launchscreens",
+  "#meteorhelp": "commandline.html#meteorhelp",
+  "#meteorrun": "commandline.html#meteorrun",
+  "#meteordebug": "commandline.html#meteordebug",
+  "#meteorcreate": "commandline.html#meteorcreate",
+  "#meteorloginlogout": "commandline.html#meteorloginlogout",
+  "#meteordeploy": "commandline.html#meteordeploy",
+  "#meteorupdate": "commandline.html#meteorupdate",
+  "#meteoradd": "commandline.html#meteoradd",
+  "#meteorremove": "commandline.html#meteorremove",
+  "#meteorlist": "commandline.html#meteorlist",
+  "#meteormongo": "commandline.html#meteormongo",
+  "#meteorreset": "commandline.html#meteorreset",
+  "#meteorbuild": "commandline.html#meteorbuild",
+  "#meteorlint": "commandline.html#meteorlint",
+  "#meteorsearch": "commandline.html#meteorsearch",
+  "#meteorshow": "commandline.html#meteorshow",
+  "#meteorpublish": "commandline.html#meteorpublish",
+  "#meteorpublishforarch": "commandline.html#undefined",
+  "#meteorpublishrelease": "commandline.html#meteorpublishrelease",
+  "#meteortestpackages": "commandline.html#meteortestpackages",
+  "#meteoradmin": "commandline.html#meteoradmin",
+  "#meteorshell": "commandline.html#meteorshell",
+  "#core": "api/core.html",
+  "#pubsub": "api/pubsub.html",
+  "#methods": "api/methods.html",
+  "#methods_header": "api/methods.html",
+  "#check_package": "api/check.html",
+  "#connections": "api/connections.html",
+  "#collections": "api/collections.html",
+  "#session": "api/session.html",
+  "#accounts": "api/accounts.html",
+  "#accounts_api": "api/accounts.html",
+  "#accounts-multi": "api/accounts-multi.html",
+  "#advanced_accounts_api": "api/accounts-multi.html",
+  "#passwords": "api/passwords.html",
+  "#accounts_passwords": "api/passwords.html",
+  "#templates": "api/templates.html",
+  "#blaze": "api/blaze.html",
+  "#timers": "api/timers.html",
+  "#tracker": "api/tracker.html",
+  "#reactivevar_pkg": "api/reactivevar.html",
+  "#ejson": "api/ejson.html",
+  "#http": "api/http.html",
+  "#email": "api/email.html",
+  "#assets": "api/assets.html",
+  "#packagejs": "api/packagejs.html",
+  "#mobile-config": "api/mobile-config.html",
+  "#appcache": "packages/appcache.html",
+  "#accounts-ui": "packages/accounts-ui.html",
+  "#audit-argument-checks": "packages/audit-argument-checks.html",
+  "#coffeescript": "packages/coffeescript.html",
+  "#ecmascript": "packages/ecmascript.html",
+  "#jquery": "packages/jquery.html",
+  "#less": "packages/less.html",
+  "#markdown": "packages/markdown.html",
+  "#modules": "packages/modules.html",
+  "#oauth-encryption": "packages/oauth-encryption.html",
+  "#random": "packages/random.html",
+  "#spiderable": "packages/spiderable.html",
+  "#underscore": "packages/underscore.html",
+  "#webapp": "packages/webapp.html",
+  "#pkg_spacebars": "packages/spacebars.html"
+};
+
+        function redirect() {
+          // Support redirects of the form /path#hash
+          var locationKey = location.pathname + location.hash;
+          if (REDIRECTS[locationKey]) {
+            location.replace(location.origin + '/' + REDIRECTS[locationKey]);
+          }
+
+          // Support redirects of the form #hash (works for any path)
+          var hashKey = location.hash;
+          if (REDIRECTS[hashKey]) {
+            location.replace(location.origin + '/' + REDIRECTS[hashKey]);
+          }
+        }
+
+        // Redirect now
+        redirect();
+
+        // Redirect on hash change
+        window.onhashchange = redirect;
+      
+    </script>
+  </body>
+
+<!-- Mirrored from docs.meteor.com/api/collections.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Jun 2017 09:27:09 GMT -->
+</html>

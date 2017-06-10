@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Basic -->
+    <title>Getting started | Hi-Framework</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png" sizes="16x16 32x32 64x64">
+
+    <!-- Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://docs.emerjoin.org/Hi-Framework">
+    <meta property="og:title" content="Hi-Framework | Getting Started">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_image_large">
+    <meta name="twitter:site" content="@meteor">
+    <meta name="twitter:title" content="Hi-Framework | Getting Started">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+
+    <!-- Misc -->
+    <meta name="google-site-verification" content="" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/style/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+
+    <!--
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/zenburn.min.css">-->
+    <link rel="stylesheet" href="assets/style/code-style.css">
+    <!--
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/railscasts.min.css">-->
+    <script src="//cdn.jsdelivr.net/highlight.js/9.10.0/highlight.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+
+  </head>
+  <body class="">
+
+  #set ( $topicNode = $topic.getTreeNode())
+
+  <div class="nav dark">
+      <div class="nav-group">
+        <div class="nav-item show-mobile">
+          <span class="js-sidebar-toggle ">
+            <span class="icon-menu"></span>
+          </span>
+        </div>
+        <div class="nav-item">
+          <a class="logo-wrapper" title="Meteor Developers Developers"  >
+            <img src="assets/images/hi-framework.png" style="height: 24px; margin-top: 7px;" alt="Meteor Developers" class="logo"/>
+
+              <span class="select version-sidebar nochrome" style="margin-top: 6px;">
+                    <select class="version-select">
+
+                      <option value="v3.0.0">v3.0.0</option>
+                      <option value="v1.4.6">1.4.6</option>
+
+                  </select>
+            </span>
+
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-group right">
+
+          <div class="nav-item show-desktop  ">
+            <a class="link" href="http://www.meteor.com/tutorials" target=_new >
+              <span>Tutorials</span>
+            </a>
+          </div>
+
+
+
+          <div class="nav-item show-desktop active ">
+            <a class="link" href="index-2.html"  >
+              <span>Getting Started</span>
+            </a>
+          </div>
+
+          <div class="nav-item show-desktop  ">
+              <a class="link" href="https://forums.meteor.com/" target=_new >
+                  <span>Changes Log</span>
+              </a>
+          </div>
+
+          <div class="nav-item show-desktop  ">
+            <a class="link" href="https://forums.meteor.com/" target=_new >
+              <span>Forum</span>
+            </a>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="panel">
+        <div class="panel-item">
+          <a class="" href="http://www.meteor.com/developers" title="Meteor Developers"  >
+            <span>Meteor Developers Developers</span>
+          </a>
+        </div>
+
+          <div class="panel-item">
+            <a class="" href="http://www.meteor.com/tutorials" target=_new >
+              <span>Tutorials</span>
+            </a>
+          </div>
+
+          <div class="panel-item">
+            <a class="" href="http://guide.meteor.com/"  >
+              <span>Guide</span>
+            </a>
+          </div>
+
+          <div class="panel-item active">
+            <a class="" href="index-2.html"  >
+              <span>API Docs</span>
+            </a>
+          </div>
+
+          <div class="panel-item">
+            <a class="" href="https://forums.meteor.com/" target=_new >
+              <span>Forums</span>
+            </a>
+          </div>
+
+      </div>
+
+      <div class="sidebar-content">
+
+
+
+
+
+
+     <br/>
+        <ul class="toc">
+
+            <li>
+
+              <ul class="list-toc">
+
+
+                  <li class="item-toc  current">
+                    <a href="#" class="sidebar-link  current">
+                      <span>$topicNode.getDisplayName()</span>
+                    </a>
+                  </li>
+
+              </ul>
+            </li>
+
+
+            <!--Velocity macro definition begins here-->
+            #macro( topicsTree $treeNode $level )
+
+            #if ( $treeNode.isDirectory() )
+
+            #if ( $treeNode.hasParent() )
+            <div class="heading-toc">$treeNode.getDisplayName()</div>
+            #end
+
+
+
+
+            <ul class="list-toc">
+                #set ($group = $level)
+                #set ($nextGroup = $level + 1)
+                #set ($backupNextGroup = $nextGroup)
+                #foreach( $topicNode in $treeNode.getChilds() )
+
+                <li class="item-toc">
+                    #topicsTree( $topicNode $nextGroup)
+                </li>
+                #set ($nextGroup = $backupNextGroup)
+                #end
+            </ul>
+
+            #else
+
+
+            #if( $treeNode.matchTopic($topic) )
+
+            <!--Active topic-->
+            <a class="sidebar-link" href="$treeNode.getRef().getHtmlUrl()">
+                <span>
+                     $treeNode.getDisplayName()
+                </span>
+            </a>
+
+            #else
+
+            <a class="sidebar-link" href="$treeNode.getRef().getHtmlUrl()">
+                <span>
+                     $treeNode.getDisplayName()
+                </span>
+            </a>
+
+            #end
+
+
+            #end
+
+            #end
+            <!--/Velocity macro definition ends here-->
+
+            #set( $node = $tree.getRootNode() )
+
+            <ul class="list-toc">
+                <li class="item-toc">#topicsTree( $node 1 )</li>
+            </ul>
+
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="content">
+
+          <div class="content-wrapper">
+
+              <div class="header-content">
+                  <h1 class="title-page">$topicNode.getDisplayName()</h1>
+                  <div class="subtitle-page" id="topic-description"></div>
+
+                  <div class="page-actions">
+                      <div class="actions-group">
+                          <a class="btn tertiary small round lowercase" href="https://github.com/meteor/docs/tree/master/source/packages/bundle-visualizer.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+                      </div>
+                  </div>
+              </div>
+
+
+              <!--@content-->
+          </div>
+
+          <div class="pagination">
+            <div class="content-wrapper">
+
+
+                #if( $topicNode.hasPrevious() || $topicNode.hasTopicInTheLead() )
+
+                <a class="link primary prev" href="$topicNode.previousTopic().getRef().getHtmlUrl()">
+                    <span class="icon-arrow-left-alt"></span>
+                    <span class="subtitle-pagination">Previous</span>
+                    $topicNode.previousTopic().getDisplayName()
+                </a>
+
+                #end
+
+                #if( $topicNode.hasNext() || $topicNode.hasTopicAhead() )
+
+                    <a class="link primary next"
+                       href="$topicNode.nextTopic().getRef().getHtmlUrl()">
+                        <span class="subtitle-pagination">Next</span>
+                        $topicNode.nextTopic().getDisplayName()
+                        <span class="icon-arrow-right-alt"></span>
+                    </a>
+
+                #end
+
+
+            </div>
+          </div>
+
+
+        <div class="github">
+            <a class="link tertiary " href="https://github.com/Emerjoin/Hi-Framework/" target="_blank">
+                <span class="icon-github"></span>Github Repository</a>
+        </div>
+
+
+    </div>
+
+    <script src="assets/script/smooth-scroll.min.js"></script>
+    <script src="assets/script/main.js"></script>
+    <script type="text/javascript" src="../cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
+    <script type="text/javascript" src="../cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+</body>
+
+</html>

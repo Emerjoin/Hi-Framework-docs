@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from docs.meteor.com/api/methods.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Jun 2017 09:26:55 GMT -->
+<head>
+    <meta charset="utf-8">
+
+    
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MBQ369M');</script>
+      <!-- End Google Tag Manager -->
+    
+
+    <!-- Basic -->
+    <title>Methods | Meteor API Docs</title>
+    <meta name="description" content="Documentation of Meteor's Method (Remote Procedure Call) API.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png" sizes="16x16 32x32 64x64">
+
+    <!-- Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://docs.meteor.com">
+    <meta property="og:title" content="Methods | Meteor API Docs">
+    <meta property="og:description" content="Documentation of Meteor's Method (Remote Procedure Call) API.">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_image_large">
+    <meta name="twitter:site" content="@meteor">
+    <meta name="twitter:title" content="Methods | Meteor API Docs">
+    <meta name="twitter:description" content="Documentation of Meteor's Method (Remote Procedure Call) API.">
+    <meta name="twitter:image" content="">
+
+    <!-- Misc -->
+    <meta name="google-site-verification" content="" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../assets/style/style.css">
+  </head>
+  <body class="">
+    
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBQ369M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    
+    
+
+<div class="nav dark">
+  <div class="nav-group">
+    <div class="nav-item show-mobile">
+      <span class="js-sidebar-toggle ">
+        <span class="icon-menu"></span>
+      </span>
+    </div>
+    <div class="nav-item">
+      <a class="logo-wrapper" href="http://www.meteor.com/developers" title="Meteor Developers Developers"  >
+        <img src="../assets/images/logo-coralspace-left.svg" alt="Meteor Developers" class="logo"/>
+        
+          <span>Developers</span>
+        
+      </a>
+    </div>
+  </div>
+
+  <div class="nav-group right">
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="http://www.meteor.com/tutorials" target=_new >
+          <span>Tutorials</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="http://guide.meteor.com/"  >
+          <span>Guide</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop active ">
+        <a class="link" href="../index-2.html"  >
+          <span>API Docs</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="https://forums.meteor.com/" target=_new >
+          <span>Forums</span>
+        </a>
+      </div>
+    
+  </div>
+</div>
+
+<div class="sidebar">
+  <div class="panel">
+    <div class="panel-item">
+      <a class="" href="http://www.meteor.com/developers" title="Meteor Developers"  >
+        <span>Meteor Developers Developers</span>
+      </a>
+    </div>
+    
+      <div class="panel-item "">
+        <a class="" href="http://www.meteor.com/tutorials" target=_new >
+          <span>Tutorials</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="http://guide.meteor.com/"  >
+          <span>Guide</span>
+        </a>
+      </div>
+    
+      <div class="panel-item active"">
+        <a class="" href="../index-2.html"  >
+          <span>API Docs</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://forums.meteor.com/" target=_new >
+          <span>Forums</span>
+        </a>
+      </div>
+    
+  </div>
+
+  <div class="sidebar-content">
+    <div class="topcap">
+      <span class="title-sidebar">Meteor API Docs</span>
+      
+        <span class="select version-sidebar nochrome">
+          <select class="version-select">
+            
+              <option value="v1.5">1.5</option>
+            
+              <option value="v1.4.4">1.4.4</option>
+            
+              <option value="v1.4.3">1.4.3</option>
+            
+              <option value="v1.4.2">1.4.2</option>
+            
+              <option value="v1.4.1">1.4.1</option>
+            
+              <option value="v1.4.0">1.4.0</option>
+            
+              <option value="v1.3.5">1.3.5</option>
+            
+              <option value="v1.3.4">1.3.4</option>
+            
+              <option value="v1.3.3">1.3.3</option>
+            
+              <option value="v1.3.2">1.3.2</option>
+            
+          </select>
+        </span>
+      
+    </div>
+
+    
+    <div class="wrapper-search">
+      <div class="input-symbol small round">
+        <input type="text" placeholder="Search API Docs" id="desktop-search-input" />
+        <span class="icon-search"></span>
+      </div>
+      <div class="wrapper-desktop-search-results"></div>
+    </div>
+
+    
+
+    <ul class="toc">
+      
+        <li>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="../index.html" class="sidebar-link ">
+                  <span>Introducing Meteor API Docs</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../changelog.html" class="sidebar-link ">
+                  <span>Meteor Changelog</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">API</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="core.html" class="sidebar-link ">
+                  <span>Core</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="pubsub.html" class="sidebar-link ">
+                  <span>Publish and subscribe</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc  current">
+                <a href="#" class="sidebar-link  current">
+                  <span>Methods</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="check.html" class="sidebar-link ">
+                  <span>Check</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="connections.html" class="sidebar-link ">
+                  <span>Server Connections</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="collections.html" class="sidebar-link ">
+                  <span>Collections</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="session.html" class="sidebar-link ">
+                  <span>Session</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="accounts.html" class="sidebar-link ">
+                  <span>Accounts</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="accounts-multi.html" class="sidebar-link ">
+                  <span>Accounts (multi-server)</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="passwords.html" class="sidebar-link ">
+                  <span>Passwords</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="templates.html" class="sidebar-link ">
+                  <span>Templates</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="blaze.html" class="sidebar-link ">
+                  <span>Blaze</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="timers.html" class="sidebar-link ">
+                  <span>Timers</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="tracker.html" class="sidebar-link ">
+                  <span>Tracker</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="reactive-var.html" class="sidebar-link ">
+                  <span>ReactiveVar</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="ejson.html" class="sidebar-link ">
+                  <span>EJSON</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="http.html" class="sidebar-link ">
+                  <span>HTTP</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="email.html" class="sidebar-link ">
+                  <span>Email</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="assets.html" class="sidebar-link ">
+                  <span>Assets</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="packagejs.html" class="sidebar-link ">
+                  <span>Package.js</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="mobile-config.html" class="sidebar-link ">
+                  <span>Mobile Configuration</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Packages</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/appcache.html" class="sidebar-link ">
+                  <span>appcache</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/accounts-ui.html" class="sidebar-link ">
+                  <span>accounts-ui</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/bundle-visualizer.html" class="sidebar-link ">
+                  <span>bundle-visualizer</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/audit-argument-checks.html" class="sidebar-link ">
+                  <span>audit-argument-checks</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/coffeescript.html" class="sidebar-link ">
+                  <span>coffeescript</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/ecmascript.html" class="sidebar-link ">
+                  <span>ecmascript</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/jquery.html" class="sidebar-link ">
+                  <span>jquery</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/less.html" class="sidebar-link ">
+                  <span>less</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/markdown.html" class="sidebar-link ">
+                  <span>markdown</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/modules.html" class="sidebar-link ">
+                  <span>modules</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/oauth-encryption.html" class="sidebar-link ">
+                  <span>oauth-encryption</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/random.html" class="sidebar-link ">
+                  <span>random</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/spacebars.html" class="sidebar-link ">
+                  <span>spacebars</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/underscore.html" class="sidebar-link ">
+                  <span>underscore</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../packages/webapp.html" class="sidebar-link ">
+                  <span>webapp</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Command Line</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="../commandline.html" class="sidebar-link ">
+                  <span>Command Line</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="../environment-variables.html" class="sidebar-link ">
+                  <span>Environment Variables</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="content">
+  <div class="content-wrapper">
+    <div class="header-content">
+      <h1 class="title-page">Methods</h1>
+      
+        <div class="subtitle-page">Documentation of Meteor's Method (Remote Procedure Call) API.</div>
+      
+
+      <div class="page-actions">
+        <div class="actions-group">
+          <a class="btn tertiary small round lowercase" href="https://github.com/meteor/docs/tree/master/source/api/methods.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="document-formatting">
+      <p>Methods are remote functions that Meteor clients can invoke with <a href="#Meteor-call"><code>Meteor.call</code></a>.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h2 title="&lt;em&gt;#&lt;/em&gt;methods" class="title-api selflink" id="Meteor-methods">
+      <a href="#Meteor-methods" class="link primary">Meteor.methods(methods)</a>
+    </h2>
+
+    <div class="subtext-api">
+        <div class="code">import { Meteor } from 'meteor/meteor'</div>
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/ddp-server/livedata_server.html#L1575" target="_blank">
+          (ddp-server/livedata_server.js, line 1575)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Defines functions that can be invoked over the network by clients.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">methods</span>
+            <span class="type">Object</span>
+          </dt>
+          <dd>
+            <p>Dictionary whose keys are method names and values are functions.</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Meteor.methods(&#123;</div><div class="line">  foo(arg1, arg2) &#123;</div><div class="line">    check(arg1, <span class="built_in">String</span>);</div><div class="line">    check(arg2, [<span class="built_in">Number</span>]);</div><div class="line"></div><div class="line">    <span class="comment">// Do stuff...</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="comment">/* you want to throw an error */</span>) &#123;</div><div class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> Meteor.Error(<span class="string">'pants-not-found'</span>, <span class="string">"Can't find my pants"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="string">'some return value'</span>;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  bar() &#123;</div><div class="line">    <span class="comment">// Do other stuff...</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'baz'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Calling <code>methods</code> on the server defines functions that can be called remotely by
+clients.  They should return an <a href="#ejson">EJSON</a>-able value or throw an
+exception.  Inside your method invocation, <code>this</code> is bound to a method
+invocation object, which provides the following:</p>
+<ul>
+<li><code>isSimulation</code>: a boolean value, true if this invocation is a stub.</li>
+<li><code>unblock</code>: when called, allows the next method from this client to
+begin running.</li>
+<li><code>userId</code>: the id of the current user.</li>
+<li><code>setUserId</code>: a function that associates the current client with a user.</li>
+<li><code>connection</code>: on the server, the <a href="#meteor_onconnection">connection</a> this method call was received on.</li>
+</ul>
+<p>Calling <code>methods</code> on the client defines <em>stub</em> functions associated with
+server methods of the same name.  You don’t have to define a stub for
+your method if you don’t want to.  In that case, method calls are just
+like remote procedure calls in other systems, and you’ll have to wait
+for the results from the server.</p>
+<p>If you do define a stub, when a client invokes a server method it will
+also run its stub in parallel.  On the client, the return value of a
+stub is ignored.  Stubs are run for their side-effects: they are
+intended to <em>simulate</em> the result of what the server’s method will do,
+but without waiting for the round trip delay.  If a stub throws an
+exception it will be logged to the console.</p>
+<p>You use methods all the time, because the database mutators
+(<a href="#insert"><code>insert</code></a>, <a href="#update"><code>update</code></a>, <a href="#remove"><code>remove</code></a>) are implemented
+as methods. When you call any of these functions on the client, you’re invoking
+their stub version that update the local cache, and sending the same write
+request to the server. When the server responds, the client updates the local
+cache with the writes that actually occurred on the server.</p>
+<p>You don’t have to put all your method definitions into a single <code>Meteor.methods</code>
+call; you may call it multiple times, as long as each method has a unique name.</p>
+<p>If a client calls a method and is disconnected before it receives a response,
+it will re-call the method when it reconnects. This means that a client may
+call a method multiple times when it only means to call it once. If this
+behavior is problematic for your method, consider attaching a unique ID
+to each method call on the client, and checking on the server whether a call
+with this ID has already been made.  Alternatively, you can use
+<a href="#meteor_apply"><code>Meteor.apply</code></a> with the noRetry option set to true.</p>
+<p>Read more about methods and how to use them in the <a href="http://guide.meteor.com/methods.html" target="_blank" rel="external">Methods</a> article in the Meteor Guide.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;this&lt;/em&gt;.userId" class="title-api selflink" id="DDPCommon-MethodInvocation-userId">
+      <a href="#DDPCommon-MethodInvocation-userId" class="link primary"><em>this</em>.userId</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/ddp-common/method_invocation.html#L39" target="_blank">
+          (ddp-common/method_invocation.js, line 39)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>The id of the user that made this method call, or <code>null</code> if no user was logged in.</p>
+    </div>
+
+
+
+  </div>
+</div>
+
+<p>The user id is an arbitrary string &mdash; typically the id of the user record
+in the database. You can set it with the <code>setUserId</code> function. If you’re using
+the <a href="#accounts_api">Meteor accounts system</a> then this is handled for you.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Server
+    </div>
+
+    <h3 title="&lt;em&gt;this&lt;/em&gt;.setUserId" class="title-api selflink" id="DDPCommon-MethodInvocation-setUserId">
+      <a href="#DDPCommon-MethodInvocation-setUserId" class="link primary"><em>this</em>.setUserId(userId)</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/ddp-common/method_invocation.html#L90" target="_blank">
+          (ddp-common/method_invocation.js, line 90)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Set the logged in user.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">userId</span>
+            <span class="type">String or null</span>
+          </dt>
+          <dd>
+            <p>The value that should be returned by <code>userId</code> on this connection.</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p>Call this function to change the currently logged-in user on the
+connection that made this method call. This simply sets the value of
+<code>userId</code> for future method calls received on this connection. Pass
+<code>null</code> to log out the connection.</p>
+<p>If you are using the <a href="#accounts_api">built-in Meteor accounts system</a> then this
+should correspond to the <code>_id</code> field of a document in the
+<a href="#meteor_users"><code>Meteor.users</code></a> collection.</p>
+<p><code>setUserId</code> is not retroactive. It affects the current method call and
+any future method calls on the connection. Any previous method calls on
+this connection will still see the value of <code>userId</code> that was in effect
+when they started.</p>
+<p>If you also want to change the logged-in user on the client, then after calling
+<code>setUserId</code> on the server, call <code>Meteor.connection.setUserId(userId)</code> on the
+client.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h3 title="&lt;em&gt;this&lt;/em&gt;.isSimulation" class="title-api selflink" id="DDPCommon-MethodInvocation-isSimulation">
+      <a href="#DDPCommon-MethodInvocation-isSimulation" class="link primary"><em>this</em>.isSimulation</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/ddp-common/method_invocation.html#L21" target="_blank">
+          (ddp-common/method_invocation.js, line 21)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Access inside a method invocation.  Boolean value, true if this invocation is a stub.</p>
+    </div>
+
+
+
+  </div>
+</div>
+
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Server
+    </div>
+
+    <h3 title="&lt;em&gt;this&lt;/em&gt;.unblock" class="title-api selflink" id="DDPCommon-MethodInvocation-unblock">
+      <a href="#DDPCommon-MethodInvocation-unblock" class="link primary"><em>this</em>.unblock()</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/ddp-common/method_invocation.html#L77" target="_blank">
+          (ddp-common/method_invocation.js, line 77)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Call inside a method invocation.  Allow subsequent method from this client to begin running in a new fiber.</p>
+    </div>
+
+
+
+  </div>
+</div>
+
+<p>On the server, methods from a given client run one at a time. The N+1th
+invocation from a client won’t start until the Nth invocation
+returns. However, you can change this by calling <code>this.unblock</code>. This
+will allow the N+1th invocation to start running in a new fiber.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Server
+    </div>
+
+    <h3 title="&lt;em&gt;this&lt;/em&gt;.connection" class="title-api selflink" id="DDPCommon-MethodInvocation-connection">
+      <a href="#DDPCommon-MethodInvocation-connection" class="link primary"><em>this</em>.connection</a>
+    </h3>
+
+    <div class="subtext-api">
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/ddp-common/method_invocation.html#L54" target="_blank">
+          (ddp-common/method_invocation.js, line 54)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Access inside a method invocation. The <a href="#meteor_onconnection">connection</a> that this method was received on. <code>null</code> if the method is not associated with a connection, eg. a server initiated method call. Calls to methods made from a server method which was in turn initiated from the client share the same <code>connection</code>.</p>
+    </div>
+
+
+
+  </div>
+</div>
+
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h2 title="&lt;em&gt;#&lt;/em&gt;Error" class="title-api selflink" id="Meteor-Error">
+      <a href="#Meteor-Error" class="link primary">new Meteor.Error(error, [reason], [details])</a>
+    </h2>
+
+    <div class="subtext-api">
+        <div class="code">import { Meteor } from 'meteor/meteor'</div>
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/meteor/errors.html#L71" target="_blank">
+          (meteor/errors.js, line 71)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>This class represents a symbolic error thrown by a method.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">error</span>
+            <span class="type">String</span>
+          </dt>
+          <dd>
+            <p>A string code uniquely identifying this kind of error.
+This string should be used by callers of the method to determine the
+appropriate action to take, instead of attempting to parse the reason
+or details fields. For example:</p>
+<pre class="prettyprint source"><code>// on the server, pick a code unique to this error
+// the reason field should be a useful debug message
+throw new Meteor.Error(&quot;logged-out&quot;, 
+  &quot;The user must be logged in to post a comment.&quot;);
+
+// on the client
+Meteor.call(&quot;methodName&quot;, function (error) {
+  // identify the error
+  if (error && error.error === &quot;logged-out&quot;) {
+    // show a nice error message
+    Session.set(&quot;errorMessage&quot;, &quot;Please log in to post a comment.&quot;);
+  }
+});</code></pre><p>For legacy reasons, some built-in Meteor functions such as <code>check</code> throw
+errors with a number in this field.</p>
+          </dd>
+          <dt>
+            <span class="name">reason</span>
+            <span class="type">String</span>
+          </dt>
+          <dd>
+            <p>Optional.  A short human-readable summary of the
+error, like 'Not Found'.</p>
+          </dd>
+          <dt>
+            <span class="name">details</span>
+            <span class="type">String</span>
+          </dt>
+          <dd>
+            <p>Optional.  Additional information about the error,
+like a textual stack trace.</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p>If you want to return an error from a method, throw an exception.  Methods can
+throw any kind of exception.  But <code>Meteor.Error</code> is the only kind of error that
+a server will send to the client. If a method function throws a different
+exception, then it will be mapped to a sanitized version on the
+wire. Specifically, if the <code>sanitizedError</code> field on the thrown error is set to
+a <code>Meteor.Error</code>, then that error will be sent to the client. Otherwise, if no
+sanitized version is available, the client gets
+<code>Meteor.Error(500, &#39;Internal server error&#39;)</code>.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h2 title="&lt;em&gt;#&lt;/em&gt;call" class="title-api selflink" id="Meteor-call">
+      <a href="#Meteor-call" class="link primary">Meteor.call(name, [arg1, arg2...], [asyncCallback])</a>
+    </h2>
+
+    <div class="subtext-api">
+        <div class="code">import { Meteor } from 'meteor/meteor'</div>
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/ddp-client/livedata_connection.html#L719" target="_blank">
+          (ddp-client/livedata_connection.js, line 719)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Invokes a method passing any number of arguments.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">name</span>
+            <span class="type">String</span>
+          </dt>
+          <dd>
+            <p>Name of method to invoke</p>
+          </dd>
+          <dt>
+            <span class="name">arg1, arg2...</span>
+            <span class="type"><a href="#ejson">EJSON-able Object</a></span>
+          </dt>
+          <dd>
+            <p>Optional method arguments</p>
+          </dd>
+          <dt>
+            <span class="name">asyncCallback</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Optional callback, which is called asynchronously with the error or result after the method is complete. If not provided, the method runs synchronously if possible (see below).</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p>This is how to invoke a method.  It will run the method on the server.  If a
+stub is available, it will also run the stub on the client.  (See also
+<a href="#meteor_apply"><code>Meteor.apply</code></a>, which is identical to <code>Meteor.call</code> except that
+you specify the parameters as an array instead of as separate arguments and you
+can specify a few options controlling how the method is executed.)</p>
+<p>If you include a callback function as the last argument (which can’t be
+an argument to the method, since functions aren’t serializable), the
+method will run asynchronously: it will return nothing in particular and
+will not throw an exception.  When the method is complete (which may or
+may not happen before <code>Meteor.call</code> returns), the callback will be
+called with two arguments: <code>error</code> and <code>result</code>. If an error was thrown,
+then <code>error</code> will be the exception object.  Otherwise, <code>error</code> will be
+<code>undefined</code> and the return value (possibly <code>undefined</code>) will be in <code>result</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Asynchronous call</span></div><div class="line">Meteor.call(<span class="string">'foo'</span>, <span class="number">1</span>, <span class="number">2</span>, (error, result) =&gt; &#123; ... &#125;);</div></pre></td></tr></table></figure>
+<p>If you do not pass a callback on the server, the method invocation will
+block until the method is complete.  It will eventually return the
+return value of the method, or it will throw an exception if the method
+threw an exception. (Possibly mapped to 500 Server Error if the
+exception happened remotely and it was not a <code>Meteor.Error</code> exception.)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Synchronous call</span></div><div class="line"><span class="keyword">const</span> result = Meteor.call(<span class="string">'foo'</span>, <span class="number">1</span>, <span class="number">2</span>);</div></pre></td></tr></table></figure>
+<p>On the client, if you do not pass a callback and you are not inside a
+stub, <code>call</code> will return <code>undefined</code>, and you will have no way to get
+the return value of the method. That is because the client doesn’t have
+fibers, so there is not actually any way it can block on the remote
+execution of a method.</p>
+<p>Finally, if you are inside a stub on the client and call another
+method, the other method is not executed (no RPC is generated, nothing
+“real” happens).  If that other method has a stub, that stub stands in
+for the method and is executed. The method call’s return value is the
+return value of the stub function.  The client has no problem executing
+a stub synchronously, and that is why it’s okay for the client to use
+the synchronous <code>Meteor.call</code> form from inside a method body, as
+described earlier.</p>
+<p>Meteor tracks the database writes performed by methods, both on the client and
+the server, and does not invoke <code>asyncCallback</code> until all of the server’s writes
+replace the stub’s writes in the local cache. In some cases, there can be a lag
+between the method’s return value being available and the writes being visible:
+for example, if another method still outstanding wrote to the same document, the
+local cache may not be up to date until the other method finishes as well. If
+you want to process the method’s result as soon as it arrives from the server,
+even if the method’s writes are not available yet, you can specify an
+<code>onResultReceived</code> callback to <a href="#meteor_apply"><code>Meteor.apply</code></a>.</p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Anywhere
+    </div>
+
+    <h2 title="&lt;em&gt;#&lt;/em&gt;apply" class="title-api selflink" id="Meteor-apply">
+      <a href="#Meteor-apply" class="link primary">Meteor.apply(name, args, [options], [asyncCallback])</a>
+    </h2>
+
+    <div class="subtext-api">
+        <div class="code">import { Meteor } from 'meteor/meteor'</div>
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/ddp-client/livedata_connection.html#L763" target="_blank">
+          (ddp-client/livedata_connection.js, line 763)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Invoke a method passing an array of arguments.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">name</span>
+            <span class="type">String</span>
+          </dt>
+          <dd>
+            <p>Name of method to invoke</p>
+          </dd>
+          <dt>
+            <span class="name">args</span>
+            <span class="type">Array of <a href="#ejson">EJSON-able Object</a>s</span>
+          </dt>
+          <dd>
+            <p>Method arguments</p>
+          </dd>
+          <dt>
+            <span class="name">asyncCallback</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>Optional callback; same semantics as in <a href="#meteor_call"><code>Meteor.call</code></a>.</p>
+          </dd>
+      </dl>
+
+      <h4 class="subheading">Options</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">wait</span>
+            <span class="type">Boolean</span>
+          </dt>
+          <dd>
+            <p>(Client only) If true, don't send this method until all previous method calls have completed, and don't send any subsequent method calls until this one is completed.</p>
+          </dd>
+          <dt>
+            <span class="name">onResultReceived</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>(Client only) This callback is invoked with the error or result of the method (just like <code>asyncCallback</code>) as soon as the error or result is available. The local cache may not yet reflect the writes performed by the method.</p>
+          </dd>
+          <dt>
+            <span class="name">noRetry</span>
+            <span class="type">Boolean</span>
+          </dt>
+          <dd>
+            <p>(Client only) if true, don't send this method again on reload, simply call the callback an error with the error code 'invocation-failed'.</p>
+          </dd>
+          <dt>
+            <span class="name">throwStubExceptions</span>
+            <span class="type">Boolean</span>
+          </dt>
+          <dd>
+            <p>(Client only) If true, exceptions thrown by method stubs will be thrown instead of logged, and the method will not be invoked on the server.</p>
+          </dd>
+      </dl>
+
+  </div>
+</div>
+
+<p><code>Meteor.apply</code> is just like <code>Meteor.call</code>, except that the method arguments are
+passed as an array rather than directly as arguments, and you can specify
+options about how the client executes the method.</p>
+<h2 id="ddpratelimiter"><span>DDPRateLimiter</span></h2>
+
+<p>Customize rate limiting for methods and subscriptions.</p>
+<p>By default, <code>DDPRateLimiter</code> is configured with a single rule. This rule
+limits login attempts, new user creation, and password resets to 5 attempts
+every 10 seconds per connection. It can be removed by calling
+<code>Accounts.removeDefaultRateLimit()</code>.</p>
+<p>To use <code>DDPRateLimiter</code> for modifying the default rate-limiting rules,
+add the <code>ddp-rate-limiter</code> package to your project in your terminal:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor add ddp-rate-limiter</div></pre></td></tr></table></figure>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Server
+    </div>
+
+    <h3 title="&lt;em&gt;.&lt;/em&gt;addRule" class="title-api selflink" id="DDPRateLimiter-addRule">
+      <a href="#DDPRateLimiter-addRule" class="link primary">DDPRateLimiter.addRule(matcher, numRequests, timeInterval, callback)</a>
+    </h3>
+
+    <div class="subtext-api">
+        <div class="code">import { DDPRateLimiter } from 'meteor/ddp-rate-limiter'</div>
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/ddp-rate-limiter/ddp-rate-limiter.html#L70" target="_blank">
+          (ddp-rate-limiter/ddp-rate-limiter.js, line 70)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Add a rule that matches against a stream of events describing method or
+subscription attempts. Each event is an object with the following
+properties:</p>
+<ul>
+<li><code>type</code>: Either "method" or "subscription"</li>
+<li><code>name</code>: The name of the method or subscription being called</li>
+<li><code>userId</code>: The user ID attempting the method or subscription</li>
+<li><code>connectionId</code>: A string representing the user's DDP connection</li>
+<li><code>clientAddress</code>: The IP address of the user</li>
+</ul>
+<p>Returns unique <code>ruleId</code> that can be passed to <code>removeRule</code>.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">matcher</span>
+            <span class="type">Object</span>
+          </dt>
+          <dd>
+            <p>Matchers specify which events are counted towards a rate limit. A matcher
+  is an object that has a subset of the same properties as the event objects
+  described above. Each value in a matcher object is one of the following:</p>
+<ul>
+<li><p>a string: for the event to satisfy the matcher, this value must be equal
+to the value of the same property in the event object</p>
+</li>
+<li><p>a function: for the event to satisfy the matcher, the function must
+evaluate to true when passed the value of the same property
+in the event object</p>
+</li>
+</ul>
+<p>Here's how events are counted: Each event that satisfies the matcher's
+filter is mapped to a bucket. Buckets are uniquely determined by the
+event object's values for all properties present in both the matcher and
+event objects.</p>
+          </dd>
+          <dt>
+            <span class="name">numRequests</span>
+            <span class="type">number</span>
+          </dt>
+          <dd>
+            <p>number of requests allowed per time interval.
+Default = 10.</p>
+          </dd>
+          <dt>
+            <span class="name">timeInterval</span>
+            <span class="type">number</span>
+          </dt>
+          <dd>
+            <p>time interval in milliseconds after which
+rule's counters are reset. Default = 1000.</p>
+          </dd>
+          <dt>
+            <span class="name">callback</span>
+            <span class="type">Function</span>
+          </dt>
+          <dd>
+            <p>function to be called after a rule is executed.</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<p>Custom rules can be added by calling <code>DDPRateLimiter.addRule</code>. The rate
+limiter is called on every method and subscription invocation.</p>
+<p>A rate limit is reached when a bucket has surpassed the rule’s predefined
+capactiy, at which point errors will be returned for that input until the
+buckets are reset. Buckets are regularly reset after the end of a time
+interval.</p>
+<p>Here’s example of defining a rule and adding it into the <code>DDPRateLimiter</code>:
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Define a rule that matches login attempts by non-admin users.</span></div><div class="line"><span class="keyword">const</span> loginRule = &#123;</div><div class="line">  userId(userId) &#123;</div><div class="line">    <span class="keyword">const</span> user = Meteor.users.findOne(userId);</div><div class="line">    <span class="keyword">return</span> user &amp;&amp; user.type !== <span class="string">'admin'</span>;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">type</span>: <span class="string">'method'</span>,</div><div class="line">  <span class="attr">name</span>: <span class="string">'login'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// Add the rule, allowing up to 5 messages every 1000 milliseconds.</span></div><div class="line">DDPRateLimiter.addRule(loginRule, <span class="number">5</span>, <span class="number">1000</span>);</div></pre></td></tr></table></figure></p>
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Server
+    </div>
+
+    <h3 title="&lt;em&gt;.&lt;/em&gt;removeRule" class="title-api selflink" id="DDPRateLimiter-removeRule">
+      <a href="#DDPRateLimiter-removeRule" class="link primary">DDPRateLimiter.removeRule(id)</a>
+    </h3>
+
+    <div class="subtext-api">
+        <div class="code">import { DDPRateLimiter } from 'meteor/ddp-rate-limiter'</div>
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/ddp-rate-limiter/ddp-rate-limiter.html#L85" target="_blank">
+          (ddp-rate-limiter/ddp-rate-limiter.js, line 85)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Removes the specified rule from the rate limiter. If rule had
+hit a rate limit, that limit is removed as well.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">id</span>
+            <span class="type">string</span>
+          </dt>
+          <dd>
+            <p>'ruleId' returned from <code>addRule</code></p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+<div class="api  new-api-box">
+  <div class="api-heading">
+    <div class="locus">
+      Server
+    </div>
+
+    <h3 title="&lt;em&gt;.&lt;/em&gt;setErrorMessage" class="title-api selflink" id="DDPRateLimiter-setErrorMessage">
+      <a href="#DDPRateLimiter-setErrorMessage" class="link primary">DDPRateLimiter.setErrorMessage(message)</a>
+    </h3>
+
+    <div class="subtext-api">
+        <div class="code">import { DDPRateLimiter } from 'meteor/ddp-rate-limiter'</div>
+
+        <a class="src-code link secondary" href="../../github.com/meteor/meteor/blob/master/packages/ddp-rate-limiter/ddp-rate-limiter.html#L28" target="_blank">
+          (ddp-rate-limiter/ddp-rate-limiter.js, line 28)
+        </a>
+    </div>
+  </div>
+
+  <div class="api-body">
+    <div class="desc">
+      <p>Set error message text when method or subscription rate limit
+exceeded.</p>
+    </div>
+
+      <h4 class="subheading">Arguments</h4>
+      <dl class="args">
+          <dt>
+            <span class="name">message</span>
+            <span class="type">string or Function</span>
+          </dt>
+          <dd>
+            <p>Functions are passed in an object with a
+<code>timeToReset</code> field that specifies the number of milliseconds until the next
+method or subscription is allowed to run. The function must return a string
+of the error message.</p>
+          </dd>
+      </dl>
+
+
+  </div>
+</div>
+
+
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="content-wrapper">
+      
+      
+        <a class="link primary prev"
+          href="pubsub.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Publish and subscribe
+        </a>
+      
+      
+        <a class="link primary next"
+          href="check.html">
+          <span class="subtitle-pagination">Next</span>
+          Check
+          <span class="icon-arrow-right-alt"></span>
+        </a>
+      
+    </div>
+  </div>
+
+  <div class="github">
+    <a class="link tertiary " href="https://github.com/meteor/docs/tree/master/source/api/methods.md" target="_blank">
+      <span class="icon-github"></span>Edit on GitHub</a>
+  </div>
+
+  
+</div>
+
+    <script src="../assets/script/smooth-scroll.min.js"></script>
+    <script src="../assets/script/main.js"></script>
+    <script type="text/javascript" src="../../cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
+    <script type="text/javascript" src="../../cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+    <script>
+      // nectar ninja
+      (function(){
+        var handle = '@meteorjs';
+        var a = document.createElement('script');
+        var m = document.getElementsByTagName('script')[0];
+        a.async = 1;
+        a.src = 'https://nectar.ninja/api/v1/' + handle.slice(1);
+        m.parentNode.insertBefore(a, m);
+      })();
+
+     
+      
+        // Segment Tracking
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+        analytics.load("zQx6cQifkTU79E3L0XAnmrOXP2A5bC6r");
+        analytics.page()
+        }}();
+      
+
+      // search box
+      
+
+        ['desktop'].forEach(function(type) {
+          var search = docsearch({
+            apiKey: 'bdf6b09d12024f6bae3631a0dfdd4a7f',
+            indexName: 'meteor_api_guide',
+            inputSelector: '#' + type + '-search-input',
+            autocompleteOptions: {
+              dropdownMenuContainer: '.wrapper-' + type + '-search-results',
+              debug: true
+            },
+            algoliaOptions: {
+              hitsPerPage: 20
+            }
+          }).autocomplete;
+
+          var sidebar = document.querySelector('.sidebar-content');
+          search.on('autocomplete:opened', function() {
+            sidebar.classList.add('searching');
+          });
+          search.on('autocomplete:closed', function() {
+            sidebar.classList.remove('searching');
+          });
+          search.on('autocomplete:updated', function() {
+            if (search.val() === '') {
+              search.autocomplete.close();
+            }
+          });
+        });
+      
+
+      
+        var REDIRECTS = {
+  "/#/full/meteor_isclient": "api/core.html#Meteor-isClient",
+  "/#/full/meteor_isserver": "api/core.html#Meteor-isServer",
+  "/#/full/meteor_iscordova": "api/core.html#Meteor-isCordova",
+  "/#/full/meteor-isdevelopment": "api/core.html#meteor-isdevelopment",
+  "/#/full/meteor-isproduction": "api/core.html#meteor-isproduction",
+  "/#/full/meteor_startup": "api/core.html#Meteor-startup",
+  "/#/full/meteor_wrapasync": "api/core.html#Meteor-wrapAsync",
+  "/#/full/meteor.defer": "api/core.html#meteor-defer",
+  "/#/full/meteor_absoluteurl": "api/core.html#Meteor-absoluteUrl",
+  "/#/full/meteor_settings": "api/core.html#Meteor-settings",
+  "/#/full/meteor_release": "api/core.html#Meteor-release",
+  "/#/full/meteor_publish": "api/pubsub.html#Meteor-publish",
+  "/#/full/publish_userid": "api/pubsub.html#publish_userid",
+  "/#/full/publish_added": "api/pubsub.html#Subscription-added",
+  "/#/full/publish_changed": "api/pubsub.html#Subscription-changed",
+  "/#/full/publish_removed": "api/pubsub.html#Subscription-removed",
+  "/#/full/publish_ready": "api/pubsub.html#Subscription-ready",
+  "/#/full/publish_onstop": "api/pubsub.html#Subscription-onStop",
+  "/#/full/publish_error": "api/pubsub.html#Subscription-error",
+  "/#/full/publish_stop": "api/pubsub.html#Subscription-stop",
+  "/#/full/publish_connection": "api/pubsub.html#Subscription-connection",
+  "/#/full/meteor_subscribe": "api/pubsub.html#Meteor-subscribe",
+  "/#/full/ddpratelimiter": "api/methods.html#ddpratelimiter",
+  "/#/full/meteor_methods": "api/methods.html#Meteor-methods",
+  "/#/full/method_userid": "api/methods.html#method_userid",
+  "/#/full/method_setuserid": "api/methods.html#method_setuserid",
+  "/#/full/method_issimulation": "api/methods.html#DDPCommon-MethodInvocation-isSimulation",
+  "/#/full/method_unblock": "api/methods.html#DDPCommon-MethodInvocation-unblock",
+  "/#/full/method_connection": "api/methods.html#DDPCommon-MethodInvocation-connection",
+  "/#/full/meteor_error": "api/methods.html#Meteor-Error",
+  "/#/full/meteor_call": "api/methods.html#Meteor-call",
+  "/#/full/meteor_apply": "api/methods.html#Meteor-apply",
+  "/#/full/check": "api/check.html#check",
+  "/#/full/match_test": "api/check.html#Match-test",
+  "/#/full/match patterns": "api/check.html#match patterns",
+  "/#/full/meteor_status": "api/connections.html#Meteor-status",
+  "/#/full/meteor_reconnect": "api/connections.html#Meteor-reconnect",
+  "/#/full/meteor_disconnect": "api/connections.html#Meteor-disconnect",
+  "/#/full/meteor_onconnection": "api/connections.html#Meteor-onConnection",
+  "/#/full/ddp_connect": "api/connections.html#DDP-connect",
+  "/#/full/mongo_collection": "api/collections.html#Mongo-Collection",
+  "/#/full/find": "api/collections.html#Mongo-Collection-find",
+  "/#/full/findone": "api/collections.html#Mongo-Collection-findOne",
+  "/#/full/insert": "api/collections.html#Mongo-Collection-insert",
+  "/#/full/update": "api/collections.html#Mongo-Collection-update",
+  "/#/full/upsert": "api/collections.html#Mongo-Collection-upsert",
+  "/#/full/remove": "api/collections.html#Mongo-Collection-remove",
+  "/#/full/allow": "api/collections.html#Mongo-Collection-allow",
+  "/#/full/deny": "api/collections.html#Mongo-Collection-deny",
+  "/#/full/mongo-collection-rawcollection": "api/collections.html#mongo-collection-rawcollection",
+  "/#/full/mongo-collection-rawdatabase": "api/collections.html#mongo-collection-rawdatabase",
+  "/#/full/mongo.cursor": "api/collections.html#mongo-cursor",
+  "/#/full/foreach": "api/collections.html#Mongo-Cursor-forEach",
+  "/#/full/map": "api/collections.html#Mongo-Cursor-map",
+  "/#/full/fetch": "api/collections.html#Mongo-Cursor-fetch",
+  "/#/full/count": "api/collections.html#Mongo-Cursor-count",
+  "/#/full/observe": "api/collections.html#Mongo-Cursor-observe",
+  "/#/full/observe_changes": "api/collections.html#Mongo-Cursor-observeChanges",
+  "/#/full/mongo_object_id": "api/collections.html#Mongo-ObjectID",
+  "/#/full/selectors": "api/collections.html#selectors",
+  "/#/full/modifiers": "api/collections.html#modifiers",
+  "/#/full/sort specifiers": "api/collections.html#sort specifiers",
+  "/#/full/field specifiers": "api/collections.html#field specifiers",
+  "/#/full/session_set": "api/session.html#Session-set",
+  "/#/full/session_set_default": "api/session.html#Session-setDefault",
+  "/#/full/session_get": "api/session.html#Session-get",
+  "/#/full/session_equals": "api/session.html#Session-equals",
+  "/#/full/meteor_user": "api/accounts.html#Meteor-user",
+  "/#/full/meteor_userid": "api/accounts.html#Meteor-userId",
+  "/#/full/meteor_users": "api/accounts.html#Meteor-users",
+  "/#/full/meteor_loggingin": "api/accounts.html#Meteor-loggingIn",
+  "/#/full/meteor_logout": "api/accounts.html#Meteor-logout",
+  "/#/full/meteor_logoutotherclients": "api/accounts.html#Meteor-logoutOtherClients",
+  "/#/full/meteor_loginwithpassword": "api/accounts.html#Meteor-loginWithPassword",
+  "/#/full/meteor_loginwithexternalservice": "api/accounts.html#Meteor-loginWith<ExternalService>",
+  "/#/full/template_currentuser": "api/accounts.html#currentUser",
+  "/#/full/template_loggingin": "api/accounts.html#loggingIn",
+  "/#/full/accounts_ui_config": "api/accounts.html#Accounts-ui-config",
+  "/#/full/accountsclient": "api/accounts-multi.html#AccountsClient",
+  "/#/full/accountsserver": "api/accounts-multi.html#AccountsServer",
+  "/#/full/accounts_userid": "api/accounts-multi.html#AccountsCommon-userId",
+  "/#/full/accounts_user": "api/accounts-multi.html#AccountsCommon-user",
+  "/#/full/accounts_config": "api/accounts-multi.html#AccountsCommon-config",
+  "/#/full/accounts_onlogin": "api/accounts-multi.html#AccountsCommon-onLogin",
+  "/#/full/accounts_onloginfailure": "api/accounts-multi.html#AccountsCommon-onLoginFailure",
+  "/#/full/accounts_loggingin": "api/accounts-multi.html#AccountsClient-loggingIn",
+  "/#/full/accounts_logout": "api/accounts-multi.html#AccountsClient-logout",
+  "/#/full/accounts_logoutotherclients": "api/accounts-multi.html#AccountsClient-logoutOtherClients",
+  "/#/full/accounts_oncreateuser": "api/accounts-multi.html#AccountsServer-onCreateUser",
+  "/#/full/accounts_validateloginattempt": "api/accounts-multi.html#AccountsServer-validateLoginAttempt",
+  "/#/full/accounts_validatenewuser": "api/accounts-multi.html#AccountsServer-validateNewUser",
+  "/#/full/accounts_createuser": "api/passwords.html#Accounts-createUser",
+  "/#/full/accounts-setusername": "api/passwords.html#accounts-setusername",
+  "/#/full/accounts-addemail": "api/passwords.html#accounts-addemail",
+  "/#/full/accounts-removeemail": "api/passwords.html#accounts-removeemail",
+  "/#/full/accounts_verifyemail": "api/passwords.html#Accounts-verifyEmail",
+  "/#/full/accounts-finduserbyusername": "api/passwords.html#accounts-finduserbyusername",
+  "/#/full/accounts-finduserbyemail": "api/passwords.html#accounts-finduserbyemail",
+  "/#/full/accounts_changepassword": "api/passwords.html#Accounts-changePassword",
+  "/#/full/accounts_forgotpassword": "api/passwords.html#Accounts-forgotPassword",
+  "/#/full/accounts_resetpassword": "api/passwords.html#Accounts-resetPassword",
+  "/#/full/accounts_setpassword": "api/passwords.html#Accounts-setPassword",
+  "/#/full/accounts_sendresetpasswordemail": "api/passwords.html#Accounts-sendResetPasswordEmail",
+  "/#/full/accounts_sendenrollmentemail": "api/passwords.html#Accounts-sendEnrollmentEmail",
+  "/#/full/accounts_sendverificationemail": "api/passwords.html#Accounts-sendVerificationEmail",
+  "/#/full/accounts-onresetpasswordlink": "api/passwords.html#accounts-onresetpasswordlink",
+  "/#/full/accounts-onenrollmentlink": "api/passwords.html#accounts-onenrollmentlink",
+  "/#/full/accounts-onemailverificationlink": "api/passwords.html#accounts-onemailverificationlink",
+  "/#/full/accounts_emailtemplates": "api/passwords.html#Accounts-emailTemplates",
+  "/#/full/templates_api": "api/templates.html#templates_api",
+  "/#/full/template_events": "api/templates.html#Template-events",
+  "/#/full/template_helpers": "api/templates.html#Template-helpers",
+  "/#/full/template_onrendered": "api/templates.html#template_onrendered",
+  "/#/full/template_oncreated": "api/templates.html#template_oncreated",
+  "/#/full/template_ondestroyed": "api/templates.html#template_ondestroyed",
+  "/#/full/template_inst": "api/templates.html#template_inst",
+  "/#/full/template_findall": "api/templates.html#template_findall",
+  "/#/full/template_$": "api/templates.html#Blaze-TemplateInstance-$",
+  "/#/full/template_find": "api/templates.html#Blaze-TemplateInstance-find",
+  "/#/full/template_firstnode": "api/templates.html#template_firstnode",
+  "/#/full/template_lastnode": "api/templates.html#template_lastnode",
+  "/#/full/template_data": "api/templates.html#Blaze-TemplateInstance-data",
+  "/#/full/template_autorun": "api/templates.html#Blaze-TemplateInstance-autorun",
+  "/#/full/blaze-templateinstance-subscribe": "api/templates.html#blaze-templateinstance-subscribe",
+  "/#/full/template_view": "api/templates.html#Blaze-TemplateInstance-view",
+  "/#/full/template_registerhelper": "api/templates.html#Template-registerHelper",
+  "/#/full/template_instance": "api/templates.html#Template-instance",
+  "/#/full/template_currentdata": "api/templates.html#Template-currentData",
+  "/#/full/template_parentdata": "api/templates.html#Template-parentData",
+  "/#/full/template_body": "api/templates.html#Template-body",
+  "/#/full/template_dynamic": "api/templates.html#Template-dynamic",
+  "/#/full/event maps": "api/templates.html#event maps",
+  "/#/full/spacebars": "api/templates.html#spacebars",
+  "/#/full/blaze_render": "api/blaze.html#Blaze-render",
+  "/#/full/blaze_renderwithdata": "api/blaze.html#Blaze-renderWithData",
+  "/#/full/blaze_remove": "api/blaze.html#Blaze-remove",
+  "/#/full/blaze_getdata": "api/blaze.html#Blaze-getData",
+  "/#/full/blaze_tohtml": "api/blaze.html#Blaze-toHTML",
+  "/#/full/blaze_tohtmlwithdata": "api/blaze.html#Blaze-toHTMLWithData",
+  "/#/full/blaze_view": "api/blaze.html#Blaze-View",
+  "/#/full/blaze_currentview": "api/blaze.html#Blaze-currentView",
+  "/#/full/blaze_getview": "api/blaze.html#Blaze-getView",
+  "/#/full/blaze_with": "api/blaze.html#Blaze-With",
+  "/#/full/blaze_if": "api/blaze.html#Blaze-If",
+  "/#/full/blaze_unless": "api/blaze.html#Blaze-Unless",
+  "/#/full/blaze_each": "api/blaze.html#Blaze-Each",
+  "/#/full/blaze_template": "api/blaze.html#Blaze-Template",
+  "/#/full/blaze_istemplate": "api/blaze.html#Blaze-isTemplate",
+  "/#/full/renderable_content": "api/blaze.html#renderable_content",
+  "/#/full/meteor_settimeout": "api/timers.html#Meteor-setTimeout",
+  "/#/full/meteor_setinterval": "api/timers.html#Meteor-setInterval",
+  "/#/full/meteor_cleartimeout": "api/timers.html#Meteor-clearTimeout",
+  "/#/full/meteor_clearinterval": "api/timers.html#Meteor-clearInterval",
+  "/#/full/tracker_autorun": "api/tracker.html#Tracker-autorun",
+  "/#/full/tracker_flush": "api/tracker.html#Tracker-flush",
+  "/#/full/tracker_nonreactive": "api/tracker.html#Tracker-nonreactive",
+  "/#/full/tracker_active": "api/tracker.html#Tracker-active",
+  "/#/full/tracker_currentcomputation": "api/tracker.html#Tracker-currentComputation",
+  "/#/full/tracker_oninvalidate": "api/tracker.html#Tracker-onInvalidate",
+  "/#/full/tracker_afterflush": "api/tracker.html#Tracker-afterFlush",
+  "/#/full/tracker.computation": "api/tracker.html#tracker-computation",
+  "/#/full/computation_stop": "api/tracker.html#Tracker-Computation-stop",
+  "/#/full/computation_invalidate": "api/tracker.html#Tracker-Computation-invalidate",
+  "/#/full/computation_oninvalidate": "api/tracker.html#Tracker-Computation-onInvalidate",
+  "/#/full/computation_onstop": "api/tracker.html#Tracker-Computation-onStop",
+  "/#/full/computation_stopped": "api/tracker.html#Tracker-Computation-stopped",
+  "/#/full/computation_invalidated": "api/tracker.html#Tracker-Computation-invalidated",
+  "/#/full/computation_firstrun": "api/tracker.html#Tracker-Computation-firstRun",
+  "/#/full/tracker.dependency": "api/tracker.html#tracker-dependency",
+  "/#/full/dependency_changed": "api/tracker.html#Tracker-Dependency-changed",
+  "/#/full/dependency_depend": "api/tracker.html#Tracker-Dependency-depend",
+  "/#/full/dependency_hasdependents": "api/tracker.html#Tracker-Dependency-hasDependents",
+  "/#/full/reactivevar": "api/reactivevar.html#ReactiveVar",
+  "/#/full/reactivevar_get": "api/reactivevar.html#ReactiveVar-get",
+  "/#/full/reactivevar_set": "api/reactivevar.html#ReactiveVar-set",
+  "/#/full/ejson_parse": "api/ejson.html#EJSON-parse",
+  "/#/full/ejson_stringify": "api/ejson.html#EJSON-stringify",
+  "/#/full/ejson_from_json_value": "api/ejson.html#EJSON-fromJSONValue",
+  "/#/full/ejson_to_json_value": "api/ejson.html#EJSON-toJSONValue",
+  "/#/full/ejson_equals": "api/ejson.html#EJSON-equals",
+  "/#/full/ejson_clone": "api/ejson.html#EJSON-clone",
+  "/#/full/ejson_new_binary": "api/ejson.html#EJSON-newBinary",
+  "/#/full/ejson_is_binary": "api/ejson.html#EJSON-isBinary",
+  "/#/full/ejson_add_type": "api/ejson.html#EJSON-addType",
+  "/#/full/ejson_type_typename": "api/ejson.html#ejson_type_typename",
+  "/#/full/ejson_type_tojsonvalue": "api/ejson.html#ejson_type_tojsonvalue",
+  "/#/full/ejson_type_clone": "api/ejson.html#EJSON-CustomType-clone",
+  "/#/full/ejson_type_equals": "api/ejson.html#EJSON-CustomType-equals",
+  "/#/full/http_call": "api/http.html#HTTP-call",
+  "/#/full/http_get": "api/http.html#HTTP-get",
+  "/#/full/http_post": "api/http.html#HTTP-post",
+  "/#/full/http_put": "api/http.html#HTTP-put",
+  "/#/full/http_del": "api/http.html#HTTP-del",
+  "/#/full/email_send": "api/email.html#Email-send",
+  "/#/full/assets_gettext": "api/assets.html#assets_gettext",
+  "/#/full/assets_getbinary": "api/assets.html#assets_getbinary",
+  "/#/full/packagedescription": "api/packagejs.html#packagedescription",
+  "/#/full/packagedefinition": "api/packagejs.html#packagedefinition",
+  "/#/full/pack_versions": "api/packagejs.html#PackageAPI-versionsFrom",
+  "/#/full/pack_use": "api/packagejs.html#PackageAPI-use",
+  "/#/full/pack_api_imply": "api/packagejs.html#PackageAPI-imply",
+  "/#/full/pack_export": "api/packagejs.html#PackageAPI-export",
+  "/#/full/pack_addfiles": "api/packagejs.html#pack_addfiles",
+  "/#/full/packageapi-addassets": "api/packagejs.html#packageapi-addassets",
+  "/#/full/packagetests": "api/packagejs.html#packagetests",
+  "/#/full/npm-depends": "api/packagejs.html#npm-depends",
+  "/#/full/npm-require": "api/packagejs.html#npm-require",
+  "/#/full/cordova-depends": "api/packagejs.html#cordova-depends",
+  "/#/full/package-registerbuildplugin": "api/packagejs.html#package-registerbuildplugin",
+  "/#/full/plugin-registersourcehandler": "api/packagejs.html#plugin-registersourcehandler",
+  "/#/full/app-info": "api/mobile-config.html#app-info",
+  "/#/full/app-setpreference": "api/mobile-config.html#app-setpreference",
+  "/#/full/app-accessrule": "api/mobile-config.html#app-accessrule",
+  "/#/full/app-configureplugin": "api/mobile-config.html#app-configureplugin",
+  "/#/full/app-icons": "api/mobile-config.html#app-icons",
+  "/#/full/app-launchscreens": "api/mobile-config.html#app-launchscreens",
+  "/#/full/meteorhelp": "commandline.html#meteorhelp",
+  "/#/full/meteorrun": "commandline.html#meteorrun",
+  "/#/full/meteordebug": "commandline.html#meteordebug",
+  "/#/full/meteorcreate": "commandline.html#meteorcreate",
+  "/#/full/meteorloginlogout": "commandline.html#meteorloginlogout",
+  "/#/full/meteordeploy": "commandline.html#meteordeploy",
+  "/#/full/meteorupdate": "commandline.html#meteorupdate",
+  "/#/full/meteoradd": "commandline.html#meteoradd",
+  "/#/full/meteorremove": "commandline.html#meteorremove",
+  "/#/full/meteorlist": "commandline.html#meteorlist",
+  "/#/full/meteormongo": "commandline.html#meteormongo",
+  "/#/full/meteorreset": "commandline.html#meteorreset",
+  "/#/full/meteorbuild": "commandline.html#meteorbuild",
+  "/#/full/meteorlint": "commandline.html#meteorlint",
+  "/#/full/meteorsearch": "commandline.html#meteorsearch",
+  "/#/full/meteorshow": "commandline.html#meteorshow",
+  "/#/full/meteorpublish": "commandline.html#meteorpublish",
+  "/#/full/meteorpublishforarch": "commandline.html#undefined",
+  "/#/full/meteorpublishrelease": "commandline.html#meteorpublishrelease",
+  "/#/full/meteortestpackages": "commandline.html#meteortestpackages",
+  "/#/full/meteoradmin": "commandline.html#meteoradmin",
+  "/#/full/meteorshell": "commandline.html#meteorshell",
+  "/#/full/core": "api/core.html",
+  "/#/full/pubsub": "api/pubsub.html",
+  "/#/full/methods": "api/methods.html",
+  "/#/full/methods_header": "api/methods.html",
+  "/#/full/check_package": "api/check.html",
+  "/#/full/connections": "api/connections.html",
+  "/#/full/collections": "api/collections.html",
+  "/#/full/session": "api/session.html",
+  "/#/full/accounts": "api/accounts.html",
+  "/#/full/accounts_api": "api/accounts.html",
+  "/#/full/accounts-multi": "api/accounts-multi.html",
+  "/#/full/advanced_accounts_api": "api/accounts-multi.html",
+  "/#/full/passwords": "api/passwords.html",
+  "/#/full/accounts_passwords": "api/passwords.html",
+  "/#/full/templates": "api/templates.html",
+  "/#/full/blaze": "api/blaze.html",
+  "/#/full/timers": "api/timers.html",
+  "/#/full/tracker": "api/tracker.html",
+  "/#/full/reactivevar_pkg": "api/reactivevar.html",
+  "/#/full/ejson": "api/ejson.html",
+  "/#/full/http": "api/http.html",
+  "/#/full/email": "api/email.html",
+  "/#/full/assets": "api/assets.html",
+  "/#/full/packagejs": "api/packagejs.html",
+  "/#/full/mobile-config": "api/mobile-config.html",
+  "/#/full/appcache": "packages/appcache.html",
+  "/#/full/accounts-ui": "packages/accounts-ui.html",
+  "/#/full/audit-argument-checks": "packages/audit-argument-checks.html",
+  "/#/full/coffeescript": "packages/coffeescript.html",
+  "/#/full/ecmascript": "packages/ecmascript.html",
+  "/#/full/jquery": "packages/jquery.html",
+  "/#/full/less": "packages/less.html",
+  "/#/full/markdown": "packages/markdown.html",
+  "/#/full/modules": "packages/modules.html",
+  "/#/full/oauth-encryption": "packages/oauth-encryption.html",
+  "/#/full/random": "packages/random.html",
+  "/#/full/spiderable": "packages/spiderable.html",
+  "/#/full/underscore": "packages/underscore.html",
+  "/#/full/webapp": "packages/webapp.html",
+  "#meteor_isclient": "api/core.html#Meteor-isClient",
+  "#meteor_isserver": "api/core.html#Meteor-isServer",
+  "#meteor_iscordova": "api/core.html#Meteor-isCordova",
+  "#meteor-isdevelopment": "api/core.html#meteor-isdevelopment",
+  "#meteor-isproduction": "api/core.html#meteor-isproduction",
+  "#meteor_startup": "api/core.html#Meteor-startup",
+  "#meteor_wrapasync": "api/core.html#Meteor-wrapAsync",
+  "#meteor.defer": "api/core.html#meteor-defer",
+  "#meteor_absoluteurl": "api/core.html#Meteor-absoluteUrl",
+  "#meteor_settings": "api/core.html#Meteor-settings",
+  "#meteor_release": "api/core.html#Meteor-release",
+  "#meteor_publish": "api/pubsub.html#Meteor-publish",
+  "#publish_userid": "api/pubsub.html#publish_userid",
+  "#publish_added": "api/pubsub.html#Subscription-added",
+  "#publish_changed": "api/pubsub.html#Subscription-changed",
+  "#publish_removed": "api/pubsub.html#Subscription-removed",
+  "#publish_ready": "api/pubsub.html#Subscription-ready",
+  "#publish_onstop": "api/pubsub.html#Subscription-onStop",
+  "#publish_error": "api/pubsub.html#Subscription-error",
+  "#publish_stop": "api/pubsub.html#Subscription-stop",
+  "#publish_connection": "api/pubsub.html#Subscription-connection",
+  "#meteor_subscribe": "api/pubsub.html#Meteor-subscribe",
+  "#ddpratelimiter": "api/methods.html#ddpratelimiter",
+  "#meteor_methods": "api/methods.html#Meteor-methods",
+  "#method_userid": "api/methods.html#method_userid",
+  "#method_setuserid": "api/methods.html#method_setuserid",
+  "#method_issimulation": "api/methods.html#DDPCommon-MethodInvocation-isSimulation",
+  "#method_unblock": "api/methods.html#DDPCommon-MethodInvocation-unblock",
+  "#method_connection": "api/methods.html#DDPCommon-MethodInvocation-connection",
+  "#meteor_error": "api/methods.html#Meteor-Error",
+  "#meteor_call": "api/methods.html#Meteor-call",
+  "#meteor_apply": "api/methods.html#Meteor-apply",
+  "#check": "api/check.html#check",
+  "#match_test": "api/check.html#Match-test",
+  "#match patterns": "api/check.html#match patterns",
+  "#meteor_status": "api/connections.html#Meteor-status",
+  "#meteor_reconnect": "api/connections.html#Meteor-reconnect",
+  "#meteor_disconnect": "api/connections.html#Meteor-disconnect",
+  "#meteor_onconnection": "api/connections.html#Meteor-onConnection",
+  "#ddp_connect": "api/connections.html#DDP-connect",
+  "#mongo_collection": "api/collections.html#Mongo-Collection",
+  "#find": "api/collections.html#Mongo-Collection-find",
+  "#findone": "api/collections.html#Mongo-Collection-findOne",
+  "#insert": "api/collections.html#Mongo-Collection-insert",
+  "#update": "api/collections.html#Mongo-Collection-update",
+  "#upsert": "api/collections.html#Mongo-Collection-upsert",
+  "#remove": "api/collections.html#Mongo-Collection-remove",
+  "#allow": "api/collections.html#Mongo-Collection-allow",
+  "#deny": "api/collections.html#Mongo-Collection-deny",
+  "#mongo-collection-rawcollection": "api/collections.html#mongo-collection-rawcollection",
+  "#mongo-collection-rawdatabase": "api/collections.html#mongo-collection-rawdatabase",
+  "#mongo.cursor": "api/collections.html#mongo-cursor",
+  "#foreach": "api/collections.html#Mongo-Cursor-forEach",
+  "#map": "api/collections.html#Mongo-Cursor-map",
+  "#fetch": "api/collections.html#Mongo-Cursor-fetch",
+  "#count": "api/collections.html#Mongo-Cursor-count",
+  "#observe": "api/collections.html#Mongo-Cursor-observe",
+  "#observe_changes": "api/collections.html#Mongo-Cursor-observeChanges",
+  "#mongo_object_id": "api/collections.html#Mongo-ObjectID",
+  "#selectors": "api/collections.html#selectors",
+  "#modifiers": "api/collections.html#modifiers",
+  "#sort specifiers": "api/collections.html#sort specifiers",
+  "#field specifiers": "api/collections.html#field specifiers",
+  "#session_set": "api/session.html#Session-set",
+  "#session_set_default": "api/session.html#Session-setDefault",
+  "#session_get": "api/session.html#Session-get",
+  "#session_equals": "api/session.html#Session-equals",
+  "#meteor_user": "api/accounts.html#Meteor-user",
+  "#meteor_userid": "api/accounts.html#Meteor-userId",
+  "#meteor_users": "api/accounts.html#Meteor-users",
+  "#meteor_loggingin": "api/accounts.html#Meteor-loggingIn",
+  "#meteor_logout": "api/accounts.html#Meteor-logout",
+  "#meteor_logoutotherclients": "api/accounts.html#Meteor-logoutOtherClients",
+  "#meteor_loginwithpassword": "api/accounts.html#Meteor-loginWithPassword",
+  "#meteor_loginwithexternalservice": "api/accounts.html#Meteor-loginWith<ExternalService>",
+  "#template_currentuser": "api/accounts.html#currentUser",
+  "#template_loggingin": "api/accounts.html#loggingIn",
+  "#accounts_ui_config": "api/accounts.html#Accounts-ui-config",
+  "#accountsclient": "api/accounts-multi.html#AccountsClient",
+  "#accountsserver": "api/accounts-multi.html#AccountsServer",
+  "#accounts_userid": "api/accounts-multi.html#AccountsCommon-userId",
+  "#accounts_user": "api/accounts-multi.html#AccountsCommon-user",
+  "#accounts_config": "api/accounts-multi.html#AccountsCommon-config",
+  "#accounts_onlogin": "api/accounts-multi.html#AccountsCommon-onLogin",
+  "#accounts_onloginfailure": "api/accounts-multi.html#AccountsCommon-onLoginFailure",
+  "#accounts_loggingin": "api/accounts-multi.html#AccountsClient-loggingIn",
+  "#accounts_logout": "api/accounts-multi.html#AccountsClient-logout",
+  "#accounts_logoutotherclients": "api/accounts-multi.html#AccountsClient-logoutOtherClients",
+  "#accounts_oncreateuser": "api/accounts-multi.html#AccountsServer-onCreateUser",
+  "#accounts_validateloginattempt": "api/accounts-multi.html#AccountsServer-validateLoginAttempt",
+  "#accounts_validatenewuser": "api/accounts-multi.html#AccountsServer-validateNewUser",
+  "#accounts_createuser": "api/passwords.html#Accounts-createUser",
+  "#accounts-setusername": "api/passwords.html#accounts-setusername",
+  "#accounts-addemail": "api/passwords.html#accounts-addemail",
+  "#accounts-removeemail": "api/passwords.html#accounts-removeemail",
+  "#accounts_verifyemail": "api/passwords.html#Accounts-verifyEmail",
+  "#accounts-finduserbyusername": "api/passwords.html#accounts-finduserbyusername",
+  "#accounts-finduserbyemail": "api/passwords.html#accounts-finduserbyemail",
+  "#accounts_changepassword": "api/passwords.html#Accounts-changePassword",
+  "#accounts_forgotpassword": "api/passwords.html#Accounts-forgotPassword",
+  "#accounts_resetpassword": "api/passwords.html#Accounts-resetPassword",
+  "#accounts_setpassword": "api/passwords.html#Accounts-setPassword",
+  "#accounts_sendresetpasswordemail": "api/passwords.html#Accounts-sendResetPasswordEmail",
+  "#accounts_sendenrollmentemail": "api/passwords.html#Accounts-sendEnrollmentEmail",
+  "#accounts_sendverificationemail": "api/passwords.html#Accounts-sendVerificationEmail",
+  "#accounts-onresetpasswordlink": "api/passwords.html#accounts-onresetpasswordlink",
+  "#accounts-onenrollmentlink": "api/passwords.html#accounts-onenrollmentlink",
+  "#accounts-onemailverificationlink": "api/passwords.html#accounts-onemailverificationlink",
+  "#accounts_emailtemplates": "api/passwords.html#Accounts-emailTemplates",
+  "#templates_api": "api/templates.html#templates_api",
+  "#template_events": "api/templates.html#Template-events",
+  "#template_helpers": "api/templates.html#Template-helpers",
+  "#template_onrendered": "api/templates.html#template_onrendered",
+  "#template_oncreated": "api/templates.html#template_oncreated",
+  "#template_ondestroyed": "api/templates.html#template_ondestroyed",
+  "#template_inst": "api/templates.html#template_inst",
+  "#template_findall": "api/templates.html#template_findall",
+  "#template_$": "api/templates.html#Blaze-TemplateInstance-$",
+  "#template_find": "api/templates.html#Blaze-TemplateInstance-find",
+  "#template_firstnode": "api/templates.html#template_firstnode",
+  "#template_lastnode": "api/templates.html#template_lastnode",
+  "#template_data": "api/templates.html#Blaze-TemplateInstance-data",
+  "#template_autorun": "api/templates.html#Blaze-TemplateInstance-autorun",
+  "#blaze-templateinstance-subscribe": "api/templates.html#blaze-templateinstance-subscribe",
+  "#template_view": "api/templates.html#Blaze-TemplateInstance-view",
+  "#template_registerhelper": "api/templates.html#Template-registerHelper",
+  "#template_instance": "api/templates.html#Template-instance",
+  "#template_currentdata": "api/templates.html#Template-currentData",
+  "#template_parentdata": "api/templates.html#Template-parentData",
+  "#template_body": "api/templates.html#Template-body",
+  "#template_dynamic": "api/templates.html#Template-dynamic",
+  "#event maps": "api/templates.html#event maps",
+  "#spacebars": "api/templates.html#spacebars",
+  "#blaze_render": "api/blaze.html#Blaze-render",
+  "#blaze_renderwithdata": "api/blaze.html#Blaze-renderWithData",
+  "#blaze_remove": "api/blaze.html#Blaze-remove",
+  "#blaze_getdata": "api/blaze.html#Blaze-getData",
+  "#blaze_tohtml": "api/blaze.html#Blaze-toHTML",
+  "#blaze_tohtmlwithdata": "api/blaze.html#Blaze-toHTMLWithData",
+  "#blaze_view": "api/blaze.html#Blaze-View",
+  "#blaze_currentview": "api/blaze.html#Blaze-currentView",
+  "#blaze_getview": "api/blaze.html#Blaze-getView",
+  "#blaze_with": "api/blaze.html#Blaze-With",
+  "#blaze_if": "api/blaze.html#Blaze-If",
+  "#blaze_unless": "api/blaze.html#Blaze-Unless",
+  "#blaze_each": "api/blaze.html#Blaze-Each",
+  "#blaze_template": "api/blaze.html#Blaze-Template",
+  "#blaze_istemplate": "api/blaze.html#Blaze-isTemplate",
+  "#renderable_content": "api/blaze.html#renderable_content",
+  "#meteor_settimeout": "api/timers.html#Meteor-setTimeout",
+  "#meteor_setinterval": "api/timers.html#Meteor-setInterval",
+  "#meteor_cleartimeout": "api/timers.html#Meteor-clearTimeout",
+  "#meteor_clearinterval": "api/timers.html#Meteor-clearInterval",
+  "#tracker_autorun": "api/tracker.html#Tracker-autorun",
+  "#tracker_flush": "api/tracker.html#Tracker-flush",
+  "#tracker_nonreactive": "api/tracker.html#Tracker-nonreactive",
+  "#tracker_active": "api/tracker.html#Tracker-active",
+  "#tracker_currentcomputation": "api/tracker.html#Tracker-currentComputation",
+  "#tracker_oninvalidate": "api/tracker.html#Tracker-onInvalidate",
+  "#tracker_afterflush": "api/tracker.html#Tracker-afterFlush",
+  "#tracker.computation": "api/tracker.html#tracker-computation",
+  "#computation_stop": "api/tracker.html#Tracker-Computation-stop",
+  "#computation_invalidate": "api/tracker.html#Tracker-Computation-invalidate",
+  "#computation_oninvalidate": "api/tracker.html#Tracker-Computation-onInvalidate",
+  "#computation_onstop": "api/tracker.html#Tracker-Computation-onStop",
+  "#computation_stopped": "api/tracker.html#Tracker-Computation-stopped",
+  "#computation_invalidated": "api/tracker.html#Tracker-Computation-invalidated",
+  "#computation_firstrun": "api/tracker.html#Tracker-Computation-firstRun",
+  "#tracker.dependency": "api/tracker.html#tracker-dependency",
+  "#dependency_changed": "api/tracker.html#Tracker-Dependency-changed",
+  "#dependency_depend": "api/tracker.html#Tracker-Dependency-depend",
+  "#dependency_hasdependents": "api/tracker.html#Tracker-Dependency-hasDependents",
+  "#reactivevar": "api/reactivevar.html#ReactiveVar",
+  "#reactivevar_get": "api/reactivevar.html#ReactiveVar-get",
+  "#reactivevar_set": "api/reactivevar.html#ReactiveVar-set",
+  "#ejson_parse": "api/ejson.html#EJSON-parse",
+  "#ejson_stringify": "api/ejson.html#EJSON-stringify",
+  "#ejson_from_json_value": "api/ejson.html#EJSON-fromJSONValue",
+  "#ejson_to_json_value": "api/ejson.html#EJSON-toJSONValue",
+  "#ejson_equals": "api/ejson.html#EJSON-equals",
+  "#ejson_clone": "api/ejson.html#EJSON-clone",
+  "#ejson_new_binary": "api/ejson.html#EJSON-newBinary",
+  "#ejson_is_binary": "api/ejson.html#EJSON-isBinary",
+  "#ejson_add_type": "api/ejson.html#EJSON-addType",
+  "#ejson_type_typename": "api/ejson.html#ejson_type_typename",
+  "#ejson_type_tojsonvalue": "api/ejson.html#ejson_type_tojsonvalue",
+  "#ejson_type_clone": "api/ejson.html#EJSON-CustomType-clone",
+  "#ejson_type_equals": "api/ejson.html#EJSON-CustomType-equals",
+  "#http_call": "api/http.html#HTTP-call",
+  "#http_get": "api/http.html#HTTP-get",
+  "#http_post": "api/http.html#HTTP-post",
+  "#http_put": "api/http.html#HTTP-put",
+  "#http_del": "api/http.html#HTTP-del",
+  "#email_send": "api/email.html#Email-send",
+  "#assets_gettext": "api/assets.html#assets_gettext",
+  "#assets_getbinary": "api/assets.html#assets_getbinary",
+  "#packagedescription": "api/packagejs.html#packagedescription",
+  "#packagedefinition": "api/packagejs.html#packagedefinition",
+  "#pack_versions": "api/packagejs.html#PackageAPI-versionsFrom",
+  "#pack_use": "api/packagejs.html#PackageAPI-use",
+  "#pack_api_imply": "api/packagejs.html#PackageAPI-imply",
+  "#pack_export": "api/packagejs.html#PackageAPI-export",
+  "#pack_addfiles": "api/packagejs.html#pack_addfiles",
+  "#packageapi-addassets": "api/packagejs.html#packageapi-addassets",
+  "#packagetests": "api/packagejs.html#packagetests",
+  "#npm-depends": "api/packagejs.html#npm-depends",
+  "#npm-require": "api/packagejs.html#npm-require",
+  "#cordova-depends": "api/packagejs.html#cordova-depends",
+  "#package-registerbuildplugin": "api/packagejs.html#package-registerbuildplugin",
+  "#plugin-registersourcehandler": "api/packagejs.html#plugin-registersourcehandler",
+  "#app-info": "api/mobile-config.html#app-info",
+  "#app-setpreference": "api/mobile-config.html#app-setpreference",
+  "#app-accessrule": "api/mobile-config.html#app-accessrule",
+  "#app-configureplugin": "api/mobile-config.html#app-configureplugin",
+  "#app-icons": "api/mobile-config.html#app-icons",
+  "#app-launchscreens": "api/mobile-config.html#app-launchscreens",
+  "#meteorhelp": "commandline.html#meteorhelp",
+  "#meteorrun": "commandline.html#meteorrun",
+  "#meteordebug": "commandline.html#meteordebug",
+  "#meteorcreate": "commandline.html#meteorcreate",
+  "#meteorloginlogout": "commandline.html#meteorloginlogout",
+  "#meteordeploy": "commandline.html#meteordeploy",
+  "#meteorupdate": "commandline.html#meteorupdate",
+  "#meteoradd": "commandline.html#meteoradd",
+  "#meteorremove": "commandline.html#meteorremove",
+  "#meteorlist": "commandline.html#meteorlist",
+  "#meteormongo": "commandline.html#meteormongo",
+  "#meteorreset": "commandline.html#meteorreset",
+  "#meteorbuild": "commandline.html#meteorbuild",
+  "#meteorlint": "commandline.html#meteorlint",
+  "#meteorsearch": "commandline.html#meteorsearch",
+  "#meteorshow": "commandline.html#meteorshow",
+  "#meteorpublish": "commandline.html#meteorpublish",
+  "#meteorpublishforarch": "commandline.html#undefined",
+  "#meteorpublishrelease": "commandline.html#meteorpublishrelease",
+  "#meteortestpackages": "commandline.html#meteortestpackages",
+  "#meteoradmin": "commandline.html#meteoradmin",
+  "#meteorshell": "commandline.html#meteorshell",
+  "#core": "api/core.html",
+  "#pubsub": "api/pubsub.html",
+  "#methods": "api/methods.html",
+  "#methods_header": "api/methods.html",
+  "#check_package": "api/check.html",
+  "#connections": "api/connections.html",
+  "#collections": "api/collections.html",
+  "#session": "api/session.html",
+  "#accounts": "api/accounts.html",
+  "#accounts_api": "api/accounts.html",
+  "#accounts-multi": "api/accounts-multi.html",
+  "#advanced_accounts_api": "api/accounts-multi.html",
+  "#passwords": "api/passwords.html",
+  "#accounts_passwords": "api/passwords.html",
+  "#templates": "api/templates.html",
+  "#blaze": "api/blaze.html",
+  "#timers": "api/timers.html",
+  "#tracker": "api/tracker.html",
+  "#reactivevar_pkg": "api/reactivevar.html",
+  "#ejson": "api/ejson.html",
+  "#http": "api/http.html",
+  "#email": "api/email.html",
+  "#assets": "api/assets.html",
+  "#packagejs": "api/packagejs.html",
+  "#mobile-config": "api/mobile-config.html",
+  "#appcache": "packages/appcache.html",
+  "#accounts-ui": "packages/accounts-ui.html",
+  "#audit-argument-checks": "packages/audit-argument-checks.html",
+  "#coffeescript": "packages/coffeescript.html",
+  "#ecmascript": "packages/ecmascript.html",
+  "#jquery": "packages/jquery.html",
+  "#less": "packages/less.html",
+  "#markdown": "packages/markdown.html",
+  "#modules": "packages/modules.html",
+  "#oauth-encryption": "packages/oauth-encryption.html",
+  "#random": "packages/random.html",
+  "#spiderable": "packages/spiderable.html",
+  "#underscore": "packages/underscore.html",
+  "#webapp": "packages/webapp.html",
+  "#pkg_spacebars": "packages/spacebars.html"
+};
+
+        function redirect() {
+          // Support redirects of the form /path#hash
+          var locationKey = location.pathname + location.hash;
+          if (REDIRECTS[locationKey]) {
+            location.replace(location.origin + '/' + REDIRECTS[locationKey]);
+          }
+
+          // Support redirects of the form #hash (works for any path)
+          var hashKey = location.hash;
+          if (REDIRECTS[hashKey]) {
+            location.replace(location.origin + '/' + REDIRECTS[hashKey]);
+          }
+        }
+
+        // Redirect now
+        redirect();
+
+        // Redirect on hash change
+        window.onhashchange = redirect;
+      
+    </script>
+  </body>
+
+<!-- Mirrored from docs.meteor.com/api/methods.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Jun 2017 09:27:01 GMT -->
+</html>
