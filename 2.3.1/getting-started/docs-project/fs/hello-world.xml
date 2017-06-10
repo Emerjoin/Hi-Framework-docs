@@ -91,4 +91,38 @@
             </file>
         </folder>
     </folder>
+    <file name="pom.xml" content="xml">
+        &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+            xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+            xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+            &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+            &lt;!--We don't really care about what comes here--&gt;
+            &lt;groupId&gt;getting.started&lt;/groupId&gt;
+            &lt;artifactId&gt;Hi-Framework&lt;/artifactId&gt;
+            &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+            &lt;!--./--&gt;
+
+            &lt;packaging&gt;war&lt;/packaging&gt;
+
+
+            &lt;dependencies&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.emerjoin&lt;/groupId&gt;
+                    &lt;artifactId&gt;Hi-Framework&lt;/artifactId&gt;
+                    &lt;version&gt;2.3.1-beta-SNAPSHOT&lt;/version&gt;
+                &lt;/dependency&gt;
+            &lt;/dependencies&gt;
+
+            &lt;repositories&gt;
+                &lt;repository&gt;
+                    &lt;id&gt;Emerjoin&lt;/id&gt;
+                    &lt;name&gt;maven-repo&lt;/name&gt;
+                    &lt;url&gt;https://github.com/emerjoin/maven-repo/raw/master&lt;/url&gt;
+                &lt;/repository&gt;
+            &lt;/repositories&gt;
+
+        &lt;/project&gt;
+    </file>
 </embedfs>
