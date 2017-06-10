@@ -60,9 +60,7 @@ Our web application is ready for deployment. But we may want to review our files
             |-- Hello.java                
 ```
 
-#$fsRaw
-
-<iframe src="https://embedfs.com/view?p=$fsRaw/hello-world.xml&d=http://google.co.mz" height="400px" width="100%" style="border:none; scroll:hidden"></iframe>
+<iframe src="http://localhost:1234/app/view?p=$fsRaw/hello-world.xml&d=http://google.co.mz" height="400px" width="100%" style="border:none; scroll:hidden"></iframe>
 
 
 __You can now build and deploy the application__

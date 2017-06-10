@@ -2,17 +2,29 @@
 <embedfs xmlns="http://emerjoin.org/embedfs/Schema">
     <folder name="webapp" expand="true">
         <folder name="WEB-INF">
+            <file name="hi.xml" content="xml">
+                &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+                &lt;app xmlns=&quot;http://hi.co.mz/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+                    xsi:schemaLocation=&quot;http://hi.co.mz/XMLSchema
+                    https://talk-code.github.io/releases/ns/hi-1.0.xsd&quot;&gt;
 
+                    &lt;web&gt;
+                        &lt;!--Redirect to hello/world when accessing the root path: / --&gt;
+                        &lt;welcome-url&gt;hello/world&lt;/welcome-url&gt;
+                    &lt;/web&gt;
+
+                &lt;/app&gt;
+            </file>
         </folder>
 
 
         <folder name="webroot">
-            <folder name="js" expand="true">
+            <folder name="js" expand="false">
                 <file name="jquery-3.0.0.min.js" content="javascript"></file>
             </folder>
         </folder>
 
-        <folder name="views" expand="true">
+        <folder name="views" expand="false">
             <folder name="hello" expand="true">
                 <file name="world.html" content="html">
 
@@ -20,7 +32,7 @@
                 <file name="world.js" content="javascript">
                     Hi.view(function($scope){
 
-                    //Body empty for now
+                        //Body empty for now
 
                     });
                 </file>
@@ -28,13 +40,27 @@
         </folder>
 
         <file name="index.html" content="html">
+            &lt;html&gt;
+                &lt;head&gt;
+                    &lt;title&gt;Hi-Framework | Getting started&lt;/title&gt;
+                    &lt;!--The jquery script--&gt;
+                    &lt;script src=&quot;https://code.jquery.com/jquery-3.0.0.min.js&quot;&gt;&lt;/script&gt;
+                    &lt;!--The Hi-framework script--&gt;
+                    &lt;script src=&quot;hi-es5.js&quot;&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
 
+                    &lt;!--The views will placed inside this div--&gt;
+                    &lt;div id=&quot;view_content&quot;&gt;{{view_content}}&lt;/div&gt;
+
+                &lt;/body&gt;
+            &lt;/html&gt;
         </file>
 
         <file name="index.js" content="javascript">
             Hi.template({
 
-            //Empty body for now
+                //Empty body for now
 
             });
         </file>
