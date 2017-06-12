@@ -84,8 +84,7 @@ We have already seen how to call the frontier method, now we will show you how t
 
 Piece of cake right? There is nothing hard about frontiers. 
 
-> **Why use frontiers instead of direct ajax requests?**<br><br>We have been there and done that and we concluded __direct ajax requests__ aren't a big deal. Frontiers give you __out-of-the-box CSRF protection__ and also
+> **Why use frontiers instead of direct ajax requests?**<br><br>We have been there and done that and we concluded __direct ajax requests__ aren't a big deal. <br>Frontiers give you __out-of-the-box CSRF protection__ and also
 > a convenient way to __mock back-end__ when testing the client-side, plus the syntax which we believe to be clean, as you pass the same parameters
-> you specified on your java class.<br><br> Frontiers will very soon offer you parameters hints (via your IDE) when calling a method, considering the parameters name
-> API introduced in Java 8.-->
-
+> you specified in your __Java__ classes.<br><br> The __JSON__ objects you pass as arguments in your __JavaScript__ code, are automatically converted into __Java__ compatible objects.<br> Frontiers will also very soon offer you parameters hints (via your IDE) when calling a method, considering the parameters name
+> API introduced in __Java 8__.
