@@ -8,12 +8,12 @@ __It's time to code now__. We have created a bunch of tutorials to help you in c
 
 <ul class="bookmarks">
     <li>
-        <a href="#"></a>
-        <span></span>
+        <a href="#">Hyper 1</a>
+        <span>Span 1</span>
     </li>
     <li>
-        <a href="#"></a>
-        <span></span>
+        <a href="#">Hyper 2</a>
+        <span>Span 2</span>
     </li>    
 </ul>
 
@@ -29,18 +29,16 @@ __It's time to code now__. We have created a bunch of tutorials to help you in c
             </span>
             <span>Learn about how to </span>
         </span>
-        </span>
     </li>
     <li>
-            <span style="float:left;width:90px"">
-                <img src="assets/images/basic_bookmark.png"/>
-            </span>
-            <span>
-                <span style="display:block">
-                    <a href="#">Its about how to</a>
-                </span>
-                <span>Learn about how to </span>
-            </span>
-            </span>
-     </li>
+        <span style="float:left;width:90px"">
+            <img src="assets/images/basic_bookmark.png"/>
+        </span>
+        <span>
+           <span style="display:block">
+                 <a href="#">Its about how to</a>
+           </span>
+           <span>Learn about how to </span>
+        </span>
+     </li>    
 </ul>-->
