@@ -3224,8 +3224,8 @@ body.sidebar-visible .content {
 }
 .sidebar .heading-toc,
 .algolia-docsearch-suggestion--category-header {
-  font-weight: 700;
-  letter-spacing: .35em;
+  font-weight: 900;
+  letter-spacing: .15em;
   text-transform: uppercase;
   color: #444;
   padding: 1.5em 0 .25em;

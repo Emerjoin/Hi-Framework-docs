@@ -4,7 +4,7 @@
 
 All we want to do here is to click on a button and trigger some __JavaScript__ function.
 
-## The code we want to trigger:
+## The function to trigger:
 
 The JavaScript function to be triggered must be added to the 
 __$scope__ object of the view controller. Meaning we should edit the view controller file, which in our case is __world.js__.

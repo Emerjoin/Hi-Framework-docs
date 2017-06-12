@@ -3,7 +3,7 @@
 
 
 
-> **Post back**<br>Is the act of __POSTING__  data __BACK__ to the server for __processing__.<br> Putting it differently: It's a POST Request back to the server with data to be processed.
+> **Post back**<br>Is the act of __POSTING__  data __BACK__ to the server for __processing__.<br> Putting it differently: It's an HTTP POST Request back to the server with data to be processed.
 
 ## Introducing Frontiers
 You are lost right? What does __frontiers__ has to deal with __post back__? In Hi-Framework, you use __Frontiers__ to post back.

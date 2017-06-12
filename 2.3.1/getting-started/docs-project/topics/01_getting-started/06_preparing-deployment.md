@@ -41,10 +41,12 @@ There is no mandatory configuration to run your Hi app. The configuration file c
 
 ## Reviewing the files
 
-Our web application is ready for deployment. But we may want to review our files and directories structure.<br> Use the following __files explorer component__ to
-navigate through the folders tree. Click on files to display their content.
+Our web application is ready for deployment. But we may want to review our files and directories structure.
 
-<!--
+<!--<br> Use the following __files explorer component__ to
+navigate through the folders tree. Click on files to display their content.-->
+
+
 ```xml
  |-- webapp
         |-- WEB-INF
@@ -62,10 +64,11 @@ navigate through the folders tree. Click on files to display their content.
         [--] my.controlles
             |-- Hello.java                
 ```
--->
+
+<!--
 
 <embedfs res="/hello-world.xml" download-url="http://google.co.mz"></embedfs>
-<br>
+<br>-->
 
 
 
