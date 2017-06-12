@@ -7,7 +7,6 @@ __It's time to code now__.<br>We have created a bunch of tutorials to help you _
 ### Suggested reading
 Keep learning about Hi-Framework with the following tutorials:
 
-<br>
 <ul class="bookmarks"> 
      <li>
          <a href="#">Views events</a>
