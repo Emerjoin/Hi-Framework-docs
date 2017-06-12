@@ -13,3 +13,7 @@ This step depends entirely on the container your are using, but it generally mea
 
 ## Test
 Testing your app is as easy as accessing __hello/world__ under the deployed context-path. <br>Example: __http://localhost:8080/&lt;context-path&gt;/hello/world__.
+
+
+## Problems
+If you facing a problem with Hi-Framework, please share it with the [Hi-Framework community]($forum).
