@@ -1,6 +1,49 @@
 (function () {
 
-  var embedfsTemplate = '<iframe style="height: 460px; width: 92%; margin-left: 4%; margin-right: 4%; border: none;display: none"></iframe>';
+    var bookmarkSvgIcon =
+    '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"'+
+    'width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">'+
+    '<polygon fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="18,1 46,1 46,62 32,48 18,62 "/>'+
+    '</svg>';
+
+
+    var bookmarkItem =
+    '<li>'+
+    '<span class="bookmark-item-content">'+
+        '</span>'+
+        '<span>'+
+        '<span style="display:block">'+
+        '<a href="#">Views events</a>'+
+    '</span>'+
+    '<span class="bookmark-description">Learn the basic lifecycle events of a view</span>'+
+    '</span>'+
+    '</li>';
+
+
+
+$(".bookmarks").each(function(item){
+
+    $(this).find("li").each(function(){
+
+        var item = $(this);
+
+        var hyperlink = $(this).children().first();
+        var span = $(hyperlink).next();
+
+        var bookmark = $(bookmarkItem);
+        $(bookmark).find(".bookmark-item-content").html(bookmarkSvgIcon);
+        $(bookmark).find(".bookmark-description").html($(span).html());
+        $(bookmark).find("a").prop('href',$(hyperlink).prop('href'));
+        $(bookmark).find("a").html($(hyperlink).html());
+
+        $(item).replaceWith(bookmark);
+
+    });
+
+});
+
+
+    var embedfsTemplate = '<iframe style="height: 460px; width: 92%; margin-left: 4%; margin-right: 4%; border: none;display: none"></iframe>';
   var loaderSvg = '<svg width="96px" height="96px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-squaricle" style="">'+
         '<g transform="translate(50 50)">'+
         '<g transform="scale(0.799546 0.799546)">'+

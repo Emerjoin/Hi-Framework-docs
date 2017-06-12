@@ -3656,6 +3656,33 @@ body.sidebar-visible .content {
   pointer-events: none;
 }
 
+.bookmarks {
+
+  list-style-type: decimal-leading-zero !important;
+  margin-left:-30px !important;
+
+}
+
+.bookmarks li {
+
+  margin-bottom: 30px !important;
+
+}
+
+
+.bookmarks a {
+
+  font-weight: bold !important;
+
+}
+
+.bookmark-item-content{
+
+  float:left;width:90px
+
+}
+
+
 embedfs {
 
   width: 100%;
@@ -3669,3 +3696,4 @@ embedfs img{
   margin: 0 auto !important;
 
 }
+
