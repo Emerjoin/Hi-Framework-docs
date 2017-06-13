@@ -16,4 +16,4 @@ Running your app is as easy as accessing __hello/world__ under the deployed cont
 
 
 ## Problems
-If you facing a problem with Hi-Framework, please share it with the [Hi-Framework community]($forum).
+If you are facing a problem with Hi-Framework, please share it with the [Hi-Framework community]($forum).
