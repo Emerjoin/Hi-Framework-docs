@@ -3393,7 +3393,7 @@ body.sidebar-visible .content {
 }
 @media screen and (min-width: 1200px) {
   .content .content-wrapper {
-    margin: 0 8.333325%;
+    margin: 0 14.333325%;
   }
 }
 @media screen and (min-width: 1600px) {
