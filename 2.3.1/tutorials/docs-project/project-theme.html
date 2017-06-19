@@ -46,16 +46,16 @@
 
       <div class="nav-group right">
 
-          <div class="nav-item show-desktop  ">
-            <a class="link" href="$tutorials" target=_new >
+          <div class="nav-item show-desktop active">
+            <a class="link" href="#" target=_new >
               <span>Tutorials</span>
             </a>
           </div>
 
 
 
-          <div class="nav-item show-desktop active ">
-            <a class="link" href="#"  >
+          <div class="nav-item show-desktop ">
+            <a class="link" href="$docs"  target=_new>
               <span>Getting Started</span>
             </a>
           </div>
@@ -66,92 +66,6 @@
             </a>
           </div>
 
-      </div>
-    </div>
-
-    <div class="sidebar">
-
-      <div class="sidebar-content">
-
-     <br/>
-        <ul class="toc">
-
-            <li>
-
-              <ul class="list-toc">
-
-
-                  <li class="item-toc  current">
-                    <a href="#" class="sidebar-link  current">
-                      <span>$topicNode.getDisplayName()</span>
-                    </a>
-                  </li>
-
-              </ul>
-            </li>
-
-
-            <!--Velocity macro definition begins here-->
-            #macro( topicsTree $treeNode $level )
-
-            #if ( $treeNode.isDirectory() )
-
-            #if ( $treeNode.hasParent() )
-            <div class="heading-toc">$treeNode.getDisplayName()</div>
-            #end
-
-
-
-
-            <ul class="list-toc">
-                #set ($group = $level)
-                #set ($nextGroup = $level + 1)
-                #set ($backupNextGroup = $nextGroup)
-                #foreach( $topicNode in $treeNode.getChilds() )
-
-                <li class="item-toc">
-                    #topicsTree( $topicNode $nextGroup)
-                </li>
-                #set ($nextGroup = $backupNextGroup)
-                #end
-            </ul>
-
-            #else
-
-
-            #if( $treeNode.matchTopic($topic) )
-
-            <!--Active topic-->
-            <a class="sidebar-link" href="$treeNode.getRef().getHtmlUrl()">
-                <span>
-                     <b style="color: darkgrey">$treeNode.getDisplayName()</b>
-                </span>
-            </a>
-
-            #else
-
-            <a class="sidebar-link" href="$treeNode.getRef().getHtmlUrl()">
-                <span>
-                     $treeNode.getDisplayName()
-                </span>
-            </a>
-
-            #end
-
-
-            #end
-
-            #end
-            <!--/Velocity macro definition ends here-->
-
-            #set( $node = $tree.getRootNode() )
-
-            <ul class="list-toc">
-                <li class="item-toc">#topicsTree( $node 1 )</li>
-            </ul>
-
-
-        </ul>
       </div>
     </div>
 
