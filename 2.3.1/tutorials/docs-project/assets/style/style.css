@@ -3682,5 +3682,12 @@ body.sidebar-visible .content {
 
 }
 
+.diagram{
+
+    display: block !important;
+    margin: auto !important;
+
+}
+
 
 

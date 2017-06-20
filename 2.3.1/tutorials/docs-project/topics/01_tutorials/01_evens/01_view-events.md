@@ -2,11 +2,17 @@
 <description>Learn the lifecycle events of a view</description>
 
 
+## View loading
+A view observes two lifecycle events in order to be initialized and presented: __preLoad__ and __postLoad__.<br>
+The following diagram illustrates the order in which they occur and right after the diagram each event will be explained.<br>
+
+<img class="diagram" style="height:430px" src="assets/images/diagrams/view-events.png" />
+
+
 ## PreLoad event
 This event is fired when the markup of the view is about to be compiled with it's respective $scope in order to be presented.<br>
 
 > **NOTICE**<br> All the data passed from the MVC controller is already available in the __$scope__ when the __preLoad__ is fired.
-
 
 
 
