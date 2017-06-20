@@ -172,7 +172,8 @@ $(".bookmarks").each(function(item){
   }
 
   if (h2sWithH3s.length) {
-    createSubMenu(activeLink.parentNode, h2sWithH3s)
+    //createSubMenu(activeLink.parentNode, h2sWithH3s)
+    createSubMenu(undefined, h2sWithH3s)
     smoothScroll.init({
       speed: 400,
       callback: function () {
@@ -182,12 +183,12 @@ $(".bookmarks").each(function(item){
   }
 
   function createSubMenu (container, headers) {
-    var subMenu = document.createElement('ul')
-    subMenu.className = 'sub-menu'
-    container.appendChild(subMenu)
+    //var subMenu = document.createElement('ul')
+    //subMenu.className = 'sub-menu'
+    //container.appendChild(subMenu)
     Array.prototype.forEach.call(headers, function (h) {
       var link = createSubMenuLink(h.header)
-      subMenu.appendChild(link)
+      //subMenu.appendChild(link)
       if (h.subHeaders) {
         createSubMenu(link, h.subHeaders)
       }
