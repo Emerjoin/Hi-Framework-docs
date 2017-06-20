@@ -3,6 +3,8 @@
 
 __It's time to code now__.<br>We have created a bunch of tutorials to help you __master__ Hi-Framework.<br>
 
+Don't do it alone, join the __Hi-ians__ [community]($forum).
+
 
 ### Suggested reading
 Keep learning about Hi-Framework with the following tutorials:
