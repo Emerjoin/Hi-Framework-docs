@@ -27,6 +27,8 @@ It is as easy as follows:
     
 ```
 
+> **NOTE**<br>Each key from the __data__ HashMap becomes a variable in your view's __scope__ . 
+
 ## Using the data
 The data passed from the controller is immediately added to the __$scope__ of the view, meaning that, such data
 is accessible from both: __presentation__ and __view controller__.
@@ -41,7 +43,6 @@ We are simply going to render the data passed from the controller:
         <span>{{email}}</span>
     </div>
 ```
-
 Easy right? You can do a lot more with that __data__. Take a look at the AngularJS expressions <a href="https://docs.angularjs.org/guide/expression" target="__blank">docs</a>.
 
 ### From the View controller
@@ -52,7 +53,7 @@ Let's now print the data on the browser's console, from the view's controller:
     Hi.view(function($scope){
                
         //Calling this function will print the data      
-        $scope.echo = function(){
+        $scope.myFunction = function(){
         
             console.log($scope.name);
             console.log($scope.age);
