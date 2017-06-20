@@ -23,6 +23,10 @@
          <span>Learn how to catch java exceptions on frontier calls</span>
      </li>
      <li>     
+         <a href="topics/tutorials/frontiers/catch-exceptions.html">Frontiers finally block</a>
+         <span>Learn how to use the finally block on frontiers calls</span>
+     </li>
+     <li>     
          <a href="topics/tutorials/angular/custom-angular-modules.html">Using custom angular modules</a>
          <span>Learn how to use custom angular modules with Hi-Framework</span> 
     </li>
