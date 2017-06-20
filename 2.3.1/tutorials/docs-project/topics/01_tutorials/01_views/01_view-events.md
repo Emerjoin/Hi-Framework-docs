@@ -31,7 +31,7 @@ This event is fired when the markup of the view is about to be compiled with it'
 ```
 
 ### Transforming the html before the view is presented
-The __preLoad__ event cant be used to perform some transformations on the view's html before it gets compiled with it's respective $scope.
+The __preLoad__ event can be used to perform some transformations on the view's html before it gets compiled with it's respective $scope.
 You can even change the html completely if you want to. All you have to do is return the new __html__ you want to apply.
 ```js
 
