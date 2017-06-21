@@ -34,7 +34,7 @@ The last step is to include the modules scripts in your __template__ HTML file:
     
 ```
 
-> **WARNING**<br> Make sure you declare the angular modules script tags __after__ the __hi-es5.js__ script.
+> **WARNING**<br> Make sure you include the angular modules scripts __after__ the __hi-es5.js__ script.
 
 
 ## Injecting custom services into View controllers
