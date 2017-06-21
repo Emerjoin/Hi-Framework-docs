@@ -4,13 +4,13 @@
 
 ## View loading
 A view observes two lifecycle events in order to be initialized and presented: __preLoad__ and __postLoad__.<br>
-The following diagram illustrates the order in which they occur and right after the diagram each event will be explained.<br>
+The following diagram illustrates the order in which they occur.<br>
 
 <img class="diagram" style="height:430px" src="assets/images/diagrams/view-events.png" />
 
 
 ## PreLoad event
-This event is fired when the markup of the view is about to be compiled with it's respective $scope in order to be presented.<br>
+This event is fired when the markup of the view is about to be compiled with it's respective $scope.<br>
 
 > **NOTICE**<br> All the data passed from the MVC controller is already available in the __$scope__ when the __preLoad__ is fired.
 
@@ -22,13 +22,14 @@ This event is fired when the markup of the view is about to be compiled with it'
     
         $scope.$preLoad = function(){
             
-            //do some intialization here
+            //do whatever here
             
         }
     
     }
 
 ```
+
 
 ### Transforming the html before the view is presented
 The __preLoad__ event can be used to perform some transformations on the view's html before it gets compiled with it's respective $scope.
@@ -39,7 +40,7 @@ You can even change the html completely if you want to. All you have to do is re
      
         $scope.$preLoad = function(html){
             
-            //do some html transformation in here
+            //do some html transformations in here
                         
             return newHtml;
             
@@ -51,7 +52,7 @@ You can even change the html completely if you want to. All you have to do is re
 
 
 ## PostLoad event
-This event is fired right after the view is presented.
+This event is fired right after the view is presented. It's the perfect spot to initialize some UI components.
 
 
 ````js
@@ -60,7 +61,7 @@ This event is fired right after the view is presented.
         
         $scope.$postLoad = function(){
                 
-           //do some intializations
+           //you can do some intializations here
                 
                 
         }
@@ -75,7 +76,7 @@ This event is fired right after the view is presented.
 This event is fired when the user is attempting to leave the current view. Any attempt of redirecting the user
 will cause the execution of this lifecycle event.
 
-> **NOTICE**<br> This event is not fired when the user attempts to close the current browser's tab.
+> **NOTICE**<br> This event is __not fired__ when the user closes hi's browser's tab.
 
 
 ```js
@@ -93,10 +94,10 @@ will cause the execution of this lifecycle event.
 
 ```
 
-### Asking the user if is sure about leaving the view
-The best use case of the __close__ event is when we want to make sure the user won't accidentally leave the current view. 
+### Making sure if the user really wants to leave the view 
+The best use case of the __close__ event is when we want to make sure the user won't accidentally leave the current view.<br/> 
+To achieve that goal, you will have to set the scope's __$preventClose__ variable as __true__. 
 
-The following examples shows how to achieve this:
 
 
 ```js
@@ -119,7 +120,6 @@ The following examples shows how to achieve this:
 ```
 
 
-> **NOTICE**<br> You may want to do this only with specific views, otherwise, you will be compromising the UX.<br>
 
 
 

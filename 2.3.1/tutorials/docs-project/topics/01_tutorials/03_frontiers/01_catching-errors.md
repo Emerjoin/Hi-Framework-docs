@@ -19,13 +19,46 @@ Frontier.example(arguments).try(function(result){
 
 The frontier call above uses the __catch__ block to handle any possible error during the frontier call. Let's be more specific about the errors that will be handled by the __catch__ block:
 
-* Execution abortion
-* Execution timeout
-* Access denial (HTTP 403)
-* OverRequest (HTTP 429)
-* Java Exceptions
+* Execution abortion (452)
+* Execution timeout (408)
+* Access denial (403)
+* OverRequest (429)
+* Java Exceptions (JSON object)
 
-You don't have to handle all the possible errors in one place if you don't want to. Frontiers allow you specify specific handlers.
+```js
+    ...
+    .catch(function(err)){
+	
+		if(err == 452){
+			
+			//Handle execution abortion error
+		}
+		
+		if(err == 408){
+			
+			//Handle execution timeout error
+		}
+		
+		if(err == 403){
+			
+			//Handle access denial
+		}
+		
+		if(err == 429){
+			
+			//Handle overrequest
+		}
+		
+		if(typeof err == "object"){
+            
+			//Handle java exception here
+            
+		}
+       
+    });
+
+```
+You don't have to handle all this errors in one place if you don't want to. Frontiers allow you specify specific handlers.
 
 > **WARNING**<br> The __catch__ block will only handle errors for which __no specific handler__ was set.
 
@@ -112,39 +145,7 @@ the user is sending __too many__ requests.
     });
 ```
 
-### Catching Java Exceptions
-Unlike other errors, Java Exceptions do not have a specific handler. They can only be handled in the __catch__ block as the following
-example demonstrates:
-
-```js
-
-    Frontier.example(arguments).try(function(result){
-    
-        //Handle success here
-    
-    }).catch(function(err)){
-    
-         if(typeof err == "object"){
-            
-            var exceptionType = err.type; //Exception class name 
-            var details = err.details; //Exception JSON object    
-                                    
-            //Handle java exception here
-            
-         }
-       
-    });  
-    
-```
-
-> **WARNING**<br> The __err.details__ object __does not__ include the Exception's cause chain. It only includes the top level Exception's properties.
-
-You are supposed to be using this feature to handle business-level exceptions and not __IllegalArgumentException__ or __NullPointerException__. Handling programming-level __Exceptions__ on frontier calls is considered a __bad practice__.
-
-
-
-
-### Using multiple error handlers in a single frontier calls
+### Using multiple error handlers in a single frontier call
 We want to make it clear that you completely free to use multiple error handlers in one single frontier call as the following example demonstrates:
 
 ```js
@@ -164,30 +165,59 @@ We want to make it clear that you completely free to use multiple error handlers
     }).catch(function(err)){
     
          if(typeof err == "object"){
-            
-            var exceptionType = err.type; //Exception class name 
-            var details = err.details; //Exception JSON object    
                                     
-            //Handle java exception here
-            return;
-            
+            //Handle java exceptions here
+             
          }
-         
-         
-         //Handle other errors here
        
     });  
     
 ```
 
 
+### Catching Java Exceptions
+Unlike other errors, Java Exceptions do not have a specific handler. They can only be handled in the __catch__ block as the following
+example demonstrates:
+
+```js
+
+    Frontier.example(arguments).try(function(result){
+    
+        //Handle success here
+    
+    }).catch(function(err)){
+    
+         if(typeof err == "object"){
+            
+            var exceptionType = err.type; //Exception class name 
+            var details = err.details; //Exception details   
+                                    
+            //Do whatever here
+            
+         }
+       
+    });  
+    
+```
+
+> **WARNING**<br> The __err.details__ object __does not__ include the Exception's cause chain. It only includes the top level Exception's properties.
+
+You are supposed to use this feature to handle business-level exceptions and not __IllegalArgumentException__ nor __NullPointerException__. Handling programming-level __Exceptions__ on frontier calls is considered a __bad practice__.
+
+
+
+
+
+
+
 
 
 ## Frontiers global error handlers
 Hi-Framework allows you to define global error handlers for frontiers so that you can be able to handle errors for all frontier calls in one single place.<br>
-The __global frontiers error handlers__ are define on the __template controller__ under the __$frontiers object__ and the following snippet shows:
+The __global error handlers__ for frontiers are defined on the __template controller__ under the __$frontiers object__ as the following snippet shows:
 
-```  
+```javascript 
+ 
    Hi.template({
   
        $frontiers : {
@@ -258,9 +288,6 @@ The __global frontiers error handlers__ are define on the __template controller_
            
        if(typeof err == "object"){
                    
-           var exceptionType = err.type; //Exception class name 
-           var details = err.details; //Exception JSON object    
-                                           
            //Handle java exception here
                    
        }
@@ -268,10 +295,31 @@ The __global frontiers error handlers__ are define on the __template controller_
    }
  
 ```
+> **TIP**<br> The best way to catch exceptions globally is to set a message on the promise to be exhibited by the global handler. The global handler receives the promise as first argument.
+
+
+```javascript
+ Frontier.example(arguments).try(function (data) {
+		//handle success here
+      }).errorMessage = "an error message";
+
+```
+The global handler would display an error message this way:
+```javascript
+$frontiers:{
+	catch : function(call,error){
+
+		alert(call.errorMessage); //here you decide what to with the message
+
+	}
+}	
+
+```
 
 
 ### Precedence
-What happens when you define error handlers on frontier call level and on the template controller level?
+What happens if you define error handlers both on __frontier call level__ and on the __template controller level__?
 
-> **Handlers precedence**<br> The frontier __call level__ handlers take __precedence__ over controller level handlers and the controller level handlers are only fired when __no correspondent__ call level handler is specified.
+> **Handlers precedence**<br> The __frontier call level handlers__ take __precedence__ over __template controller level handlers__. 
+The template controller level handlers are only fired when __no correspondent__ frontier call level handler was specified.
 

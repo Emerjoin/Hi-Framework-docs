@@ -6,7 +6,7 @@
 Bean validation is a validation API based in annotations, specified as the __JSR 303__.<br>
 You can read more about it [here](http://beanvalidation.org/).<br>
 
-Hi-Framework considers the use of bean validation on frontier methods arguments, as the following exception shows:
+Hi-Framework considers the use of bean validation on frontier methods arguments, as the following example shows:
 
 ```java
 
@@ -26,7 +26,7 @@ Hi-Framework considers the use of bean validation on frontier methods arguments,
 
 ```
 
-There is nothing special about the use of bean validation on frontier method except the way you handle validation errors on frontier calls.
+There is nothing special about the use of bean validation on frontier methods, except the way you handle validation errors back on frontier calls.
 
 ### Handling bean validation errors on frontiers calls
 Let us show you how to handle bean validation errors that occur on frontier calls:
@@ -45,8 +45,10 @@ Let us show you how to handle bean validation errors that occur on frontier call
              var details = err.details; //Exception JSON object    
                 
              if(exceptionType == "ConstraintViolationException"){
-              
+				
+				 
                  var messages = details.messages;//The error messages array
+				 
                  //do whatever you want with them
               
              }                 

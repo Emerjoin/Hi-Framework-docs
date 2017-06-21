@@ -1,10 +1,9 @@
 <!--Topic description-->
-<description>Learn about the template controller and its lifecycle events</description>
+<description>Learn how to send data to your template</description>
 
 ## Rendering data in the template area
 Let's say we need to render the user's first and last names on the template area.<br>
 Here is how we do it:
-
 ### index.html
 The following template markup does not include the required scripts (jquery and hi-es5). It serves only as a demonstration:
 ````html    
@@ -70,43 +69,5 @@ The only way to pass data from the server-side straight to the template controll
 
 ```
 
-The __TemplateLoadEvent__ is fired every time the page is loaded, which means, the user data will always be there.
-
-
-
-## Accessing the current view from the template
-
-If for some reason you need to access the $scope of the current view from the template controller, here is how to proceed:
-
-```js
-    
-    Hi.template({
-    
-        yourFunction : function(){
-            
-            var currentView =  this.$activeView;
-            //do whatever you want here
-        
-        }
-    
-    }
-
-
-```
-
-
-    
-## Reaching the template controller from a view controller
-
-If for example you need to access the user details from a view, you could just get them from the template controller as follows:
-
-```java
-
-    var user = Hi.$template.user;
-    //do whatever you want here
-
-
-```
-
-> **NOTICE**<br> You can access the __template controller__ from any script using the approach presented above, not just __from views__.
+> **IMPORTANT**<br> The __TemplateLoadEvent__ is fired every time the page is loaded, which means, the user data will always be there.
 

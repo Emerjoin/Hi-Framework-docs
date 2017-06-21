@@ -1,9 +1,23 @@
 <!--Topic description-->
-<description>This tutorial explains how to add custom angular modules to your hi app</description>
+<description>This tutorial explains how to add custom angular modules to your Hi app</description>
 
+## Creating the __run.js__ file
+In order to load external modules, Hi-Framework expects you to have a __javascript__ file named __run__ in your web directory root.
 
+```
+ |-- webapp
+        |-- WEB-INF
+            |-- hi.xml
+        |-- webroot
+        |-- views
+        |-- template-name.html
+        |-- template-name.js
+        |-- run.js
+```
 ## Declaring the modules
-If you want to load custom angular modules to your Hi-Framework app, you must specify them in the  __webapp/run.js__ config file as follows:<br>
+To achieve this goal, you will have to set the __Hi.$config.angular.modules__ variable with your modules's names array.
+
+Your __run.js__ file will look like this:<br>
 
 ```js
     
@@ -16,7 +30,7 @@ If you want to load custom angular modules to your Hi-Framework app, you must sp
 
 
 ## Including the modules scripts
-The last step is to include the modules scripts in your __template__ HTML file:
+The last step is to include the modules scripts in your __template's__ HTML file:
 
 ```html
 
@@ -25,7 +39,7 @@ The last step is to include the modules scripts in your __template__ HTML file:
     <!--The Hi-Framework script-->
     <script src="hi-es5.js"></script>
 
-    <!--Your angular modules scripts come next-->
+    <!--Your angular modules scripts-->
     <script src="path/to/module1-script.js"></script>
     <script src="path/to/module2-script.js"></script>
     <script src="path/to/module3-script.js"></script>
@@ -38,7 +52,7 @@ The last step is to include the modules scripts in your __template__ HTML file:
 
 
 ## Injecting custom services into View controllers
-Once you have included your custom angular module, you might want to consume a service that ships with the module.<br>
+Once you have included your custom angular modules, you might want to consume a service that ships with the module.<br>
 Here is how you inject a custom service into a view controller:
 
 ```js
@@ -52,7 +66,7 @@ Here is how you inject a custom service into a view controller:
 
 ```
 
-You can inject as many service as you need, it will just work.
+You can inject as many services as you need, it will just work.
 
 
 
