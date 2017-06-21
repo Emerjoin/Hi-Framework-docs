@@ -23,7 +23,7 @@
          <span>Learn how to catch multiple errors on frontier calls</span>
      </li>
      <li>     
-         <a href="topics/tutorials/frontiers/catch-exceptions.html">Frontiers finally block</a>
+         <a href="topics/tutorials/frontiers/finally.html">Frontiers finally block</a>
          <span>Learn how to use the finally block on frontiers calls</span>
      </li>
      <li>     

@@ -266,7 +266,7 @@ The __global frontiers error handlers__ are define on the __template controller_
        }
            
    }
-  
+ 
 ```
 
 
