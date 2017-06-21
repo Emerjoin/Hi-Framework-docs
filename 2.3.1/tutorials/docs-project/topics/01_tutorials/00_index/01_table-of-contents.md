@@ -19,8 +19,8 @@
          <span>Learn how to use bean validation on frontiers</span>
      </li>
      <li>     
-         <a href="topics/tutorials/frontiers/catch-exceptions.html">Catching exceptions on frontiers</a>
-         <span>Learn how to catch java exceptions on frontier calls</span>
+         <a href="topics/tutorials/frontiers/catching-errors.html">Catching errors on frontiers</a>
+         <span>Learn how to catch multiple errors on frontier calls</span>
      </li>
      <li>     
          <a href="topics/tutorials/frontiers/catch-exceptions.html">Frontiers finally block</a>
