@@ -1,5 +1,20 @@
 (function () {
 
+
+   var diagramFrame =
+    '<iframe class="diagram-frame" scrolling="no" frameBorder="0" src="">' +
+    '</iframe>';
+
+    $("diag").each(function(){
+        var diagram = $(diagramFrame);
+        $(diagram).attr("src",$(this).attr("src"));
+        $(diagram).attr("style",$(this).attr("style"));
+
+        $(this).replaceWith(diagram);
+
+    });
+
+
     var bookmarkSvgIcon =
     '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"'+
     'width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">'+

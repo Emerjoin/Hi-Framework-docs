@@ -3690,4 +3690,12 @@ body.sidebar-visible .content {
 }
 
 
+.diagram-frame{
+  display: block;
+  border:none; overflow:hidden;
+  margin:auto;
+
+}
+
+
 
