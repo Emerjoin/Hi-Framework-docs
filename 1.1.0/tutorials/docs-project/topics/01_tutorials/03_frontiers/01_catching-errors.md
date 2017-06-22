@@ -26,39 +26,33 @@ The frontier call above uses the __catch__ block to handle any possible error du
 * Java Exceptions (JSON object)
 
 ```js
-    ...
-    .catch(function(err)){
+    
+//try
+ .catch(function(err)){
 	
-		if(err == 452){
-			
-			//Handle execution abortion error
-		}
+	 if(err == 452){
+            //Handle execution abortion error  
+	 }
 		
-		if(err == 408){
-			
-			//Handle execution timeout error
-		}
+	 if(err == 408){
+            //Handle execution timeout error
+	 }
 		
-		if(err == 403){
-			
-			//Handle access denial
-		}
+	 if(err == 403){
+            //Handle access denial here
+	 }
 		
-		if(err == 429){
-			
-			//Handle overrequest
-		}
+	 if(err == 429){
+            //Handle overrequest here
+	 }
 		
-		if(typeof err == "object"){
-            
-			//Handle java exception here
-            
-		}
+	 if(typeof err == "object"){
+            //Handle java exception here           
+	 }
        
-    });
-
+ });
 ```
-You don't have to handle all this errors in one place if you don't want to. Frontiers allow you specify specific handlers.
+You don't have to handle all this errors in a single __catch__ block if you don't want to. Frontiers allow you set __specific handlers__.
 
 > **WARNING**<br> The __catch__ block will only handle errors for which __no specific handler__ was set.
 
@@ -68,11 +62,8 @@ This handler will be fired if the frontier call HTTP request is interrupted by t
 
 ```js
     
-    Frontier.example(arguments).try(function(result){
-    
-        //Handle success here
-    
-    }).interrupted(function(){
+    //try
+    .interrupted(function(){
     
         //Handle execution interruption here
     
@@ -89,11 +80,8 @@ This handler will be fired if the frontier call HTTP request times out.
 
 ```js
     
-    Frontier.example(arguments).try(function(result){
-    
-        //Handle success here
-    
-    }).timeout(function(){
+    //try
+    .timeout(function(){
     
         //Handle execution timeout here
     
@@ -109,11 +97,8 @@ This handler will be fired if the frontier call HTTP request results in a 403 re
 
 ```js
     
-    Frontier.example(arguments).try(function(result){
-    
-        //Handle success here
-    
-    }).forbidden(function(){
+    //try
+    .forbidden(function(){
     
         //Handle access denial here
     
@@ -130,11 +115,8 @@ the user is sending __too many__ requests.
 
 ```js
     
-    Frontier.example(arguments).try(function(result){
-    
-        //Handle success here
-    
-    }).overrequest(function(){
+    //try
+    .overrequest(function(){
     
         //Handle OverRequest here
     
@@ -146,15 +128,12 @@ the user is sending __too many__ requests.
 ```
 
 ### Using multiple error handlers in a single frontier call
-We want to make it clear that you completely free to use multiple error handlers in one single frontier call as the following example demonstrates:
+We want to make it clear that you are completely __free__ to use multiple error handlers in one single frontier call as the following example demonstrates:
 
 ```js
 
-    Frontier.example(arguments).try(function(result){
-    
-        //Handle success here
-    
-    }).timeout(function(){
+    //try
+    .timeout(function(){
     
         //Handle timeout here
     
@@ -181,11 +160,8 @@ example demonstrates:
 
 ```js
 
-    Frontier.example(arguments).try(function(result){
-    
-        //Handle success here
-    
-    }).catch(function(err)){
+    //try
+    .catch(function(err)){
     
          if(typeof err == "object"){
             
@@ -213,8 +189,8 @@ You are supposed to use this feature to handle business-level exceptions and not
 
 
 ## Frontiers global error handlers
-Hi-Framework allows you to define global error handlers for frontiers so that you can be able to handle errors for all frontier calls in one single place.<br>
-The __global error handlers__ for frontiers are defined on the __template controller__ under the __$frontiers object__ as the following snippet shows:
+Hi-Framework allows you to define global error handlers for frontiers so that you can be able to handle errors __for all frontier calls__ in one single place.<br>
+The __global error handlers__ for frontiers are defined in the __template controller__ under the __$frontiers object__ as the following snippet shows:
 
 ```javascript 
  
@@ -295,21 +271,26 @@ The __global error handlers__ for frontiers are defined on the __template contro
    }
  
 ```
-> **TIP**<br> The best way to catch exceptions globally is to set a message on the promise to be exhibited by the global handler. The global handler receives the promise as first argument.
+> **TIP**<br> The best way to catch exceptions globally is to set a message property on the frontier promise and have the global handler displaying it to the user. The global handler receives the promise as it's first argument: __call__.
 
 
 ```javascript
+
  Frontier.example(arguments).try(function (data) {
-		//handle success here
-      }).errorMessage = "an error message";
+    
+    //handle success here
+    
+ }).errorMessage = "Failed to achieve the goal"; //set message
 
 ```
-The global handler would display an error message this way:
+The global handler would retrieve the error message this way:
 ```javascript
-$frontiers:{
+$frontiers : {
+
 	catch : function(call,error){
 
-		alert(call.errorMessage); //here you decide what to with the message
+		var errorMessage = call.errorMessage; //get message
+		//do whatever you want with the message
 
 	}
 }	
@@ -318,7 +299,7 @@ $frontiers:{
 
 
 ### Precedence
-What happens if you define error handlers both on __frontier call level__ and on the __template controller level__?
+What happens if you define error handlers on both __frontier call level__ and __template controller level__?
 
 > **Handlers precedence**<br> The __frontier call level handlers__ take __precedence__ over __template controller level handlers__. 
 The template controller level handlers are only fired when __no correspondent__ frontier call level handler was specified.
