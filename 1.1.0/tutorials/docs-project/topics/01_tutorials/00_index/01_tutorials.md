@@ -43,15 +43,15 @@
         <span>Learn how to send from server to your template</span>
     </li>
 	<li>
-        <a href="topics/tutorials/general/current-view-and-template.html">Acessing the current view or template from anywhere</a>
-        <span>Learn how to acess your view/template's scope from anywhere in your client-side</span>
+        <a href="topics/tutorials/general/current-view-and-template.html">Accessing the current view or template from anywhere</a>
+        <span>Learn how to access your view/template's scope from anywhere in your client-side</span>
     </li>
 	<li>
         <a href="topics/tutorials/views/global-handlers-of-view-events.html">Global handlers for view events</a>
         <span>Learn about handling view lifecycle events globally</span>
     </li>
 	<li>
-        <a href="topics/tutorials/frontiers/global-handlers-of-frontier-events.html">Global handlers for frontier events</a>
-        <span>Learn about handling frontier events globally</span>
+        <a href="topics/tutorials/frontiers/the-frontier-request-flow.html">The Frontier Request flow</a>
+        <span>Understand deeply about the frontier request flow and how to handle it's events</span>
     </li>
 </ul>

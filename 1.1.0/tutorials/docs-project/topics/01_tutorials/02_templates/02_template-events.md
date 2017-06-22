@@ -1,22 +1,21 @@
 <!--Topic description-->
 <description>Learn about the template lifecycle events</description>
 
-
 ## Templates Loading
-A template observes two lifecycle events in order to be initialized: __init__ and __startup__. But since templates are views containers, a template is considered fully loaded when the first view finishes loading. <br/>
-The following diagram illustrates the order in which they occur and right after the diagram each event will be explained.<br>
+A template observes 4 lifecycle events in order to be initialized. The initialiation begins on the server-side with __TemplateLoadEvent__ and __TemplateTransformEvent__. And then it ends on the client-side with __startup__ right after __init__. 
 
-<img class="diagram" style="height:560px" src="assets/images/diagrams/load-template-flow.png" />
+<diag style="width:580px;height:695px" src="assets/images/diagrams/svg/Template-load-flow.svg"></diag>
 
-# Intecepting redirects and frontier calls : client & server-side
 
-**SERVER-SIDE
+
+## TemplateLoadEvent
+This event is fired right before loading the template. You may use this event to send user's data to your template.
 
 ```java
 
 	public void onTemplateLoad(@Observes TemplateLoadEvent event) {
 
-            if(!frontEnd.getTemplate().equals("index"))
+            if(!frontEnd.getTemplate().equals("index")) //Ignoring a possible login template
                 return;
 
             Map templateData = new HashMap();
@@ -24,160 +23,62 @@ The following diagram illustrates the order in which they occur and right after 
             Map user = new HashMap();
             user.put("name", currentUser.getInfo().getName());
             user.put("photo", currentUser.getInfo().getPhoto());
-            _log.debug("User photo : "+currentUser.getInfo().getPhoto());
             templateData.put("user", user);
             
             frontEnd.setTemplateData(templateData); 
         
     }
 
-
 ```
 
+## TemplateTransformEvent
+This event is fired after the template was loaded. You can use it to make some transformations in your template before it's applied.
+```java
+public void changeTemplate(@Observes TemplateTransformEvent transformEvent){
 
-## Redirecting
-
-```javascript
-Hi.template({
-
-
-    //Handles HTTP Errors on redirect
-    $onRedirectError : function(route,code){
-		
-		//Want to do anything about it?
-
-    },
-
-    //Template being initialized
-    $init : function(){
-
-		//Do anything here
-    },
-
-    //when the first view is loaded
-    $startup : function(){
-		
-		//What about here? Any ideas?? Feel free
-		
-    },
-
-    //PreLoad a view
-    $onPreLoad : function(route,$scope,view){
-        
-		//You may need this...
-		
-    },
-
-    //After a view postLoad
-    $onPostLoad : function(route,$scope){
-		
-		//Ideas?? Well, no clue mate!
-    },
-
-    //When a view is closed
-    $onClose : function(route){
-	    
-		//Any use for this??
-    
-	},
-	
-	//Staring a redirect
-    $onRedirectStart : function(route){
-
-            //I would display a loader here! Like: $('.my-loader').show();
-
-    },
-	//Executed even in cases of redirect erros
-    $onRedirectFinish : function(route){
-
-            //I would hide my loader here! Like: $('.my-loader').hide();
-    },
-	
-	
-    /*Frontiers Global Error Handles
-	
-	You may know frontiers by now, if you don't, you didn't read the Getting Started section.
-	
-	When you invoke a frontier, errors may show up: 
-		500: Internal Server Error
-		404: Not found
-		403: Forbidden
-		And more..
-	
-	This is where you handle all that errors at once!	
-	
-	IMPORTANT: This handlers are overridden by specific handlers(The ones wroten on the frontier call)
-
-    */
-    $frontiers:{
-
-        forbbiden : function(call){
-
-
-
-        },
-
-        timeout : function(call){
-
-
-
-        },
-
-        offline : function(call){
-
-
-        },
-
-        interrupted : function(call){
-
-
-
-        },
-
-        catch : function(call,error){
-
-
-        },
-
-        overrequest : function(call){
-
-
-
-        },
-
-        finally : function(call){
-
-
-
-        }
+        transformEvent.getTemplate().appendJS("webroot/faula.bravia.js"); 
+        transformEvent.getTemplate().appendCSS("webroot/faula.bravia.css"); 
+        transformEvent.getTemplate().append("<tag>info</tag>");
+        transformEvent.getTemplate().prepend("<tag>info</tag>");
+        transformEvent.getTemplate().prependCSS("webroot/faula.bravia.css") //asset is placed in header
+        transformEvent.getTemplate().prependJS("webroot/faula.bravia.js"); //asset is placed in header
+        transformEvent.getTemplate().getMarkup();
+        transformEvent.getTemplate().getName();
+        transformEvent.getTemplate().setMarkup("<html>My new MarkUP</html>");
 
     }
 
-
-});
 ```
 
-#### About Frontiers Handlers
-
-The best way to catch exceptions globally is to set a message on the promise to be exhibited by the global handler. The global handler receives the promise as first argument
-to be
+## $init event
+This event is fired right after the templates markup arrives on the client-side.
 ```javascript
- Frontier1.getFullName("Jon", "Snow")
-     .try(function (data) {
-
-            console.log(data);
-
-      }).errorMessage = "The method error message";
+   Hi.template({
+	   
+       //Template being initialized
+       $init : {
+       
+          
+       
+       } 
+   
+   }); 
 
 ```
-The global handler would display an error message this way:
+
+## $startup event
+This event is fired after the template is loaded right before loading the first view.
 ```javascript
-$frontiers:{
-	catch : function(call,error){
-
-		alert(call.errorMessage); //here you decide what to with the message
-
-	}
-}	
+    Hi.template({
+		
+       //when the first view is loaded
+       $startup : {
+       
+       
+       } 
+   
+   }); 
 
 ```
+
+> **TIP**<br> If you have a loader for your template, this is when you should stop it.
