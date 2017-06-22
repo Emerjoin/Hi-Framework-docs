@@ -43,7 +43,7 @@
         <span>Learn how to send from server to your template</span>
     </li>
 	<li>
-        <a href="topics/tutorials/general/acessing-the-current-view-or-template-from-anywhere.html">Acessing the current view or template from anywhere</a>
+        <a href="topics/tutorials/general/current-view-and-template.html">Acessing the current view or template from anywhere</a>
         <span>Learn how to acess your view/template's scope from anywhere in your client-side</span>
     </li>
 	<li>
