@@ -7,15 +7,13 @@ In order to load external modules, Hi-Framework expects you to have a __javascri
 ```
  |-- webapp
         |-- WEB-INF
-            |-- hi.xml
         |-- webroot
         |-- views
-        |-- template-name.html
-        |-- template-name.js
+        |-- ...
         |-- run.js
 ```
 ## Declaring the modules
-To achieve this goal, you will have to set the __Hi.$config.angular.modules__ variable with your modules's names array.
+To achieve this goal, you will have to set the __Hi.$config.angular.modules__ variable with your modules names array.
 
 Your __run.js__ file will look like this:<br>
 
@@ -51,9 +49,9 @@ The last step is to include the modules scripts in your __template's__ HTML file
 > **WARNING**<br> Make sure you include the angular modules scripts __after__ the __hi-es5.js__ script.
 
 
-## Injecting custom services into View controllers
-Once you have included your custom angular modules, you might want to consume a service that ships with the module.<br>
-Here is how you inject a custom service into a view controller:
+## Injecting services into View controllers
+Once you have included your custom angular modules, you might want to consume services that ship with any of your modules.<br>
+Here is how you inject the services into a view controller's $scope:
 
 ```js
 

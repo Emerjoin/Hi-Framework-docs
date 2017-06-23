@@ -75,7 +75,7 @@ This event is fired right after the view is presented. It's the perfect spot to 
 This event is fired when the user is attempting to leave the current view. Any attempt of redirecting the user
 will cause the execution of this lifecycle event.
 
-> **NOTICE**<br> This event is __not fired__ when the user closes hi's browser's tab.
+> **NOTICE**<br> This event is __not fired__ when the user closes his browser's tab.
 
 
 ```js

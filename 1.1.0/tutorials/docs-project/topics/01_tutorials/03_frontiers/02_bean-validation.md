@@ -41,7 +41,7 @@ Let us show you how to handle bean validation errors that occur on frontier call
         
          if(typeof err == "object"){
                 
-             var exceptionType = err.type; //Exception class name 
+             var exceptionType = err.type; //Exception's class name 
              var details = err.details; //Exception JSON object    
                 
              if(exceptionType == "ConstraintViolationException"){

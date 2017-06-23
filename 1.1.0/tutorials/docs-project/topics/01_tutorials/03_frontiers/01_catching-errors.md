@@ -52,7 +52,7 @@ The frontier call above uses the __catch__ block to handle any possible error du
        
  });
 ```
-You don't have to handle all this errors in a single __catch__ block if you don't want to. Frontiers allow you set __specific handlers__.
+You don't have to handle all this errors in a single __catch__ block if you don't want to. Frontiers allow you to set __specific handlers__.
 
 > **WARNING**<br> The __catch__ block will only handle errors for which __no specific handler__ was set.
 
@@ -223,8 +223,8 @@ The __global error handlers__ for frontiers are defined in the __template contro
 
 ```  
   
-   overrequest : function(call){
-           
+   timeout : function(call){
+       
        //Handle execution timeout for all frontier calls
            
    }
@@ -236,7 +236,7 @@ The __global error handlers__ for frontiers are defined in the __template contro
 
 ```  
   
-   timeout : function(call){
+   overrequest : function(call){
            
        //Handle OverRequest for all frontier calls
            

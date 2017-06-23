@@ -2,8 +2,9 @@
 <description>Learn how to send data to your template</description>
 
 ## Rendering data in the template area
-Let's say we need to render the user's first and last names on the template area.<br>
-Here is how we do it:
+Let's say you need to render the user's first and last names on the template area. How do you proceed?<br> You must modify your template. By template we mean both the HTML and the JS files.<br> This tutorial considers that
+you will be modifying the default template: __index__.
+
 ### index.html
 The following template markup does not include the required scripts (jquery and hi-es5). It serves only as a demonstration:
 ````html    
@@ -13,7 +14,7 @@ The following template markup does not include the required scripts (jquery and 
         </head>
         <body>             
             <a href="#">
-                 <!--Here we render the user's full name-->
+                 <!--This is plain angular JS-->
                  {{user.firstName}} {{user.lastName}}
             </a>        
             <div id="view_content">{{view_content}}</div>                
@@ -29,6 +30,7 @@ The template controller declaration:
 
     Hi.template({
     
+        //This is the object we want to render
         user:{
            firstName:"John",
            lastName:"Doe"
@@ -44,7 +46,7 @@ we don't want to hardcode it because it's nonsense. That's exactly what we are g
 
 ## From the server-side straight to the template controller
 
-The only way to pass data from the server-side straight to the template controller is listening to a CDI event as follows:
+The only way to pass data from the server-side straight to the template controller is observing a specific CDI event as follows:
 
 ```java
      
