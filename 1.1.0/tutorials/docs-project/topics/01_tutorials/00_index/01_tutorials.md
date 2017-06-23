@@ -197,9 +197,3 @@
       <span>Learn the lifecycle events of a view</span>
    </li>
 </ul>
-
-
-
-
-
-
