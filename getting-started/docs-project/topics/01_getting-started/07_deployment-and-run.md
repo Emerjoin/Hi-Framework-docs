@@ -12,8 +12,10 @@ This step depends entirely on the container your are using, but it generally mea
 
 
 ## Run
-Running your app is as easy as accessing __hello/world__ under the deployed context-path. <br>Example: __http://localhost:8080/&lt;context-path&gt;/hello/world__.
+Running your app is as easy as accessing __hello/world__ under the deployed __context-path__. <br>Example: __http://localhost:8080/my-app/hello/world__.
+
+![Example app running](assets/images/run.png)
 
 
 ## Problems
-If you are facing a problem with Hi-Framework, please share it with the [Hi-Framework community]($forum).
+If you are facing a problem with Hi-Framework, please share it with the [Hi-Framework community](https://community.hi-framework.org).

@@ -2,11 +2,11 @@
 <description>Let's create your first Hi-Framework maven project</description>
 
 ## Project type
-It must be a web application project.
+It must be a __maven web application__ project.
 
 
 ## Dependencies
-The Hi-Framework dependency must be added to your __pom__
+The Hi-Framework dependency must be added to your __pom.xml__
 ```xml
    <dependency>
        <groupId>org.emerjoin</groupId>
@@ -16,7 +16,7 @@ The Hi-Framework dependency must be added to your __pom__
 ```
 
 ## Repository
-Hi-Framework is not in maven-central yet, meaning you must add the Emerjoin maven repository to your __pom__:
+Hi-Framework is not in maven-central yet, meaning you must also add the Emerjoin maven repository to your __pom.xml__:
 
 ```xml
    <repository>

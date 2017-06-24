@@ -47,6 +47,7 @@ This is how you bind the __example__ function to the __button__ element's  click
 
 You can now test your view on the browser. Depending on your development environment you might have to __rebuild__ and __redeploy__ the app.
 
+![Example app running with button click](assets/images/button-click.gif)
 
 ### The magic glue
 

@@ -52,7 +52,7 @@ The code block below will show you how to do it:
 ```html
 <html>
     <head>
-        <title>Hi-Framework | Getting started</title>
+        <title>Hi-Framework</title>
         <!--The jquery script-->
         <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
         <!--The Hi-framework script-->    

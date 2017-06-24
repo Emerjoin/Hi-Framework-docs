@@ -11,7 +11,7 @@ What about having a hyperlink element that redirects the user to a controller's 
 ```
 Thats all! The hyperlink element will be __ajaxified__. 
 
-> **NOTE**<br>You can also ajaxify other elements rather than hyperlinks. The trick is to always have the __href__ and the __ajaxify__ attributes in place.
+> **NOTE**<br>You can also ajaxify any other __HTML element__ rather than hyperlinks. The trick is to always have the __href__ and __ajaxify__ attributes in place.
 
 
 

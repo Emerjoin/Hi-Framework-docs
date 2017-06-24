@@ -6,7 +6,7 @@
 > **Post back**<br>Is the act of __POSTING__  data __BACK__ to the server for __processing__.<br> Putting it differently: It's an HTTP POST Request back to the server with data to be processed.
 
 ## Introducing Frontiers
-You are lost right? What does __frontiers__ has to deal with __post back__? In Hi-Framework, you use __Frontiers__ to post back.
+You are lost right? What do __frontiers__ have to deal with __posting back__? In Hi-Framework, __frontiers__ are what you use to post back.
 
 > **Frontiers**<br>CDI Managed beans annotated with __@Frontier__, with public methods that can be called from client-side, statically.
 
