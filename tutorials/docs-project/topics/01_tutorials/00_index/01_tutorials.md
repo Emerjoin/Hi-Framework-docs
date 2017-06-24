@@ -104,19 +104,15 @@
 </ul>
 <br/>
 
-# Hi-List
+# Testing
 <br/>
 <ul class="bookmarks">
    <li>
-      <a><span style="color: grey; cursor: default; ">Hi-List Basics</span></a>
+      <a><span style="color: grey; cursor: default; ">Testing view controllers with mock frontiers</span></a>
       <span>Learn the lifecycle events of a view</span>
    </li>
    <li>
-      <a><span style="color: grey; cursor: default; ">Catching Hi-list request erros</span></a>
-      <span>Learn the lifecycle events of a view</span>
-   </li>
-   <li>
-      <a><span style="color: grey; cursor: default; ">Custom Hi-List footers</span></a>
+      <a><span style="color: grey; cursor: default; ">Testing with Arquilian</span></a>
       <span>Learn the lifecycle events of a view</span>
    </li>
 </ul>
@@ -168,18 +164,23 @@
    </li>
 </ul>
 
-# Testing
+# Hi-List
 <br/>
 <ul class="bookmarks">
    <li>
-      <a><span style="color: grey; cursor: default; ">Testing view controllers with mock frontiers</span></a>
+      <a><span style="color: grey; cursor: default; ">Hi-List Basics</span></a>
       <span>Learn the lifecycle events of a view</span>
    </li>
    <li>
-      <a><span style="color: grey; cursor: default; ">Testing with Arquilian</span></a>
+      <a><span style="color: grey; cursor: default; ">Catching Hi-list request erros</span></a>
+      <span>Learn the lifecycle events of a view</span>
+   </li>
+   <li>
+      <a><span style="color: grey; cursor: default; ">Custom Hi-List footers</span></a>
       <span>Learn the lifecycle events of a view</span>
    </li>
 </ul>
+
 
 # More on Hi-Framework
 <br/>
