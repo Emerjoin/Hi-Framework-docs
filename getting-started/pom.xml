@@ -21,11 +21,12 @@
             <plugin>
                 <groupId>org.emerjoin.arqiva</groupId>
                 <artifactId>arqiva-maven-plugin</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <version>1.0.2-SNAPSHOT</version>
 
                 <configuration>
                     <outputDirectory>${project.basedir}</outputDirectory>
                     <startPoint>FIRST_TOPIC</startPoint>
+                    <topicsDirectory>steps</topicsDirectory>
                 </configuration>
             </plugin>
 
@@ -50,7 +51,7 @@
         <dependency>
             <groupId>org.emerjoin.arqiva</groupId>
             <artifactId>arqiva-basic</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.2-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
