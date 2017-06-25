@@ -30,7 +30,7 @@ public class Hello extends Controller {
     //This is automatically mapped to hello/world
     public void world() throws MvcException{
 
-        this.callView(); //Tels Hi-Framework to render the view
+        this.callView(); //Tells Hi-Framework to render the view
 
     }
 
