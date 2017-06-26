@@ -11,15 +11,15 @@ Keep learning about Hi-Framework with the following tutorials:
 
 <ul class="bookmarks"> 
      <li>
-         <a href="#">Views events</a>
+         <a href="$tutorialsBasePath/views/view-events.html">Views events</a>
          <span>Learn the basic lifecycle events of a view</span>
     </li>
     <li>
-        <a href="#">Multi-templating</a>
+        <a href="$tutorialsBasePath/templates/multiple-templates.html">Multi-templating</a>
         <span>Learn how to create and use multiple templates</span>
     </li>  
      <li>     
-        <a href="#">Template events</a>
-        <span>Learn the basic lifecycle events of a template</span>
+        <a href="$tutorialsBasePath/frontiers/catching-errors.html">Catching frontier errors</a>
+        <span>Learn how to catch java exceptions on frontier calls</span>
      </li>  
 </ul>
