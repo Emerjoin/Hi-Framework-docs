@@ -2,7 +2,7 @@
 <description>Learn how to send data from one view to another on redirecting</description>
 
 
-We've already seen how basic ajax redirecting works back on the __Getting Started__.
+We've already seen how basic ajax redirecting works back on the [Getting Started]($gettingStartedBasePath/ajax-redirects.html).
 #### Element based redirects
 ```html
   <element href="controller/action" ajaxify></element>
