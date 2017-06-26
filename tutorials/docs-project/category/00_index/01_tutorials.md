@@ -21,15 +21,15 @@
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Index controller actions</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Learn about index actions and how to use them</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">View modes</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Set multiple presentation modes to your view</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Embedded Views</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Learn how to use the equivalent of ng-include</span>
    </li>
 </ul>
 
@@ -85,16 +85,16 @@
       <span>Learn how to access your view/template's scope from anywhere in your client-side</span>
    </li>
    <li>
-      <a href="category/general/uploading-files.html">Uploading files</span></a>
+      <a><span style="color: grey; cursor: default; ">Uploading files</span></a>
       <span>Learn how to ajaxily send files to server</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Going to production</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Learn how to put your Hi App in production mode</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Running Hi-Framework with tomcat-embedded</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Run your Hi-Framework application in a self-contained server</span>
    </li>
    
    <li>
@@ -113,11 +113,11 @@
 <ul class="bookmarks">
    <li>
       <a><span style="color: grey; cursor: default; ">Testing view controllers with mock frontiers</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Mock the way you contact your server-side, and Team-Work better</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Testing with Arquilian</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Learn to integrate Arquilian tests with Hi-Framework</span>
    </li>
 </ul>
 
@@ -128,13 +128,9 @@
 	   <a href="category/angular/custom-angular-modules.html">Using custom angular modules</a>
 	   <span>Learn how to use custom angular modules with Hi-Framework</span> 
 	</li>
-	<li>
-      <a><span style="color: grey; cursor: default; ">Defining the angular run function</span></a>
-      <span>Learn the lifecycle events of a view</span>
-   </li>
    <li>
-      <a><span style="color: grey; cursor: default; ">Setting a angular bootstrap function</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <a><span style="color: grey; cursor: default; ">Setting a angular bootstrap functions</span></a>
+      <span>Learn how to set AngularJS bootstrap functions in Hi-Framework</span>
    </li>
 </ul>
 
@@ -143,11 +139,11 @@
 <ul class="bookmarks">
    <li>
       <a><span style="color: grey; cursor: default; ">Integrating Spring-Security with Hi-Framework</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Learn to use Spring-Security secutity for authentication in Hi-Framework</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Authentication with Apache-Shiro and Hi-Framework</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Learn to use Apache-Shiro secutity for authentication in Hi-Framework</span>
    </li>
 </ul>
 
@@ -156,15 +152,11 @@
 <ul class="bookmarks">
    <li>
       <a><span style="color: grey; cursor: default; ">View controller minification</span></a>
-      <span>Learn the lifecycle events of a view</span>
-   </li>
-   <li>
-      <a><span style="color: grey; cursor: default; ">Minifying your code during the build</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Learn to minify your views and make your app faster</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Resources caching</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Get a deep understanding about caching in Hi-Framework</span>
    </li>
 </ul>
 
@@ -173,15 +165,15 @@
 <ul class="bookmarks">
    <li>
       <a><span style="color: grey; cursor: default; ">Hi-List Basics</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Learn how to install and set your first Hi-List</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Catching Hi-list request erros</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Learn how to recover from errors in your Hi-List</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Custom Hi-List footers</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Customize your footer and have Hi-List looking like the rest of your app</span>
    </li>
 </ul>
 
@@ -191,14 +183,14 @@
 <ul class="bookmarks">
    <li>
       <a><span style="color: grey; cursor: default; ">Hi-Components</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Learn about how to create Hi-Framework components</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Boot Extensions</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Learn how to create your own extension that inits on Hi-Framework' boot</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Hi-Hooks</span></a>
-      <span>Learn the lifecycle events of a view</span>
+      <span>Discover the Hooks API for Hi-Framework</span>
    </li>
 </ul>
