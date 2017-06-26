@@ -69,6 +69,10 @@
       <a href="category/frontiers/the-frontier-request-flow-global-events.html">The Frontier Request flow global events</a>
       <span>Understand deeply about the frontier request flow and how to handle it's events</span>
    </li>
+   <li>
+       <a href="category/frontiers/simultaneous-calls-policy.html">Simultaneous calls policy</a>
+       <span>Understand the frontier simultaneous calls policy</span>
+   </li>
 </ul>
 
 
@@ -98,8 +102,8 @@
       <span>Maven plugin for frontiers hints</span>
    </li>
    <li>
-      <a href="category/general/i18n.html">i18n</a>
-      <span>Learn how to make your Hi-Framework app Multilingual</span>
+      <a><span style="color: grey; cursor: default; ">i18n</a>
+      <span>Learn how to make your Hi-Framework app multilingual</span>
    </li>
 </ul>
 <br/>

@@ -2,62 +2,71 @@
 <description>Learn about handling view lifecycle events globally </description>
 
 Hi-Framework Views come with 3 lifecycle events: __preLoad__, __postLoad__ and __close__.
-As views run inside templates, we developed them in a way they notify the __template__ holding them whenever the __lifecycle events__ happen.
+As views run inside templates, we developed them in a way they notify the __template__ holding them whenever their __lifecycle events__ occur.
 
 <diag style="width:550px;height:490px" src="assets/images/diagrams/svg/View-load-flow-with-notifications.svg"></diag>
 
-## onPreLoad
-Every time a __preLoad__ happens in a view, this event on your template controller is fired. 
+## Handler functions
+Lets now see how to declare and use the view global events handlers
+
+### onPreLoad handler
+Every time a __preLoad__ happens in a view, this handler on your template controller is fired. 
 
 ```javascript
-$onPreLoad : function(route,$scope,viewHTML){
+$onPreLoad : function(route,scope,html){
         
-		//Do whatever
+  //Do whatever
 		
 }
-
 ```
 
-This method gives you 3 arguments :
-1. __route__  - The view's route
-2. __$scope__ - The view's $scope object
-3. __viewHTML__ - The View's Markup
 
-If you wish to change the view's markup dinamically, you just have to __return__ the changed markup version in the method.
+If you wish to change the view's markup dynamically, you just have to __return__ the changed markup version in the method.
 ```javascript
-	$onPreLoad : function(route,$scope,viewHTML){
+$onPreLoad : function(route,scope,html){
         
-		//Do whatever
-		return newMarkup;
-	}
-
-```
-
-## onPostLoad
-This method is fired everytime a view's __postLoad__ happens.
-
-```javascript
-$onPostLoad : function(route,$scope){
-		
-		//Do whatever
+    //Do whatever
+    return newMarkup;
+	
 }
-
 ```
-This method gives you 2 arguments :
-1. __route__  - The view's route
-2. __$scope__ - The view's $scope object
 
+### onPostLoad handler
+This handler is fired every time a view's __postLoad__ happens.
 
-## onClose
-This method is fired everytime just before a view is closed.
 ```javascript
- $onClose : function(route){
+$onPostLoad : function(route,viewScope){
+		
+    //Do whatever
+
+}
+```
+
+### onClose handler
+This handler is fired every time just after a view is closed.
+```javascript
+$onClose : function(route){
 	    
-		//do whatever
+   //The view is already closed
     
-	}
-
+}
 ```
 
 
- > **NOTICE**<br> All view events get __executed__ before the ones in the template
+> **NOTICE**<br> All view events get __executed__ before the ones in the template
+
+
+## Handler arguments
+Find below the description for each of the arguments passed to the handler functions:
+
+<info-block title="route">
+    Represents the <b>MVC</b> route object.
+</info-block>
+
+<info-block title="scope">
+    Represents the view's <b>$scope</b> object.
+</info-block>
+
+<info-block title="html">
+    Represents the View's <b>markup</b> string
+</info-block>
