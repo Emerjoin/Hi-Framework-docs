@@ -56,7 +56,7 @@ Did you recognize the __ng-click__ attribute? In case you didn't, let us tell yo
 Hi-Framework __views__ are powered by __angularJS 1.x__.
 
 > **AngularJS 1.x**<br> AngularJS is what HTML would have been, had it been designed for applications. HTML is a great declarative language for static documents. It does not contain much in the way of creating applications, and as a result building web applications is an exercise in *what do I have to do to trick the browser into doing what I want?*<br><br>
->  Find out __more__ clicking <a target="_blank" href="https://docs.angularjs.org/guide/introduction">clicking here</a>.
+>  Find out __more__ <a target="_blank" href="https://docs.angularjs.org/guide/introduction">clicking here</a>.
 
 
 
