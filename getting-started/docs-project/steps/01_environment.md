@@ -1,14 +1,18 @@
 <!--Topic description-->
 <description>Preparing the Hi-Framework development environment</description>
 
+<img class="left-image" src="assets/images/java8-logo.png" style="width:30%"></img>
 
-## Java Development Kit
 Minimum JDK version supported is __1.8__. If you are stuck in 1.7, make sure you get the correct version installed before we proceed.
 
-## Maven 3
-We will be using Maven 3 as our dependencies management tool, you could use any other or none if you know what you are doing.
 
-## Java EE Environment
+<img class="left-image" src="assets/images/maven-logo-black-on-white.png" style="width:40%"></img>
+
+We will be using __Maven 3__ as our dependencies management tool, you could use any other or none if you know what you are doing.
+
+
+<img class="left-image" src="assets/images/javaee-logo.png" style="width:40%"></img>
+
 We will be using a full blown __Java EE container__ (CDI enabled). You can also proceed with a simple Web Container, as long as you 
 manually add a CDI implementation and bootstrap it correctly.
 
