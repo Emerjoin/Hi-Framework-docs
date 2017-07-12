@@ -3,7 +3,7 @@
 
 
 ### The java finally
-The __finally__ block is used in Java to make sure a specific code block gets execute even when the enclosed __try-catch__ block throws an Exception.
+The __finally__ block is used in Java to make sure a specific code block gets executed even when the enclosed __try-catch__ block throws an Exception.
 
 
 ### The frontiers finally
