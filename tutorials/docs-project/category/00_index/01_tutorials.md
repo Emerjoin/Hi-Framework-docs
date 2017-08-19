@@ -85,8 +85,8 @@
       <span>Learn how to access your view/template's scope from anywhere in your client-side</span>
    </li>
    <li>
-      <a><span style="color: grey; cursor: default; ">Uploading files</span></a>
-      <span>Learn how to ajaxily send files to server</span>
+      <a href="category/general/uploading-files.html">Uploading files</a>
+      <span>Learn how to send files to server with Hi-Framework</span>
    </li>
    <li>
       <a><span style="color: grey; cursor: default; ">Going to production</span></a>
@@ -101,12 +101,26 @@
       <a><span style="color: grey; cursor: default; ">Frontiers-Hints maven plugin</span></a>
       <span>Maven plugin for frontiers hints</span>
    </li>
-   <li>
-      <a><span style="color: grey; cursor: default; ">i18n</a>
-      <span>Learn how to make your Hi-Framework app multilingual</span>
-   </li>
+   
 </ul>
 <br/>
+
+# i18n
+<br/>
+<ul class="bookmarks">
+   <li>
+      <a href="category/i18n/basics.html">Basics</a>
+      <span>Getting Started with MultiLingual apps in Hi-Framework</span>
+   </li>
+   <li>
+      <a href="category/i18n/translation-policies.html">Translation policies</a>
+      <span>Learn how translation proccess happens and how to lazily load translation resources</span>
+   </li>
+   <li>
+      <a href="category/i18n/dynamic-strings-translation.html">Dynamic Strings Translation </a>
+      <span>Learn how to translate strings containing variables</span>
+   </li>
+</ul>
 
 # Testing
 <br/>
