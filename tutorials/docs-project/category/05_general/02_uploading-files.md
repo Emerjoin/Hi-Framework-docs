@@ -119,25 +119,10 @@ To achieve this, just handle the __onFiles__ event.
 
 Make sure to pass a parameter named __upload__ if you wish to get information about the file.
 
-```html
-<input type="file" ng-upload="profilePhoto" onFiles="myMethod(upload)" />
-```
-
-## Multiple files upload
-Getting multiple files uploaded instead of one is as simple as getting only one.
-
-### Client-side
-See this example below:
-
 #### HTML
-```html
-<form>
-       <!-- Multiple files-->
-       <input type="file" ng-upload="somePhotos" onFiles="someFunction(upload)(upload)" multiple="true" />
 
-       <!--Single file-->
-       <input type="file" ng-upload="profilePhoto" onFiles="someFunction(upload)" />
-</form>
+```html
+<input type="file" ng-upload="profilePhoto" onFiles="someFunction(upload)" />
 ```
 
 #### JS
@@ -146,10 +131,27 @@ See this example below:
  Hi.view(function($scope){
  
     $scope.someFunction = function(upload){
+    
         //do whatever you want.
+        
     }
  
  });
+```
+
+
+## Multiple files upload
+Getting multiple files uploaded instead of one is as simple as getting only one.
+
+### Client-side
+See this example below:
+
+```html
+<form>
+   
+    <input type="file" ng-upload="somePhotos" onFiles="someFunction(upload)" multiple="true" />
+
+</form>
 ```
 
 
@@ -163,15 +165,6 @@ On the server-side the only thing that changes is that you expect a set of __Fil
 @Frontier
 public class MyFrontier{
 
-     //Single file upload 
-     public void method1(FileUpload myFile, int otherParam){
-
-         //write file here
-
-     }
-
-
-     //Multiple files upload 
      public void someMethod(FileUpload[] myFiles, int otherParam){
           for(FileUpload file: myFiles){
              
