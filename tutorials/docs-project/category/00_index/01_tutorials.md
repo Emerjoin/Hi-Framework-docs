@@ -110,14 +110,14 @@
 <ul class="bookmarks">
    <li>
       <a href="category/i18n/basics.html">Basics</a>
-      <span>Getting Started with MultiLingual apps in Hi-Framework</span>
+      <span>Getting-started with multilingual apps in Hi-Framework</span>
    </li>
    <li>
       <a href="category/i18n/translation-policies.html">Translation policies</a>
-      <span>Learn how translation proccess happens and how to lazily load translation resources</span>
+      <span>Learn how translation process happens and how to lazily load translation resources</span>
    </li>
    <li>
-      <a href="category/i18n/dynamic-strings-translation.html">Dynamic Strings Translation </a>
+      <a href="category/i18n/dynamic-content-translation.html">Dynamic content translation </a>
       <span>Learn how to translate strings containing variables</span>
    </li>
 </ul>

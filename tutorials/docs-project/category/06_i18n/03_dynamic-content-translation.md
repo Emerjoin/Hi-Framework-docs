@@ -1,5 +1,5 @@
 <!--Topic description-->
-<description>Learn how to translate strings containing variable</description>
+<description>Learn how to translate content containing variables</description>
 
 Dynamic strings translation is a way of making possible to translate strings in which you can find dynamic content within. 
 
@@ -8,8 +8,8 @@ Take the following example:
 
 __Jon__ currently being displayed, is just a name in a set of many different names.
 
-## Dynamic Markup Strings
-Because of how markup translations work in Hi-Framework (Read __Translation Policies__ for details), the syntax for translating dynamic markup strings does not change.
+## Dynamic markup strings
+Because of how markup translations work in Hi-Framework, the syntax for translating dynamic markup strings does not change.
 
 Meaning __this__:
 
@@ -40,7 +40,7 @@ When the markup of the view gets loaded, it will be looking like this :
 And then __AngularJs__ will just __be AngularJs__.
 
 
-## Dynamic Javascript Strings 
+## Dynamic javascript strings 
 
 As the Translation Policy explains, Javascript is translated on the client-side. 
 The way you translate dynamic strings is not very different from how you translate normal strings, after all it's the same feature.
@@ -48,16 +48,24 @@ The way you translate dynamic strings is not very different from how you transla
 Let's recap: 
 
 ```javascript
-   translate("Hi Human!") //returns the translated version of "Hi Human!"
+   translate("Hi Human!") 
+   //returns the translated version of "Hi Human!"
 ```
 
-In order to translate dynamic strings, you just have to pass an object in which one of the keys's name is equal to the name of the "variable" in the string you are about to translate.
 
-Meaning, to get the string in the snipet below translated, we just have to pass a suitable object to the __with()__ promisse in the __translate__ method. 
+You can translate a string containing variables, as long as you provide an object
+ for Hi-Framework to read their values from:
+ 
+ 
 
 ```javascript
-   translate("Hi {{name}}!").with({name:"Jack",other: "Some Other Value"}) //fetches the translated version of "Hi {{name}}!" and parses the name variable
+   translate("Hi {{name}}!").with({name:"Jack"}) 
+   //1. fetches the translated version of "Hi {{name}}!" 
+   //2. apllies the value of the {{name}} variable
+   //3. returns the final string
 ```
+
+
 
 > **TIP**<br> If __name__ is a variable from the view's $scope, you can just pass the __$scope__ as param. Since the $scope is an object the key is there, so things will just work fine.
 

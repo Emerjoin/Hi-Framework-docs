@@ -67,9 +67,9 @@ In your frontier, just make sure the type of the variable expecting your file is
 ```java
 @Frontier
 public class MyFrontier{
-    public void method1(FileUpload  myFile, String otherParam){
+    public void method1(FileUpload  file, String otherParam){
 
-             //write file here
+         //write file here
 
     }
 }
@@ -84,19 +84,17 @@ Writing the file requires you to know where you wish to place it. The syntax for
 ```java
 @Frontier
 public class MyFrontier{
-    public void method1(FileUpload  myFile, int otherParam){
+    public void method1(FileUpload  file, int otherParam){
              
-              try {
+        try {
 
-                    myFile.saveToFolder("/path/to/your/uploads/directory/");
+            file.saveToFolder("/path/to/your/uploads/directory/");
 
-                }catch (Exception ex){
+        }catch (Exception ex){
 
-                    System.err.println("Upload failed");
-                    ex.printStackTrace();
+            //handle error here
 
-                }
-             
+        }    
 
     }
 }
@@ -106,15 +104,18 @@ public class MyFrontier{
 
 
 
-## More on uploads
+## Client-side operations
+There some interesting things we allow you to do on the client-side.
 
 ### Clearing selected files
+
 To achieve this, just delete the $scope variable referencing the file.
 ```javascript
 delete $scope.profilePhoto;
 ```
+
 ### Getting a callback after a file was selected
-To achieve this, just handle the __onFiles()__ event.
+To achieve this, just handle the __onFiles__ event.
 
 Make sure to pass a parameter named __upload__ if you wish to get information about the file.
 
@@ -122,26 +123,41 @@ Make sure to pass a parameter named __upload__ if you wish to get information ab
 <input type="file" ng-upload="profilePhoto" onFiles="myMethod(upload)" />
 ```
 
-### Multiple files upload
+## Multiple files upload
 Getting multiple files uploaded instead of one is as simple as getting only one.
 
-#### Client-side
-See this exemaple below:
+### Client-side
+See this example below:
+
+#### HTML
 ```html
 <form>
        <!-- Multiple files-->
-       <input type="file" ng-upload="somePhotos" onFiles="myMethod(upload)" multiple="true" />
+       <input type="file" ng-upload="somePhotos" onFiles="someFunction(upload)(upload)" multiple="true" />
 
        <!--Single file-->
-       <input type="file" ng-upload="profilePhoto" onFiles="myMethod(upload)" />
+       <input type="file" ng-upload="profilePhoto" onFiles="someFunction(upload)" />
 </form>
 ```
 
-> **NOTICE**<br> In case of multiple files upload, make sure the param you pass to __onFiles()__ is still __upload__
+#### JS
+```js
+
+ Hi.view(function($scope){
+ 
+    $scope.someFunction = function(upload){
+        //do whatever you want.
+    }
+ 
+ });
+```
+
+
+> **NOTICE**<br> In case of multiple files upload, make sure the param you pass to __onFiles__ is still __upload__
 
 
 
-#### Server-side
+### Server-side
 On the server-side the only thing that changes is that you expect a set of __FileUpload__ objects.
 ```java
 @Frontier
@@ -150,21 +166,19 @@ public class MyFrontier{
      //Single file upload 
      public void method1(FileUpload myFile, int otherParam){
 
-             //write file here
+         //write file here
 
-    }
+     }
 
 
-    //Multiple files upload 
+     //Multiple files upload 
      public void someMethod(FileUpload[] myFiles, int otherParam){
-			
-			for(FileUpload file: myFiles){
+          for(FileUpload file: myFiles){
              
-				//write file here
+              //write file here
 			 
-			} 
-
-      }
+          } 
+     }
 
 }
 ```
