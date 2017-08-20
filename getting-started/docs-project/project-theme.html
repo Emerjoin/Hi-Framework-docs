@@ -24,6 +24,8 @@
         ga('create', 'UA-99027237-3', 'auto');
         ga('send', 'pageview');
 
+		var currentDocsV = "$version";
+		var docTab = "tutorials";
     </script>
 
 
@@ -34,15 +36,15 @@
 
   <div class="nav dark">
       <div class="nav-group">
-        <div class="nav-item show-mobile">
-          <span class="js-sidebar-toggle ">
-            <span class="icon-menu"></span>
-          </span>
-        </div>
         <div class="nav-item">
-          <a class="logo-wrapper"  >
-              <img src="assets/images/docs-icon.png" style="height: 49px; margin-top: -1px;" alt="Hi-Framework logo" class="logo">
-          </a>
+
+          <span class="logo-wrapper" >
+            
+			<a href="index.html"><img src="assets/images/docs-icon.png" style="height: 49px; margin-top: -1px;" class="logo"/></a>
+			
+			 <select id="versions-selector" onchange="changeHiVersion(this.value)" style="border: none; margin-top: 10px; color: #333; background-color: #f8f8f8; border: 1px solid #ccc; padding: 3px; border-radius: 3px;">
+			 </select>
+          </span>
         </div>
       </div>
 
@@ -222,6 +224,7 @@
     <script type="text/javascript" src="http://cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
     <script type="text/javascript" src="http://cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>-->
 
+	<script src="https://www.hi-framework.org/docs-versions.js"></script>
 </body>
 
 </html>
