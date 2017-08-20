@@ -89,7 +89,7 @@ Writing the file requires you to know where you wish to place it. The syntax for
 ```java
 @Frontier
 public class MyFrontier{
-    public Map method1(FileUpload  fileParam, int otherParam){
+    public Map method1(FileUpload  file, int otherParam){
              
               try {
 
