@@ -10,13 +10,13 @@ But what you may not know is that the way these strings get translated is quite 
 - __Markup strings__ get translated on the __server-side__
 - __Javascript strings__ get translated on the __client-side__
 
-On the server-side, right before sendig the view/template's markup to client-side, Hi-Framework loads all available dictionaries and translate all strings specified to be translated, and then removes the attributes it demanded you to add (__translate__ and __translate-x__, where __x__ represents an attribute you may intend to translate it's value).
+On the server-side, right before sending the view/template's markup to client-side, Hi-Framework loads all available dictionaries and translate all strings specified to be translated, and then removes the attributes it demanded you to add (__translate__ and __translate-x__, where __x__ represents an attribute you may intend to translate it's value).
 
 After translating markup, Hi-Framework sends along with the translated versions of markups the set of __all available dictionaries__ of your active language. That's because Hi-Framework works by default with activated __full-bundle-exportation__. 
 
 ### full-bundle-exportation
 
-Is a configuration that makes Hi-Framework export all availables dictionaries of the active language to the client-side. This configuration is __active by default__ and you can disable it by setting the __disable-full-bundle-exportation__ porperty to __true__ in your __hi.xml__ file.
+Is a configuration that makes Hi-Framework export all available dictionaries of the active language to the client-side. This configuration is __active by default__ and you can disable it by setting the __disable-full-bundle-exportation__ porperty to __true__ in your __hi.xml__ file.
 
 ```xml
    <i18n>
@@ -73,7 +73,7 @@ i18nContext.export("your-name-input");
 
 i18n-Mappings were created to make easier the job of declaring and exporting dictionaries. Instead of using __i18nContext__ to export dictionaries in controller actions, i18n-Mappings allow you to easily declare what dictionaries go to what views/templates.
 
-> **IMPORTANT**<br> Differently from how __i18nContext__ works, i18n-Mappings does not require to declare __dictionaries__ in your __hi.xml__ because i18n-Mappings also load the dictionary if it wasn't loaded before.
+> **IMPORTANT**<br> Differently from how __i18nContext__ works, i18n-Mappings does not require you to declare __dictionaries__ in your __hi.xml__ because i18n-Mappings also load the dictionary if it wasn't loaded before.
 
 #### __Enabling Mappings__
 
@@ -94,9 +94,9 @@ In the example below, you can see an example of how the content of a mapping fil
  
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<mappings xmlns="http://hi-framework.org/i18n/XML/1.0.0">
-
-
+<mappings xmlns="http://hi-framework.org/i18n/XML/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://hi-framework.org/i18n/XML/1.0.0 http://hi-framework.org/xml/i18n_Schema_1_0_0.xsd">
+          
     <templates-mappings>
         <set for="index">
             <dictionary>messages</dictionary>
