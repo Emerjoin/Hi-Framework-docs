@@ -11,7 +11,7 @@ The Hi-Framework dependency must be added to your __pom.xml__
    <dependency>
        <groupId>org.emerjoin</groupId>
        <artifactId>Hi-Framework</artifactId>
-       <version>1.0.0</version>
+       <version>1.1.0</version>
    </dependency>
 ```
 
