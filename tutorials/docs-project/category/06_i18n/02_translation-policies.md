@@ -44,7 +44,7 @@ Along other things, __i18n Context__ allows you to export dictionaries to client
 
 
 
-> **IMPORTANT**<br> i18nContext is supposed to be used for exportation purporses, only inner __controllers actions__.
+> **IMPORTANT**<br> i18nContext is supposed to be used for exportation purposes, only in __controllers actions__.
 
 
 #### __Exporting a dictionary__
@@ -71,9 +71,9 @@ i18nContext.export("your-name-input");
 
 ### i18n-Mappings 
 
-i18n-Mappings were created to make easier the job of declaring and exporting dictionaries. Instead of using __i18nContext__ to export dictionaries inner actions, i18n-Mappings allow you easily declare what dictionaries go to what views/templates.
+i18n-Mappings were created to make easier the job of declaring and exporting dictionaries. Instead of using __i18nContext__ to export dictionaries in controller actions, i18n-Mappings allow you to easily declare what dictionaries go to what views/templates.
 
-> **IMPORTANT**<br> Differently from how __i18nContext__ works, i18nContext it's not required to declare __dictionaries__ in your __hi.xml__ because i18n-Mappings also load the dictionary is it wasn't loaded before.
+> **IMPORTANT**<br> Differently from how __i18nContext__ works, i18n-Mappings does not require to declare __dictionaries__ in your __hi.xml__ because i18n-Mappings also load the dictionary if it wasn't loaded before.
 
 #### __Enabling Mappings__
 
@@ -120,7 +120,7 @@ In the example below, you can see an example of how the content of a mapping fil
 
 ## Distributed dictionaries
 
-Dictionaries concatenation is a configuration that makes Hi-Framework lookup for your dictionaries not just in the package it's in, but also on other jars. As long as you keep the required dictionaries structure (i18n right under web dictionary).
+Dictionaries concatenation is a configuration that makes Hi-Framework lookup for your dictionaries in the entire classpath, from the war that contains your web app to the libs that it depends on. As long as you keep the required dictionaries structure (i18n right under web dictionary).
 
 To activate this option just set __enable-concatenation__ to true in your __hi.xml__ file.
 
