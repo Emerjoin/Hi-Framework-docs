@@ -90,7 +90,7 @@ To get Hi-Framework to lookup for i18n-Mapping files, you have to set __enable-m
 
 i18n Mapping files are __xml__ files that have to be placed under __WEB-INF__ directory(along with hi.xml) with the name __i18n-mappings.xml__.
 
-In the example below, you can see an example of how the content of a mapping file looks like :
+In the snippet below, you can see an example of how the content of a mapping file looks like :
  
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
