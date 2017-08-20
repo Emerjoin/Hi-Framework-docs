@@ -35,7 +35,7 @@ As we said before, sending files to server does not look different from any othe
 
 ### Configuring web.xml
 
-In order to receive files in server-side, you must set some Multipart configurations in your __web.xml__ file. You must let your server-side know that Hi-Framework's servlet will be handling uploads.
+In order to send files to server-side, you must set some __Multipart configurations__ in your __web.xml__ file.
 
 See example below:
 
@@ -44,10 +44,10 @@ See example below:
         <servlet-name>Hi-Framework-Dispatcher-Servlet</servlet-name>
         <servlet-class>org.emerjoin.hi.web.DispatcherServlet</servlet-class>
         <multipart-config>
-            <location>/tmp/</location>
-            <max-file-size>80848820</max-file-size> 
-            <max-request-size>918018841</max-request-size>
-            <file-size-threshold>1048576</file-size-threshold>
+            <location>tmp/</location> <!-- set a temporary folder -->
+            <max-file-size>80848820</max-file-size> <!-- 77 MB -->
+            <max-request-size>918018841</max-request-size> <!-- 875 MB -->
+            <file-size-threshold>1048576</file-size-threshold> <!-- 1 MB -->
         </multipart-config>
     </servlet>
 
@@ -57,12 +57,7 @@ See example below:
     </servlet-mapping>
 ```
 
-<info-block title="Correspondance">
-
-   - max-file-size : 77 MB
-   - max-request-size : 875 MB
-   - file-size-threshold : 1 MB
-</info-block>
+Learn more about multipart configurations [here](http://docs.oracle.com/javaee/6/tutorial/doc/gmhal.html).
 
 
 ### Getting the file on Frontier
@@ -72,9 +67,9 @@ In your frontier, just make sure the type of the variable expecting your file is
 ```java
 @Frontier
 public class MyFrontier{
-    public Map method1(FileUpload  profilePhoto, String otherParam){
+    public void method1(FileUpload  myFile, String otherParam){
 
-             //some code here
+             //write file here
 
     }
 }
@@ -89,11 +84,11 @@ Writing the file requires you to know where you wish to place it. The syntax for
 ```java
 @Frontier
 public class MyFrontier{
-    public Map method1(FileUpload  file, int otherParam){
+    public void method1(FileUpload  myFile, int otherParam){
              
               try {
 
-                    file.saveToFolder("/path/to/your/uploads/directory/");
+                    myFile.saveToFolder("/path/to/your/uploads/directory/");
 
                 }catch (Exception ex){
 
@@ -106,6 +101,10 @@ public class MyFrontier{
     }
 }
 ```
+
+> **About paths**<br> Relative paths will not work. please make sure you indicate the absolute path according to your OS. Learn more at [https://docs.oracle.com/javase/tutorial/essential/io/path.html](https://docs.oracle.com/javase/tutorial/essential/io/path.html)
+
+
 
 ## More on uploads
 
@@ -131,14 +130,14 @@ See this exemaple below:
 ```html
 <form>
        <!-- Multiple files-->
-       <input type="file" ng-upload="somePhotos" onFiles="myMethod(upload)" multiple/>
+       <input type="file" ng-upload="somePhotos" onFiles="myMethod(upload)" multiple="true" />
 
        <!--Single file-->
        <input type="file" ng-upload="profilePhoto" onFiles="myMethod(upload)" />
 </form>
 ```
 
-> **NOTICE**<br> In case of multiple files upload, make sure the param you pass to __onFiles()__ callback is still __upload__
+> **NOTICE**<br> In case of multiple files upload, make sure the param you pass to __onFiles()__ is still __upload__
 
 
 
@@ -149,17 +148,21 @@ On the server-side the only thing that changes is that you expect a set of __Fil
 public class MyFrontier{
 
      //Single file upload 
-     public Map method1(FileUpload myFile, int otherParam){
+     public void method1(FileUpload myFile, int otherParam){
 
-             //some code here
+             //write file here
 
     }
 
 
     //Multiple files upload 
-     public Map someMethod(FileUpload[] myFiles, int otherParam){
-
-             //some code here
+     public void someMethod(FileUpload[] myFiles, int otherParam){
+			
+			for(FileUpload file: myFiles){
+             
+				//write file here
+			 
+			} 
 
       }
 
