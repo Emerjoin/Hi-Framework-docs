@@ -120,7 +120,7 @@ In the snippet below, you can see an example of how the content of a mapping fil
 
 ## Distributed dictionaries
 
-Dictionaries concatenation is a configuration that makes Hi-Framework lookup for your dictionaries in the entire classpath, from the war that contains your web app to the libs that it depends on. As long as you keep the required dictionaries structure (i18n right under web dictionary).
+Dictionaries concatenation is a configuration that makes Hi-Framework lookup for your dictionaries in the entire classpath, from the war that contains your web app to the libs that it depends on. As long as you keep the required directories structure (/i18n/).
 
 To activate this option just set __enable-concatenation__ to true in your __hi.xml__ file.
 
