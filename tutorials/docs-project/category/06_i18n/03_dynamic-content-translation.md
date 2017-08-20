@@ -1,7 +1,7 @@
 <!--Topic description-->
 <description>Learn how to translate content containing variables</description>
 
-Dynamic strings translation is a way of making possible to translate strings in which you can find dynamic content within. 
+Dynamic content translation is a way of making possible to translate strings in which you can find dynamic content within. 
 
 Take the following example:
  - Hi __Jon__, how are you?
