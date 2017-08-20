@@ -85,10 +85,6 @@
       <span>Learn how to access your view/template's scope from anywhere in your client-side</span>
    </li>
    <li>
-      <a><span style="color: grey; cursor: default; ">Uploading files</span></a>
-      <span>Learn how to ajaxily send files to server</span>
-   </li>
-   <li>
       <a><span style="color: grey; cursor: default; ">Going to production</span></a>
       <span>Learn how to put your Hi App in production mode</span>
    </li>
@@ -101,10 +97,7 @@
       <a><span style="color: grey; cursor: default; ">Frontiers-Hints maven plugin</span></a>
       <span>Maven plugin for frontiers hints</span>
    </li>
-   <li>
-      <a><span style="color: grey; cursor: default; ">i18n</a>
-      <span>Learn how to make your Hi-Framework app multilingual</span>
-   </li>
+
 </ul>
 <br/>
 
